@@ -1,0 +1,54 @@
+/* 보기 쉽게 임의로 css 설정함 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-info {
+  display: flex;
+}
+
+/* main */
+
+#timerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+  margin: 40px 0;
+}
+
+.timerBox_main {
+  display: flex;
+  width: 700px;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.timer_clock {
+  font-size: 80px;
+  text-align: center;
+}
+
+.timer_name {
+  text-align: center;
+}
+
+button {
+  font-size: 60px;
+  padding: 10px;
+}
+
+/* footer */
+footer span {
+  display: flex;
+  justify-content: flex-end;
+}
