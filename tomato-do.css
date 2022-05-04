@@ -1,0 +1,19 @@
+/* 보기 쉽게 임의로 css 설정 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* span 태그 부분 일정한 길이로 설정 */
+.list_name {
+  display: inline-block;
+  width: 9rem;
+}
+
+.list_check {
+  font-size: 1rem;
+}
+
+.list_delete_btn {
+  cursor: pointer;
+}
