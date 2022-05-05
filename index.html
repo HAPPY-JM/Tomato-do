@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,23 +11,34 @@
     <meta property="og:image" content="logo_og.png">
     <link rel="stylesheet" type="text/css" href="tomato-do.css">
     <script src="https://kit.fontawesome.com/062162edd7.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <!-- Dexie.js CDN -->
+    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
     <script src="index.js" type="module" defer></script>
+    <title>Tomato-do</title>
   </head>
+
+  <header id ="HEADER">
+    <img src="./img/logo.png" alt="로고"  style="height: 6vh";/>
+    <nav class="nav-item">
+        <i class="fa-solid fa-gear" , style="font-size: 50px;"></i>
+    </nav>
+  </header>
+
   <body>
     <div id="TODO_LIST">
       <div class="profile">
-        <!-- <img src="/img/profile_pic.jpg" alt="profile_pic" style="width: 40px; border-radius: 100%;"> -->
+        <img src="./img/profile_pic.jpg" alt="profile_pic" style="width: 40px; border-radius: 100%;">
         <!-- <div class="profile_info"> -->
-          <span class="profile_name">엘리스</span>
-          <span class="profile_greeting">님 안녕하세요!</span>
-          <span class="profile_date">날짜</span>
+        <input id="profile_name" type="input" placeholder="이름">
+        <span class="profile_greeting">님 안녕하세요!</span>
+        <span class="profile_date">날짜</span>
         <!-- </div> -->
       </div>
 
       <div class="todo_list">
         <div class="todo_title">
-          <span class="title_text">To Do List</span>
+          <span class="title_text" style="color: #3AA694;"> To Do List</span>
           <!-- <button class="title_edit_btn"><i class="fa-solid fa-pencil"></i></button> -->
         </div>
 
@@ -41,7 +52,6 @@
         <div class="todo_list list">
             <ul class="list_check" id="list_check">
               <!-- 동적으로 불러오기-->
-              
               <!-- <li>
                 <span class="list_name">복습하기</span>
                 <input type="checkbox" name="checklist">
@@ -61,5 +71,17 @@
         </div>
       </div>
     </div>
+    <div id="TIMER">
+      /* timer */
+    </div>
+  
+    <button class="mode_change" id="mode_btn">
+      <i class="fa-solid fa-moon", style="color: rgb(70, 70, 70);"></i>
+    </button>
+    <footer>
+      <p>
+        contributed by 김동철 이수정 서정민 지재영 배성현 박태훈
+      </p>
+    </footer>
   </body>
 </html>
