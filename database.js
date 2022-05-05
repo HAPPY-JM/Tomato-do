@@ -106,9 +106,6 @@ const getEntryFromDb = (storeName, id) => {
 }
 
 // 이름이 'storeName'인 객체 저장소에서 값이 'entry'인 객체를 삭제
-// 현재 삭제하는 식으로 구현되어 있지만 나중에 시간 데이터 등을 쓰기위해서
-// 완료된 투두리스트를 check 표시를 해서 'getEntryFromDb'에서 안 읽던가
-// 다른 객체 저장소를 생성해 객체 위치를 옮길 예정
 const deleteEntryFromDb = async (storeName, entry) => {
     const id = await getKeyFromDb(storeName, entry);
 
