@@ -98,3 +98,10 @@ const addTodoButton = document.querySelector('#todo_submit_btn')
 addTodoButton.addEventListener("click", addTodo)
 
 initDatabase().then(() => showTodoList());
+
+/*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+import { inputName, editName, loadName } from "./inputName.js";
+loadName(); //이름불러오기
+inputName.addEventListener('click',()=>{inputName.value = "";}); //클릭시 불러온 이름 지우기
+inputName.addEventListener('blur',loadName); //클릭후 이름 입력하지않고 포커스아웃되면 이름 불러오기
+inputName.addEventListener('keypress',editName); //

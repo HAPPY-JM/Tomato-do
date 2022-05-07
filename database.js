@@ -6,9 +6,10 @@ const initDatabase = async () => {
     // 객체 저장소 생성 (스키마 설정)
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
-        todolist: "++id, todo, startTime, endTime, check"
+        todolist: "++id, todo, startTime, endTime, check",
+        userInfo: "++id,userName"
     });
-
+    
     // Dexie 생성시 new Dexie(databaseName, options?);
     // options 중 데이터베이스를 자동으로 열어주는 'autoOpen' 존재
     // 'autoOpen'의 default 값이 true이므로 따로 open하지 않음
@@ -68,3 +69,8 @@ export {
     checkEntryFromDb,
     deleteEntryFromDb
 }
+/*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+//테스트용
+const testDb = async (entry) => {
+}
+export { testDb };
