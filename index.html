@@ -77,7 +77,7 @@
       <div class="timerBox_main">
         <div class="timer">
           <div class="focus timer_clock"> <!-- 클래스명 timer_clock에서 focus timer_clock으로 변경 -->
-            25:00
+            25:00 <!-- js에서 타이머 작동시킬 때 div태그에서 바로 접근하려고 span태그는 지웠어요 -->
           </div>
 
           <div class="timer_name">
@@ -87,7 +87,7 @@
 
         <div class="timer">
           <div class="rest timer_clock"> <!-- 클래스명 timer_clock에서 rest timer_clock으로 변경 -->
-            <span>05:00</span>
+            05:00 <!-- js에서 타이머 작동시킬 때 div태그에서 바로 접근하려고 span태그는 지웠어요 -->
           </div>
 
           <div class="timer_name">
@@ -97,6 +97,8 @@
       </div>
       <div class="timer_btn_collection"> <!-- start, stop, reset 버튼 생성을 위해 div추가 -->
         <button class="timerBox_startButton">Start!</button>
+        <button class="timerBox_stopButton" style="display: none;">Stop</button>    
+        <button class="timerBox_resetButton" style="display: none;">Reset</button>
       </div>
     </div>
   
