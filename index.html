@@ -15,7 +15,7 @@
     <!-- Dexie.js CDN -->
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
     <script src="index.js" type="module" defer></script>
-    <title>SJ Test</title>
+    <title>Timer test</title>
   </head>
 
   <header id ="HEADER">
@@ -71,8 +71,33 @@
         </div>
       </div>
     </div>
+    
     <div id="TIMER">
-      /* timer */
+      <!-- /* timer */ -->
+      <div class="timerBox_main">
+        <div class="timer">
+          <div class="focus timer_clock"> <!-- 클래스명 timer_clock에서 focus timer_clock으로 변경 -->
+            25:00
+          </div>
+
+          <div class="timer_name">
+            <span>집중시간</span>
+          </div>
+        </div>
+
+        <div class="timer">
+          <div class="rest timer_clock"> <!-- 클래스명 timer_clock에서 rest timer_clock으로 변경 -->
+            <span>05:00</span>
+          </div>
+
+          <div class="timer_name">
+            <span>휴식시간</span>
+          </div>
+        </div>
+      </div>
+      <div class="timer_btn_collection"> <!-- start, stop, reset 버튼 생성을 위해 div추가 -->
+        <button class="timerBox_startButton">Start!</button>
+      </div>
     </div>
   
     <button class="mode_change" id="mode_btn">
@@ -83,5 +108,6 @@
         contributed by 김동철 이수정 서정민 지재영 배성현 박태훈
       </p>
     </footer>
+    <script src="timer.js"></script>
   </body>
 </html>
