@@ -27,6 +27,39 @@ const completeTodo = (e) => {
 
 const updateTodo = (e) => {
     e.preventDefault();
+
+    // 수정할 내용을 받아줄 input 박스와 수정(완료) 버튼을 생성
+    const todoUpdate = e.target.parentNode.parentNode;
+    const todoItemElem = document.createElement("li");
+    todoItemElem.innerHTML = todoUpdate.innerHTML;
+
+    const updateTodoElem = document.createElement("input");
+    updateTodoElem.setAttribute("id", "todo_update_submit_btn");
+    updateTodoElem.setAttribute("type", "submit");
+    updateTodoElem.setAttribute("value", "수정");
+    updateTodoElem.addEventListener("click", (e) => updateTodoComplete(e, todoItemElem));
+
+    todoUpdate.innerHTML = `<input id="todo_update" type="input" value="${todoUpdate.firstChild.innerText}">`;
+    todoUpdate.appendChild(updateTodoElem);
+}
+
+// 수정(완료) 버튼을 누르면 실행되는 이벤트
+// 기존 li태그의 복사본을 인자로 받아 span태그의 내용만 갱신
+const updateTodoComplete = (e, todoItemElem) => {
+    e.preventDefault();
+
+    const todoUpdate = e.target.parentNode.firstChild;
+
+    const updateEntry = {
+        todo: todoItemElem.firstChild.innerText
+    }
+
+    const changes = {
+        todo: todoUpdate.value
+    }
+
+    updateEntryToDb('todolist', updateEntry, changes)
+        .then(() => showTodoList(e));
 }
 
 const deleteTodo = (e) => {
@@ -66,9 +99,13 @@ const showTodoList = async (e) => {
 
         const checkboxElem = document.createElement("input");
         checkboxElem.setAttribute("type", "checkbox");
-        checkboxElem.setAttribute("name", "checklist");
-        checkboxElem.addEventListener("click", completeTodo);
+        // label의 for과 연결시키기 위해 "name"에서 "id"로 변경
+        checkboxElem.setAttribute("id", "checklist");
+        checkboxElem.addEventListener("change", completeTodo);
         // checkboxElem.innerText = '✔';
+
+        const checklistElem = document.createElement("label");
+        checklistElem.setAttribute("for", "checklist");
 
         const editButtonElem = document.createElement("button");
         editButtonElem.classList.add("list_edit_btn");
@@ -82,7 +119,7 @@ const showTodoList = async (e) => {
 
         todoItemElem.innerHTML += `<span class="list_name">${entry.todo}</span>`;
         todoItemElem.appendChild(checkboxElem);
-        todoItemElem.innerHTML += `<label for="checklist"></label>`;
+        todoItemElem.appendChild(checklistElem);
         todoItemElem.appendChild(editButtonElem);
         todoItemElem.appendChild(deleteButtonElem);
 
@@ -97,7 +134,7 @@ const addTodoButton = document.querySelector('#todo_submit_btn')
 
 addTodoButton.addEventListener("click", addTodo)
 
-initDatabase().then(() => showTodoList());
+initDatabase().then(showTodoList);
 
 /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 import { inputName, editName, loadName } from "./inputName.js";

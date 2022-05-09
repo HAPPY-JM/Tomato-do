@@ -144,11 +144,31 @@ nav {
 .list_edit_btn {
   font-size: 15px;
   padding: 0;
+  cursor: pointer;
 }
 
 .list_delete_btn {
   font-size: 15px;
   padding: 0;
+  cursor: pointer;
+}
+
+/* #todo에서 가져와 크기 조절만 했습니다. */
+#todo_update{
+  width: 70%;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 15px;
+  border: 3px solid #256d61;
+  border-radius: 0.5rem;
+}
+
+#todo_update_submit_btn{
+  background-color:#cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .todo_list list{
