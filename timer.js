@@ -27,6 +27,12 @@ function resetTimer() {
     clearInterval(intervalTimer); //타이머 중단
     //중단 시 설정했던 시간으로 돌아가도록 함(일단 25분으로 설정, 추후 변수 이용하여 입력값을 대입하도록 수정)
     focusTime.innerHTML = `25:00`
+    focusTimer = 1500;
+
+    //버튼 다시 start버튼만 나오도록 구성
+    timerStopBtn.style.display = "none";
+    timerResetBtn.style.display = "none";
+    timerStartBtn.style.display = "block";
 }
 
 function startTimer() {
