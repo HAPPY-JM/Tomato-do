@@ -7,7 +7,7 @@ const initDatabase = async () => {
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
         todolist: "++id, todo, startTime, endTime",
-        userInfo: "++id, userName"
+        userInfo: "++id,userName"
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
