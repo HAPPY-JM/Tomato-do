@@ -74,10 +74,16 @@
     
     <div id="TIMER">
       <!-- /* timer */ -->
+      <div class="start_time_btn">
+        <!-- 집중-휴식시간 정하는 옵션 버튼을 위해 만든 div영역 -->
+        <input type="button" class="test_option" value="5초-5초">
+        <input type="button" class="start_option1" value="25분-5분">
+        <input type="button" class="start_option2" value="50분-10분">
+      </div>
       <div class="timerBox_main">
         <div class="timer">
-          <div class="focus timer_clock"> <!-- 클래스명 timer_clock에서 focus timer_clock으로 변경 -->
-            25:00 <!-- js에서 타이머 작동시킬 때 div태그에서 바로 접근하려고 span태그는 지웠어요 -->
+          <div class="focus timer_clock">
+            <span id="focus_min">25</span>:<span id="focus_sec">00</span>
           </div>
 
           <div class="timer_name">
@@ -86,8 +92,8 @@
         </div>
 
         <div class="timer">
-          <div class="rest timer_clock"> <!-- 클래스명 timer_clock에서 rest timer_clock으로 변경 -->
-            05:00 <!-- js에서 타이머 작동시킬 때 div태그에서 바로 접근하려고 span태그는 지웠어요 -->
+          <div class="rest timer_clock">
+            <span id="rest_min">05</span>:<span id="rest_sec">00</span>
           </div>
 
           <div class="timer_name">
