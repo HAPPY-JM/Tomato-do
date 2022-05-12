@@ -1,0 +1,324 @@
+body {
+  margin: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: minmax(100px,auto);
+  grid-template-areas: 
+      "header header"
+      "todo_list  timer"
+      "footer footer";
+}
+
+  /* header */
+header {
+  grid-area: header;
+  position: sticky;
+  height: 100px;
+  top: 0px;
+  background-color: #ECECEC;
+  padding-left: 32px;
+  padding-right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+
+/* nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-info {
+  display: flex;
+}
+
+.nav-item:hover{
+   animation: rotate_image 6s linear infinite; 
+   transform-origin: 50% 50%; 
+  cursor: pointer;
+  } 
+  @keyframes rotate_image{ 
+      100% { 
+          transform: rotate(360deg); 
+  }
+}
+
+/* main */
+
+#TODO_LIST{
+  grid-area: todo_list;
+  background-color: #3AA694;
+  height: 80vh;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+}
+
+.profile{
+  font-family: 'TmoneyRoundWindExtraBold';
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#profile_name{
+  width: min(120px);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #256d61;
+  background-color: #3AA694;
+  font-family: 'TmoneyRoundWindExtraBold';
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  outline: none;
+}
+
+.title_text{
+  font-family: 'NEXON Lv1 Gothic OTF Bold';
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.todo_plus{
+  margin-top: 15px;
+  margin: 20px;
+}
+
+.todo_title{
+  margin: 20px;
+}
+
+#todo{
+  width: min(300px);
+  height: min(30px);
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 15px;
+  border: 3px solid #256d61;
+  border-radius: 0.5rem;
+}
+
+#todo_submit_btn{
+  width: 60px;
+  height: 38px;
+  background-color:#cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.list_check{
+  align-items: left;
+  font-family: 'TmoneyRoundWindRegular';
+
+}
+
+.todo_list{
+  background-color: #fff;
+  border-radius: 1rem;
+  border: none;
+  color: black;
+  overflow: auto;
+}
+
+.list_check{
+  list-style-type: none;
+  max-height: 300px;
+}
+
+
+
+/* span 태그 부분 일정한 길이로 설정 */
+.list_name {
+  display: inline-block;
+  width: 18rem;
+}
+/* 수정, 삭제 버튼 크기 조정 */
+.list_edit_btn {
+  font-size: 15px;
+  padding: 0;
+}
+
+.list_delete_btn {
+  font-size: 15px;
+  padding: 0;
+}
+
+.todo_list list{
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* timer */
+
+#TIMER{
+  grid-area: timer;
+  height: 80vh;
+  background-color: #DDDBDB;
+  place-items: center;
+}
+
+#today_date{
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 20px;
+}
+
+#timerBox {
+  font-size: 25px;
+  margin: 40px 0;
+}
+
+.timerBox_main {
+  width: 700px;
+  height: 300px;
+}
+
+.timer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer_clock {
+  font-family: 'LAB디지털';
+  font-size: 80px;
+  text-align: center;
+}
+
+.timer_name {
+  text-align: center;
+}
+
+.timer_btn_collection{
+  font-size: 30px;
+  padding:10px;
+}
+
+button {
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 1rem;
+}
+
+/* footer 
+footer span {
+  display: flex;
+  justify-content: flex-end;
+}
+*/
+
+footer {
+  grid-area: footer;
+  position: relative;
+  display: flex;
+  bottom: 0px;
+  height: 5vh;
+  padding: 10px;
+  background-color: #cccccc;
+  font-size: 15px;
+  color: rgb(61, 66, 82);
+  align-items: center;
+  justify-content: right;
+}
+  
+.mode_change {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 32px;
+  bottom: 5vh;
+  z-index: 100;
+  background-color: #ECECEC;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.mode_change i
+{
+
+  font-size: 40px;
+}
+
+.fa-moon:hover{
+  color: gold;
+}
+
+/* 화면 축소시 & 모바일 브라우저 */
+@media screen and (max-width: 768px) {
+
+  body{
+      display: grid;
+      grid-template-columns: minmax(100px, auto);
+      grid-template-rows: minmax(auto, auto);
+      grid-template-areas: 
+      "header"
+      "todo_list"
+      "timer"
+      "footer";
+  }
+
+  header{
+      padding-left: 5px;
+      padding-right: 5px;
+      justify-content: center;
+  }
+  .nav-item{
+    display: none;
+  }
+
+  .list_check{
+    max-height: 300px;
+  }   
+
+  footer{
+    justify-content: center;
+  }
+}
+
+
+/* 폰트 */
+@font-face {
+  font-family: 'NEXON Lv1 Gothic OTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NEXON Lv1 Gothic OTF Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TmoneyRoundWindRegular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TmoneyRoundWindExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LAB디지털';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
