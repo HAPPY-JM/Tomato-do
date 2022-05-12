@@ -49,9 +49,9 @@ const onRequest = indexedDB.open("tomato-do", 11);
         store.add(entry)
 
     // 성공하면 alert해줌
-    transaction.oncomplete = () => alert(`Entry added to ${storeName}!`)
+    transaction.oncomplete = () => alert(`멋진 프로필 사진이에요!`)
     // 실패하면 alert해줌
-    transaction.onerror = () => alert(`Fail added to ${storeName}!`)
+    transaction.onerror = () => alert(`다른 사진으로 해볼까요?ㅠㅠ`)
     }
 
 

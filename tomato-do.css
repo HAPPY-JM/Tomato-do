@@ -28,10 +28,33 @@ header {
   z-index: 1;
 }
 
+.logo{
+  grid-area:logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-title{
+  grid-area:logo-title;
+  padding-left: 5px;
+  font-family: 'yg-jalnan';
+  font-size: 50px;
+  color: #555555;
+  cursor: default;
+}
+
+#today_date{
+  grid-area: date;
+  font-family: 'TmoneyRoundWindExtraBold';
+  font-size: 30px;
+  color: #555555;
+}
 
 /* nav */
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -62,10 +85,12 @@ nav {
 }
 
 .profile{
+  display: flex;
   font-family: 'TmoneyRoundWindExtraBold';
   font-size: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 #profile_name{
@@ -81,6 +106,21 @@ nav {
   color: white;
   outline: none;
 }
+
+#profileinput {
+  background-image: url("./img/profile_pic.jpg");
+  width:40px;
+  height:40px;
+  border-radius: 100%;
+}
+
+#input-photo{
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
 
 .title_text{
   font-family: 'NEXON Lv1 Gothic OTF Bold';
@@ -165,29 +205,27 @@ nav {
 
 #TIMER{
   grid-area: timer;
+  display: grid;
   height: 80vh;
   background-color: #DDDBDB;
   place-items: center;
 }
 
-#today_date{
-  font-family: 'TmoneyRoundWindRegular';
-  font-size: 20px;
-}
 
 #timerBox {
   font-size: 25px;
-  margin: 40px 0;
+  color: #555555;
 }
 
 .timerBox_main {
-  width: 700px;
-  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .timer{
-  display: flex;
-  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .timer_clock {
@@ -198,24 +236,34 @@ nav {
 
 .timer_name {
   text-align: center;
+  font-family: 'Cafe24Ssurround';
+  font-size: 30px;
 }
 
+.timer_clock{
+  padding: 20px;
+}
+
+
 .timer_btn_collection{
+  display: flex;
   font-size: 30px;
-  padding:10px;
+  justify-content: center;
 }
 
 button {
-  font-size: 30px;
   padding: 10px;
+  margin: 10px;
+  color: #555555;
+  font-size: 30px;
+  font-family: 'yg-jalnan';
+  border: none;
+  background-color: white;
   border-radius: 1rem;
+  box-shadow: 1px 2px 2px #d0d0d0;
 }
-#profileinput {
-  background-image: url("./img/profile_pic.jpg");
-  width:40px;
-  height:40px;
-  border-radius: 100%;
-}
+
+
 /* footer 
 footer span {
   display: flex;
@@ -230,9 +278,9 @@ footer {
   bottom: 0px;
   height: 5vh;
   padding: 10px;
-  background-color: #cccccc;
+  background-color: #c1cdc8;
   font-size: 15px;
-  color: rgb(61, 66, 82);
+  color: rgb(103, 107, 124);
   align-items: center;
   justify-content: right;
 }
@@ -267,20 +315,25 @@ footer {
 @media screen and (max-width: 768px) {
 
   body{
-      display: grid;
-      grid-template-columns: minmax(100px, auto);
-      grid-template-rows: minmax(auto, auto);
-      grid-template-areas: 
-      "header"
-      "todo_list"
-      "timer"
-      "footer";
+    display: grid;
+    grid-template-columns: minmax(100px, auto);
+    grid-template-rows: minmax(auto, auto);
+    grid-template-areas: 
+    "header"
+    "todo_list"
+    "timer"
+    "footer";
   }
 
   header{
-      padding-left: 5px;
-      padding-right: 5px;
-      justify-content: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #today_date{
+    display: none;
   }
   .nav-item{
     display: none;
@@ -297,6 +350,12 @@ footer {
 
 
 /* 폰트 */
+@font-face {
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 @font-face {
   font-family: 'NEXON Lv1 Gothic OTF';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
@@ -324,6 +383,12 @@ footer {
 @font-face {
   font-family: 'LAB디지털';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24Ssurround';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
