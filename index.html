@@ -24,14 +24,15 @@
       <span class="logo-title">Tomato-do</span></div>
       <div id = "today_date">
         <script>
-            let date = new Date();
+            date = new Date();
             const week_saying = 
-            (['즐거운 '],['힘차게 시작하는 '],['파이팅 넘치게 '],['새로운 마음으로 '],['추진력이 필요한 '],['불타는 '],['신나는 ']);
-            const week = (['일'],['월'],['화'],['수'],['목'],['금'],['토']);
-            let month = date.getMonth()+1;
-            let day = date.getDay();
-            let dayName = week[date.getDay()];
-            let weekly = week_saying[date.getDay()];
+            (['신나는 '],['즐거운 '],['힘차게 시작하는 '],['파이팅 넘치게 '],['새로운 마음으로 '],['추진력이 필요한 '],['불타는 ']);
+            const week = (['토'],['일'],['월'],['화'],['수'],['목'],['금']);
+            year = date.getFullYear();
+            month = date.getMonth()+1;
+            day = date.getDate();
+            dayName = week[date.getDate()];
+            weekly = week_saying[date.getDate()];
             document.getElementById("today_date").innerHTML =
             week_saying + month + "월 " + day + "일 " + week + "요일"
         </script>
