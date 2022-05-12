@@ -210,7 +210,12 @@ button {
   padding: 10px;
   border-radius: 1rem;
 }
-
+#profileinput {
+  background-image: url("./img/profile_pic.jpg");
+  width:40px;
+  height:40px;
+  border-radius: 100%;
+}
 /* footer 
 footer span {
   display: flex;
