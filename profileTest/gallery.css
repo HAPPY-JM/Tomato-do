@@ -1,0 +1,43 @@
+.gallery-loader {
+    text-align: center;
+  }
+  
+  #addPhotoInput {
+    display: none;
+  }
+  
+  .add-photo {
+    transform: scale(3);
+    position: fixed;
+    bottom: 5em;
+    right: 7em;
+    cursor: pointer;
+  }
+  
+  .gallery-nav {
+    height: 3.5em;
+  }
+  
+  .gallery {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1.7em;
+    margin-bottom: 2em;
+  }
+  
+  .item {
+    height: 17.5em;
+    width: 17.5em;
+    background: #000;
+  }
+  
+  .item>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .item>img:hover {
+    opacity: 0.7;
+  }
+  

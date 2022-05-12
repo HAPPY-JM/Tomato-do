@@ -1,0 +1,12 @@
+컴포넌트 강의 참고해서 수정할 부분이 있으면 그부분을 빨리 찾아 해결 할수 있도록 만들었음.
+
+index.html -> 프로필 화면(프로필 메인 화면)
+profile.js -> 프로필 화면에서 작동할 js
+index.css,gallery.css -> css코드
+
+modules/bio.js -> 이름과 자기소개 보여줄 html 
+BioEvent.js -> 버튼 누르면 이름과 자기소개 보여줄 칸관련 기능
+	      (이름, 자기소개 적은거 데이터베이스에 저장, 수정하기)
+EditBio.js -> 이름과 자기소개 적는 칸 보여줄 html 
+nav.js -> 위 메뉴
+report.js -> 지금은 토마토 사진인데 리포트내용을 보여줄 html
