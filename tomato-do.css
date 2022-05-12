@@ -344,6 +344,7 @@ footer {
   }   
 
   footer{
+    font-size: smaller;
     justify-content: center;
   }
 }
