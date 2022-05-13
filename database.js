@@ -7,7 +7,13 @@ const initDatabase = async () => {
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
         todolist: "++id, todo, startTime, endTime",
+<<<<<<< HEAD
         userInfo: "++id,userName"
+=======
+        userInfo: "++id,userName,userimg",
+        profile:"userpicture",
+        report:"datas"
+>>>>>>> taehun
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
@@ -31,7 +37,7 @@ const initDatabase = async () => {
 
 // 이름이 'storeName'인 객체 저장소에 값이 'entry'인 객체를 저장
 const addEntryToDb = async (storeName, entry) => {
-    return await db[storeName].add(entry);
+    return await db[storeName].add(entry);    
 }
 
 // 이름이 'storeName'인 객체 저장소에서 데이터를 가져옵니다.
@@ -74,3 +80,5 @@ export {
 const testDb = async (entry) => {
 }
 export { testDb };
+
+/*----------------------------------*/
