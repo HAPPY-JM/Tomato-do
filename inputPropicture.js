@@ -1,5 +1,5 @@
 
-import { onRequest, addEntryToDb, getEntryFromDb, clearAllEntries } from "./ProfileDB.js"
+import { addEntryToDb } from "./database.js"
 /*
 index.html의 적용 시킬 내용
 <label className="input-file-button" for="input-file">
@@ -18,8 +18,10 @@ const addPictureEventListener = () =>{
         reader.readAsDataURL(photoInput.files[0])
 
         reader.addEventListener("load",()=>{
-            addEntryToDb("profile",reader.result)
             const photoUrl = reader.result;
+            const photodata = {"userpicture":photoUrl}
+            addEntryToDb("profile",photodata)
+            
             photoSection.src = photoUrl;
         })
     })
