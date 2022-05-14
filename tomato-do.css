@@ -392,4 +392,33 @@ footer {
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  
 }
+
+/**********타이머 애니메이션 시작**********/
+.tomatoAnimationBox_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tomatoAnimation{ 
+  display: flex;
+}
+img.masking {  
+  position: absolute;
+
+  /* webkit 속성 (크롬O) 크로스브라우징 테스트 괜찮으면 웹킷만 해도 될것 같습니다. 현재 크롬,파이어폭스,사파리 of ios 지원 */
+  -webkit-mask-image: url("./img/maskPng.png");
+  -webkit-mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  -webkit-mask-position-y: 0px;  
+
+  /* 표준 css 속성 (크롬X) */
+  /* mask-image: url("./img/maskPng2.png");
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: 0 0px; */  
+}
+/**********타이머 애니메이션 종료**********/
