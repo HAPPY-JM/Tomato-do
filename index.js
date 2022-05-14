@@ -3,26 +3,37 @@ import {
   addEntryToDb,
   getEntryFromDb,
   updateEntryToDb,
-  checkEntryFromDb,
+  // checkEntryFromDb,
   deleteEntryFromDb,
 } from "./database.js";
 
 const addTodo = (e) => {
   e.preventDefault();
-  // 'todolist' 스토리지에 입력으로 들어온 투두리스트 추가
-  const inputEntry = {
-    todo: todoInput.value,
-    startTime: 0,
-    endTime: 0,
-  };
-  addEntryToDb('todolist', inputEntry)
-        .then(() => showTodoList(e));
-  // 입력 태그 칸 비우기
-  todoInput.value = null;
+
+  try {
+    if(!todoInput.value) {
+      throw new Error("할 일이 비어있습니다!");
+    }
+    // 'todolist' 스토리지에 입력으로 들어온 투두리스트 추가
+    const inputEntry = {
+      todo: todoInput.value,
+    };
+    addEntryToDb('todolist', inputEntry)
+      .then(() => showTodoList(e));
+    // 입력 태그 칸 비우기
+    todoInput.value = null;
+  } catch (e) {
+    console.log(e);
+    alert("할 일을 입력해주세요!");
+  }
 };
 
-const completeTodo = (e) => {
+const checkTodo = (e) => {
   e.preventDefault();
+  // const tagName = e.target.tagName;
+  // const iTodoDelete = e.target.parentNode.parentNode.firstChild;
+  // const buttonTodoDelete = e.target.parentNode.firstChild;
+  // const todoDelete = (tagName === "I") ? iTodoDelete : buttonTodoDelete;
 };
 
 const updateTodo = (e) => {
@@ -52,31 +63,33 @@ const updateTodoComplete = (e, todoItemElem, todoUpdate) => {
     e.preventDefault();
 
     const updateEntry = {
-        todo: todoItemElem.firstChild.innerText
+      todo: todoItemElem.firstChild.innerText
     }
 
     const changes = {
-        todo: todoUpdate.firstChild.value
+      todo: todoUpdate.firstChild.value
     }
 
     updateEntryToDb('todolist', updateEntry, changes)
-        .then(() => showTodoList(e));
+      .then(() => showTodoList(e));
 }
 
 const deleteTodo = (e) => {
   e.preventDefault();
-    
-  const tagName = e.target.tagName;
-  const iTodoDelete = e.target.parentNode.parentNode.firstChild;
-  const buttonTodoDelete = e.target.parentNode.firstChild;
-  const todoDelete = (tagName === "I") ? iTodoDelete : buttonTodoDelete;
-  // 'deleteEntryFromDb'에 비동기 처리가 들어가 있어서
-  // 이렇게 안하면 삭제된 리스트가 반영되지 않습니다.
-  const deleteEntry = {
-    todo: todoDelete.innerText,
-  };
-  deleteEntryFromDb('todolist', deleteEntry)
-        .then(() => showTodoList(e));
+
+  if(confirm("정말 삭제하시나요?") == true) {
+    const tagName = e.target.tagName;
+    const iTodoDelete = e.target.parentNode.parentNode.firstChild;
+    const buttonTodoDelete = e.target.parentNode.firstChild;
+    const todoDelete = (tagName === "I") ? iTodoDelete : buttonTodoDelete;
+    const deleteEntry = {
+      todo: todoDelete.innerText,
+    };
+    // 'deleteEntryFromDb'에 비동기 처리가 들어가 있어서
+    // 이렇게 안하면 삭제된 리스트가 반영되지 않습니다.
+    deleteEntryFromDb('todolist', deleteEntry)
+      .then(() => showTodoList(e));
+  }
 };
 
 // 중간 중간 이벤트리스너 처리를 위해 백틱으로 묶어 innerHTML 하는 형식이 아니라
@@ -86,33 +99,22 @@ const deleteTodo = (e) => {
 const showTodoList = async (e) => {
   if (e) e.preventDefault();
 
-  todoListTag.innerHTML = "";
-
-  const todoList = await getEntryFromDb("todolist");
-  todoList.forEach((entry) => {
-    // 백틱으로 할 경우
-    // todoListTag.innerHTML += `
-    // <li>
-    //     <label class="list_name">
-    //         <input type="checkbox" onclick="completeTodo(event)">${entry.todo}
-    //     </label>
-    //     <button class="list_edit_btn" onclick="updateTodo(event)">
-    //         <i class="fa-solid fa-pencil"></i>
-    //     </button>
-    //     <button class="list_delete_btn" onclick="deleteTodo(event)">
-    //         <i class="fa-solid fa-trash-can"></i>
-    //     </button>
-    // </li>`;
+  todoListActive.innerHTML = "";
+  todoListComplete.innerHTML = "";
+  
+  const showTodo = (entry, isComplete) => {
     const todoItemElem = document.createElement("li");
 
     const checkboxElem = document.createElement("input");
     checkboxElem.setAttribute("type", "checkbox");
-    checkboxElem.addEventListener("change", completeTodo);
+    if(isComplete) checkboxElem.setAttribute("checked", "true");
+    checkboxElem.addEventListener("click", checkTodo);
 
     const checklistElem = document.createElement("label");
     checklistElem.classList.add("list_name");
     checklistElem.appendChild(checkboxElem);
     checklistElem.innerHTML += entry.todo;
+    //checklistElem.addEventListener("click", completeTodo);
 
     const editButtonElem = document.createElement("button");
     editButtonElem.classList.add("list_edit_btn");
@@ -128,11 +130,20 @@ const showTodoList = async (e) => {
     todoItemElem.appendChild(editButtonElem);
     todoItemElem.appendChild(deleteButtonElem);
 
-    todoListTag.appendChild(todoItemElem);
-  });
+    if(isComplete) todoListComplete.appendChild(todoItemElem);
+    else todoListActive.appendChild(todoItemElem);
+  };
+
+  // const todoActive = await getEntryFromDb("todolistActive");
+  // todoActive.forEach((entry) => showTodo(entry, false));
+  // const todoComplete = await getEntryFromDb("todolistComplete");
+  // todoComplete.forEach((entry) => showTodo(entry, true));
+  const todoList = await getEntryFromDb("todolist");
+  todoList.forEach((entry) => showTodo(entry, false));
 };
 
-const todoListTag = document.querySelector("#list_check");
+const todoListActive = document.querySelector("#list_active");
+const todoListComplete = document.querySelector("#list_complete");
 
 const todoInput = document.querySelector("#todo");
 const addTodoButton = document.querySelector("#todo_submit_btn");

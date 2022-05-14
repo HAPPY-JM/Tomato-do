@@ -6,14 +6,11 @@ const initDatabase = async () => {
     // 객체 저장소 생성 (스키마 설정)
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
-        todolist: "++id, todo, startTime, endTime",
-<<<<<<< HEAD
-        userInfo: "++id,userName"
-=======
+        todolist: "++id, todo",
+        time: "++id", // 데이터 형식 정한 뒤에 수정할 것
         userInfo: "++id,userName,userimg",
         profile:"userpicture",
         report:"datas"
->>>>>>> taehun
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
@@ -23,6 +20,7 @@ const initDatabase = async () => {
     const dataCount = await db.todolist.count();
 
     // 객체 저장소의 데이터가 존재하는 경우
+    // 개발 완료 후에는 초기 데이터 없이 if문 지우고 사용
     if(dataCount > 0) {
         return Promise.resolve();
     }
@@ -30,8 +28,8 @@ const initDatabase = async () => {
     // 초기 데이터 삽입
     // 기본적으로 Dexie의 CRUD 함수들을 Promise로 제공
     return await db.todolist.bulkAdd([
-        { todo: "복습하기", startTime: 0, endTime: 0 },
-        { todo: "넷플릭스 시청", startTime: 0, endTime: 0 }
+        { todo: "복습하기" },
+        { todo: "넷플릭스 시청" }
     ]);
 }
 
