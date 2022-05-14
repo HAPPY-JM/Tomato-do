@@ -150,5 +150,6 @@ inputName.addEventListener("keypress", editName); //
 
 
 /*-----------------------------------------------------------*/
-import {addPictureEventListener} from "./inputPropicture.js";
+import {addPictureEventListener,loadProfilePic} from "./inputPropicture.js";
 addPictureEventListener();
+loadProfilePic();

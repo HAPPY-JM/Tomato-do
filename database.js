@@ -7,14 +7,17 @@ const initDatabase = async () => {
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
         todolist: "++id, todo, startTime, endTime",
-        userInfo: "++id,userName,userimg",
-        profile:"userpicture",
+        userInfo: "++id,userName,userimg,type",
+        profile : "Id",
         report:"datas"
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
     // options 중 데이터베이스를 자동으로 열어주는 'autoOpen' 존재
     // 'autoOpen'의 default 값이 true이므로 따로 open하지 않음
+    
+    // db.userInfo.bulkAdd([{userName:"이름",type:"name"}])
+    
 
     const dataCount = await db.todolist.count();
 
@@ -28,7 +31,7 @@ const initDatabase = async () => {
     return await db.todolist.bulkAdd([
         { todo: "복습하기", startTime: 0, endTime: 0 },
         { todo: "넷플릭스 시청", startTime: 0, endTime: 0 }
-    ]);
+    ]),db.userInfo.bulkAdd([{userName:"이름",type:"name"}])
 }
 
 // 이름이 'storeName'인 객체 저장소에 값이 'entry'인 객체를 저장
