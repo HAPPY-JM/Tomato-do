@@ -3,7 +3,7 @@ import {
   addEntryToDb,
   getEntryFromDb,
   updateEntryToDb,
-  // checkEntryFromDb,
+  checkEntryFromDb,
   deleteEntryFromDb,
 } from "./database.js";
 
@@ -29,10 +29,13 @@ const addTodo = (e) => {
 
 const checkTodo = (e) => {
   e.preventDefault();
-  // const tagName = e.target.tagName;
-  // const iTodoDelete = e.target.parentNode.parentNode.firstChild;
-  // const buttonTodoDelete = e.target.parentNode.firstChild;
-  // const todoDelete = (tagName === "I") ? iTodoDelete : buttonTodoDelete;
+  const tagName = e.target.tagName;
+  const todoCheck = (tagName === "INPUT") ? e.target : e.target.firstChild;
+  const checkEntry = {
+    todo: todoCheck.parentNode.innerText,
+  };
+
+  checkEntryFromDb("todolist", checkEntry).then(() => showTodoList(e));
 };
 
 const updateTodo = (e) => {
@@ -101,19 +104,19 @@ const showTodoList = async (e) => {
   todoListActive.innerHTML = "";
   todoListComplete.innerHTML = "";
 
-  const showTodo = (entry, isComplete) => {
+  const showTodo = (entry) => {
     const todoItemElem = document.createElement("li");
 
     const checkboxElem = document.createElement("input");
     checkboxElem.setAttribute("type", "checkbox");
-    if (isComplete) checkboxElem.setAttribute("checked", "true");
-    checkboxElem.addEventListener("click", checkTodo);
+    if (entry.check) checkboxElem.setAttribute("checked", "true");
+    // checkboxElem.addEventListener("click", checkTodo);
 
     const checklistElem = document.createElement("label");
     checklistElem.classList.add("list_name");
     checklistElem.appendChild(checkboxElem);
     checklistElem.innerHTML += entry.todo;
-    //checklistElem.addEventListener("click", completeTodo);
+    checklistElem.addEventListener("click", checkTodo);
 
     const editButtonElem = document.createElement("button");
     editButtonElem.classList.add("list_edit_btn");
@@ -129,16 +132,12 @@ const showTodoList = async (e) => {
     todoItemElem.appendChild(editButtonElem);
     todoItemElem.appendChild(deleteButtonElem);
 
-    if (isComplete) todoListComplete.appendChild(todoItemElem);
+    if (entry.check) todoListComplete.appendChild(todoItemElem);
     else todoListActive.appendChild(todoItemElem);
   };
 
-  // const todoActive = await getEntryFromDb("todolistActive");
-  // todoActive.forEach((entry) => showTodo(entry, false));
-  // const todoComplete = await getEntryFromDb("todolistComplete");
-  // todoComplete.forEach((entry) => showTodo(entry, true));
   const todoList = await getEntryFromDb("todolist");
-  todoList.forEach((entry) => showTodo(entry, false));
+  todoList.forEach((entry) => showTodo(entry));
 };
 
 const todoListActive = document.querySelector("#list_active");
