@@ -55,7 +55,8 @@ const updateEntryToDb = async (storeName, entry, changes) => {
 // 이름이 'storeName'인 객체 저장소에서 값이 'entry'인 객체를 체크
 const checkEntryFromDb = async (storeName, entry) => {
     const item = await getEntryFromDb(storeName, entry);
-    item.check = true;
+    if(item.check) item.check = false;
+    else item.check = true;
     return await db[storeName].update(item.id, item);
 }
 
