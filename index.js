@@ -3,7 +3,7 @@ import {
   addEntryToDb,
   getEntryFromDb,
   updateEntryToDb,
-  // checkEntryFromDb,
+  checkEntryFromDb,
   deleteEntryFromDb,
 } from "./database.js";
 
