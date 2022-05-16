@@ -3,23 +3,23 @@ body {
   background-color: #fff;
   width: 100%;
   height: 100%;
-  font-family: 'NEXON Lv1 Gothic OTF';
+  font-family: "NEXON Lv1 Gothic OTF";
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: minmax(100px,auto);
-  grid-template-areas: 
-      "header header"
-      "todo_list  timer"
-      "footer footer";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(100px, auto);
+  grid-template-areas:
+    "header header"
+    "todo_list  timer"
+    "footer footer";
 }
 
-  /* header */
+/* header */
 header {
   grid-area: header;
   position: sticky;
   height: 100px;
   top: 0px;
-  background-color: #ECECEC;
+  background-color: #ececec;
   padding-left: 32px;
   padding-right: 32px;
   display: flex;
@@ -28,10 +28,33 @@ header {
   z-index: 1;
 }
 
+.logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-title {
+  grid-area: logo-title;
+  padding-left: 5px;
+  font-family: "yg-jalnan";
+  font-size: 50px;
+  color: #555555;
+  cursor: default;
+}
+
+#today_date {
+  grid-area: date;
+  font-family: "TmoneyRoundWindExtraBold";
+  font-size: 30px;
+  color: #555555;
+}
 
 /* nav */
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -39,91 +62,106 @@ nav {
   display: flex;
 }
 
-.nav-item:hover{
-   animation: rotate_image 6s linear infinite; 
-   transform-origin: 50% 50%; 
+.nav-item:hover {
+  animation: rotate_image 6s linear infinite;
+  transform-origin: 50% 50%;
   cursor: pointer;
-  } 
-  @keyframes rotate_image{ 
-      100% { 
-          transform: rotate(360deg); 
+}
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
   }
 }
 
 /* main */
 
-#TODO_LIST{
+#TODO_LIST {
   grid-area: todo_list;
-  background-color: #3AA694;
+  background-color: #3aa694;
   height: 80vh;
   padding-left: 15px;
   padding-right: 15px;
   color: #fff;
 }
 
-.profile{
-  font-family: 'TmoneyRoundWindExtraBold';
+.profile {
+  display: flex;
+  font-family: "TmoneyRoundWindExtraBold";
   font-size: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
+  align-items: center;
 }
 
-#profile_name{
+#profile_name {
   width: min(120px);
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: 3px solid #256d61;
-  background-color: #3AA694;
-  font-family: 'TmoneyRoundWindExtraBold';
+  background-color: #3aa694;
+  font-family: "TmoneyRoundWindExtraBold";
   text-align: center;
   font-size: 30px;
   color: white;
   outline: none;
 }
 
-.title_text{
-  font-family: 'NEXON Lv1 Gothic OTF Bold';
+#profileinput {
+  background-image: url("./img/profile_pic.jpg");
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+#input-photo {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.title_text {
+  font-family: "NEXON Lv1 Gothic OTF Bold";
   font-weight: bold;
   font-size: 40px;
 }
 
-.todo_plus{
+.todo_plus {
   margin-top: 15px;
   margin: 20px;
 }
 
-.todo_title{
+.todo_title {
   margin: 20px;
 }
 
-#todo{
+#todo {
   width: min(300px);
   height: min(30px);
-  font-family: 'TmoneyRoundWindRegular';
+  font-family: "TmoneyRoundWindRegular";
   font-size: 15px;
   border: 3px solid #256d61;
   border-radius: 0.5rem;
 }
 
-#todo_submit_btn{
+#todo_submit_btn {
   width: 60px;
   height: 38px;
-  background-color:#cccccc;
+  background-color: #cccccc;
   border: none;
   border-radius: 0.5rem;
-  font-family: 'TmoneyRoundWindRegular';
+  font-family: "TmoneyRoundWindRegular";
   font-size: 15px;
   cursor: pointer;
 }
 
-.list_check{
+.list_check {
   align-items: left;
-  font-family: 'TmoneyRoundWindRegular';
-
+  font-family: "TmoneyRoundWindRegular";
 }
 
-.todo_list{
+.todo_list {
   background-color: #fff;
   border-radius: 1rem;
   border: none;
@@ -131,12 +169,11 @@ nav {
   overflow: auto;
 }
 
-.list_check{
+.list_check {
   list-style-type: none;
+  padding-inline-start: 20px;
   max-height: 300px;
 }
-
-
 
 /* span 태그 부분 일정한 길이로 설정 */
 .list_name {
@@ -154,68 +191,71 @@ nav {
   padding: 0;
 }
 
-.todo_list list{
-
+.todo_list list {
   margin: 0;
   padding: 0;
 }
 
-
 /* timer */
 
-#TIMER{
+#TIMER {
   grid-area: timer;
+  display: grid;
   height: 80vh;
-  background-color: #DDDBDB;
+  background-color: #dddbdb;
   place-items: center;
-}
-
-#today_date{
-  font-family: 'TmoneyRoundWindRegular';
-  font-size: 20px;
 }
 
 #timerBox {
   font-size: 25px;
-  margin: 40px 0;
+  color: #555555;
 }
 
 .timerBox_main {
-  width: 700px;
-  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.timer{
-  display: flex;
-  justify-content: space-between;
+.timer {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .timer_clock {
-  font-family: 'LAB디지털';
+  font-family: "LAB디지털";
   font-size: 80px;
   text-align: center;
 }
 
 .timer_name {
   text-align: center;
+  font-family: "Cafe24Ssurround";
+  font-size: 30px;
 }
 
-.timer_btn_collection{
+.timer_clock {
+  padding: 20px;
+}
+
+.timer_btn_collection {
+  display: flex;
   font-size: 30px;
-  padding:10px;
+  justify-content: center;
 }
 
 button {
-  font-size: 30px;
   padding: 10px;
+  margin: 10px;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
+  border: none;
+  background-color: white;
   border-radius: 1rem;
+  box-shadow: 1px 2px 2px #d0d0d0;
 }
-#profileinput {
-  background-image: url("./img/profile_pic.jpg");
-  width:40px;
-  height:40px;
-  border-radius: 100%;
-}
+
 /* footer 
 footer span {
   display: flex;
@@ -230,22 +270,22 @@ footer {
   bottom: 0px;
   height: 5vh;
   padding: 10px;
-  background-color: #cccccc;
+  background-color: #c1cdc8;
   font-size: 15px;
-  color: rgb(61, 66, 82);
+  color: rgb(103, 107, 124);
   align-items: center;
   justify-content: right;
 }
-  
+
 .mode_change {
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 32px;
-  bottom: 5vh;
+  right: 8px;
+  bottom: 10vh;
   z-index: 100;
-  background-color: #ECECEC;
+  background-color: #ececec;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -253,77 +293,162 @@ footer {
   cursor: pointer;
 }
 
-.mode_change i
-{
-
+.mode_change i {
   font-size: 40px;
 }
 
-.fa-moon:hover{
+.fa-moon:hover {
   color: gold;
 }
 
 /* 화면 축소시 & 모바일 브라우저 */
 @media screen and (max-width: 768px) {
-
-  body{
-      display: grid;
-      grid-template-columns: minmax(100px, auto);
-      grid-template-rows: minmax(auto, auto);
-      grid-template-areas: 
+  body {
+    display: grid;
+    grid-template-columns: minmax(100px, auto);
+    grid-template-rows: minmax(auto, auto);
+    grid-template-areas:
       "header"
       "todo_list"
       "timer"
       "footer";
   }
 
-  header{
-      padding-left: 5px;
-      padding-right: 5px;
-      justify-content: center;
+  header {
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
   }
-  .nav-item{
+
+  #today_date {
+    display: none;
+  }
+  .nav-item {
     display: none;
   }
 
-  .list_check{
+  .list_check {
     max-height: 300px;
-  }   
+  }
 
-  footer{
+  footer {
+    font-size: smaller;
     justify-content: center;
   }
 }
 
-
 /* 폰트 */
 @font-face {
-  font-family: 'NEXON Lv1 Gothic OTF';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'NEXON Lv1 Gothic OTF Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+  font-family: "NEXON Lv1 Gothic OTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'TmoneyRoundWindRegular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
+  font-family: "NEXON Lv1 Gothic OTF Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'TmoneyRoundWindExtraBold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+  font-family: "TmoneyRoundWindRegular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'LAB디지털';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
+  font-family: "TmoneyRoundWindExtraBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
+}
+@font-face {
+  font-family: "LAB디지털";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**********타이머 애니메이션 시작**********/
+.tomatoAnimationBox_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tomatoAnimation {
+  display: flex;
+}
+img.masking {
+  position: absolute;
+
+  /* webkit 속성 (크롬O) 크로스브라우징 테스트 괜찮으면 웹킷만 해도 될것 같습니다. 현재 크롬,파이어폭스,사파리 of ios 지원 */
+  -webkit-mask-image: url("./img/maskPng.png");
+  -webkit-mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  -webkit-mask-position-y: 0px;
+
+  /* 표준 css 속성 (크롬X) */
+  /* mask-image: url("./img/maskPng2.png");
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: 0 0px; */
+}
+/**********타이머 애니메이션 종료**********/
+
+/* night mode  */
+:root {
+  --night1: #121318;
+  --night2: #1a1d24;
+  --night3: #2c303b;
+  --night4: #bdc0cf;
+}
+.night {
+  color: var(--night4);
+}
+
+header.night,
+footer.night,
+.todo_list.night {
+  background-color: var(--night3);
+}
+
+#TODO_LIST.night,
+#profile_name.night {
+  background-color: var(--night2);
+}
+
+#TIMER.night {
+  background-color: var(--night1);
+}
+
+header.night,
+.logo-title.night,
+#today_date.night {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  transition: background-color 0.3s;
 }

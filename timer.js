@@ -16,6 +16,9 @@ const timerBtnCollect = document.getElementsByClassName(
 const startOption25 = document.getElementsByClassName("start_option1")[0];
 const startOption50 = document.getElementsByClassName("start_option2")[0];
 
+const masking = document.querySelector('.masking')
+const imgsiz = masking.clientHeight;
+
 //console.log(focusTime.outerText);
 
 let count = 0; //반복 횟수를 지정하기 위한 변수 설정
@@ -30,6 +33,8 @@ let selectOption = "option25"; // 현재 옵션 상태 체크를 위한 전역�
 // 초기 값 25분이니 option25로 설정 시작
 // 더하여 위 focusTImer, restTimer 값이 없을 시 완전 초기에 저장된 시간이 없어 NaN 오류 발생함
 // 따라서 selectOption과 더불어 focusTimer, restTimer 도 1500, 300으로 초기 설정
+let focusTimerStart = focusTimer; 
+// 타이머 애니메이션 시간계산에 사용됩니다.
 
 function select(e) {
     resetTimer();
@@ -57,6 +62,7 @@ function timerTimeSet() {
     focusTimer = 3000;
     restTimer = 600;
   }
+  focusTimerStart = focusTimer; //타이머 애니메이션 : 타이머 시작시 설정된 전체시간 기록
 }
 
 function stopTimer() {
@@ -78,17 +84,26 @@ function resetTimer() {
   timerStopBtn.style.display = "none";
   timerResetBtn.style.display = "none";
   timerStartBtn.style.display = "block";
+
+  //타이머 애니메이션: 리셋버튼클릭시 빨간토마토로 돌아갑니다.
+  masking.style.setProperty("-webkit-mask-position-y", `0px`); //webkit
+  // masking.style.setProperty('mask-position',`0 0px`)  //css
+  //타이머 애니메이션 끝
 }
 
 function focusStart() {
   //타이머 시작하면서 start버튼은 사라지고 stop, reset버튼 나오도록 구현
   timerStopBtn.style.display = "block";
   timerResetBtn.style.display = "block";
-  timerStartBtn.style.display = "none";
+  timerStartBtn.style.display = "none";  
+  
+  focusTimerStart === focusTimer ? fadeInFunc() : null; //타이머 애니메이션: fadeIn 애니메이션 실행
 
   //setInterval함수를 이용하여 설정한 시간을 기준으로 타이머 작동(일단 25분으로 고정하여 설정해둠)
   focusInterval = setInterval(() => {
     --focusTimer; //타이머 작동
+  
+    tomatoAnimation(); //타이머 애니메이션: 실행    
 
     min = parseInt(focusTimer / 60); //분 표시
     sec = focusTimer % 60; //초 표시
@@ -123,6 +138,25 @@ function restStart() {
       count += 1; // 1사이클 증가
     }
   }, 1000);
+}
+
+//타이머 애니메이션: 포커스타이머 시작시 초록색에서 빨간색으로 자연스럽게 바뀌는 애니메이션 함수
+function fadeInFunc() {  
+  let fadeInOercity = 100;
+  let tomatoFadeIn = setInterval(() => {
+    masking.style.setProperty("opacity", `${--fadeInOercity}%`);
+    if (fadeInOercity < 0) {
+      clearInterval(tomatoFadeIn);
+      masking.style.setProperty("opacity", "100");
+    }
+  }, 10);
+}
+
+// 타이머 애니메이션: 함수
+function tomatoAnimation() {  
+  maskPositionY = (focusTimer * imgsiz) / focusTimerStart; //이미지 가릴부분 계산
+  masking.style.setProperty("-webkit-mask-position-y", `${maskPositionY}px`); //웹킷
+  // masking.style.setProperty('mask-position',`0 ${ parseInt(maskPositionY) }px`)  //css  
 }
 
 timerStartBtn.addEventListener("click", focusStart);
