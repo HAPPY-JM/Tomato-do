@@ -31,7 +31,7 @@ const initDatabase = async () => {
     return await db.todolist.bulkAdd([
         { todo: "복습하기", startTime: 0, endTime: 0 },
         { todo: "넷플릭스 시청", startTime: 0, endTime: 0 }
-    ]),db.userInfo.bulkAdd([{userName:"이름",type:"name"}])
+    ]);
 }
 
 // 이름이 'storeName'인 객체 저장소에 값이 'entry'인 객체를 저장

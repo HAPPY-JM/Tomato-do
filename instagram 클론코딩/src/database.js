@@ -1,5 +1,5 @@
 // let database
-const initializeDb = indexedDB.open('instagram', 10)
+const initializeDb = indexedDB.open('instagram', 2)
 
 // initializeDb.onsuccess = () => {
 //   database = initializeDb.result
@@ -12,9 +12,9 @@ initializeDb.onupgradeneeded = () => {
   database.createObjectStore('gallery', {autoIncrement: true})
 }
 
-initializeDb.onerror = () => {
-  alert('Db 생성 오류')
-}
+// initializeDb.onerror = () => {
+//   alert('Db 생성 오류')
+// }
 
 const addEntryToDb = (storeName, entry) => {
   const database = initializeDb.result

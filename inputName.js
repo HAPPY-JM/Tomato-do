@@ -50,7 +50,7 @@ const editName = async (key) =>{
             await deleteEntryFromDb('userInfo',{type:"name"});
             await addEntryToDb('userInfo',{"userName":inputNameValue,"type":"name"})
         }
-        else{await addEntryToDb('userInfo',inputNameValue)}
+        else{await addEntryToDb('userInfo',{"userName":inputNameValue,"type":"name"})}
 
         
         inputName.blur()
