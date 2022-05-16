@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,20 +29,31 @@
         <script>
             date = new Date();
             const week_saying = 
-            (['신나는 '],['즐거운 '],['힘차게 시작하는 '],['파이팅 넘치게 '],['새로운 마음으로 '],['추진력이 필요한 '],['불타는 ']);
-            const week = (['토'],['일'],['월'],['화'],['수'],['목'],['금']);
+            ["즐거운 ", "힘차게 시작하는 ", "파이팅 넘치게! ", "새로운 마음으로 ", "추진력이 필요한 ", "불타는 ", "신나는 "];
+            const week = ["일", "월", "화", " 수", "목", "금", "토"];
             year = date.getFullYear();
             month = date.getMonth()+1;
             day = date.getDate();
-            dayName = week[date.getDate()];
-            weekly = week_saying[date.getDate()];
             document.getElementById("today_date").innerHTML =
-            week_saying + month + "월 " + day + "일 " + week + "요일"
+            week_saying[date.getDay()] + month + "월 " + day + "일 " + week[date.getDay()] + "요일"
         </script>
-        </div>
-    <nav class="nav-item">
-        <i class="fa-solid fa-gear" , style="font-size: 50px;"></i>
-    </nav>
+      </div>
+      <div id="gear" >
+          <input type="checkbox" id="layerPopup">
+          <label for="layerPopup" id="gear_popup">
+            <i class="material-icons", style="font-size: 50px;">question_mark</i>
+          </label>
+          <div id="layer_bg">
+              <div id="popup">
+                  <h3>
+                      뽀모도로 란?
+                      <label for="layerPopup">　　X</label>
+                  </h3>
+                  25분간 집중해서 일을 한 다음 5분간 휴식하는 방식입니다.<br>
+                  Tomato-do로 소중한 시간을 관리해보세요!
+              </div>
+          </div>
+      </div>
   </header>
 
   <body>
@@ -114,7 +125,6 @@
       </div>
       <div class="start_time_btn">
         <!-- 집중-휴식시간 정하는 옵션 버튼을 위해 만든 div영역 -->
-        <input type="button" class="test_option" value="5초-5초">
         <input type="button" class="start_option1" value="25분-5분">
         <input type="button" class="start_option2" value="50분-10분">
       </div>
@@ -126,8 +136,8 @@
     </div>
   
     <button class="mode_change day" id="mode_btn">
-      <i class="fa-solid fa-moon icon", style="color: rgb(70, 70, 70);"></i>
-      <span class="material-icons icon" style="font-size: 36px; color:rgb(70, 70, 70); display:none;">wb_sunny</span>
+      <i class="material-icons icon" style="color:rgb(70, 70, 70); display:none;">dark_mode</i>
+      <i class="material-icons icon" style="color:rgb(70, 70, 70); display:none;">light_mode</i>
     </button>
     <footer>
       <p>
