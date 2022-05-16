@@ -160,8 +160,9 @@ inputName.addEventListener("blur", loadName); //클릭후 이름 입력하지않
 inputName.addEventListener("keypress", editName); //
 
 /*-----------------------------------------------------------*/
-import { addPictureEventListener } from "./inputPropicture.js";
+import {addPictureEventListener,loadProfilePic} from "./inputPropicture.js";
 addPictureEventListener();
+loadProfilePic();
 
 /*------------------- Night mode------------------*/
 const modeButton = document.getElementById("mode_btn");
