@@ -151,6 +151,7 @@ a { text-decoration: none; }
 #TODO_LIST {
   grid-area: todo_list;
   background-color: #3aa694;
+  display: block;
   height: 100vh;
   padding-left: 15px;
   padding-right: 15px;
@@ -238,6 +239,46 @@ a { text-decoration: none; }
   font-family: "TmoneyRoundWindRegular";
 }
 
+.list_edit_btn, .list_delete_btn{
+  width: 3vw;
+  height: 3vh;
+  background-color: #fff;
+  border: none;
+  border-radius: 10rem;
+  margin: 5px;
+  box-shadow: 1px 2px 2px #d0d0d0;
+}
+
+.list_edit_btn:hover{
+  background-color: #3aa694;
+  color: #fff;
+}
+.list_delete_btn:hover{
+  background-color: tomato;
+  color: #fff;
+}
+
+#todo_update{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px, #256d61;
+  outline: none;
+}
+
+#todo_update:hover{
+  background-color: #deece6;
+}
+
+#todo_update_submit_btn{
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
+}
+
 .todo_list {
   background-color: #fff;
   border-radius: 1rem;
@@ -277,7 +318,11 @@ a { text-decoration: none; }
 
 #TIMER {
   grid-area: timer;
-  display: grid;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display:block;
   align-content: space-evenly;
   justify-content: stretch;
   height: 100%;
@@ -310,7 +355,7 @@ a { text-decoration: none; }
 .timer_name {
   text-align: center;
   font-family: "Cafe24Ssurround";
-  font-size: 30px;
+  font-size: 40px;
   text-transform: uppercase;
   line-height: 1.2;
   background-image: linear-gradient(transparent calc(100% - 8px), #fff 2px);
@@ -333,11 +378,20 @@ a { text-decoration: none; }
 .timer_btn_collection {
   display: flex;
   font-size: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.start_time_btn{
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .start_option1, .start_option2{
+  cursor: pointer;
   color: #555555;
+  margin: 15px;
   font-size: 20px;
   padding: 10px;
   font-family: "TmoneyRoundWindExtraBold";
@@ -347,8 +401,25 @@ a { text-decoration: none; }
   box-shadow: 1px 2px 2px #d0d0d0;
 }
 
-button {
+.start_option1:hover{
+  background-color: #3aa694;
+}
+.start_option2:hover{
+  background-color: #3aa694;
+}
+
+.start_option1:focus{
+  background-color: #3aa694;
+  color: #fff;
+}
+.start_option2:focus{
+  background-color: #3aa694;
+  color: #fff;
+}
+
+.timerBox_startButton, .timerBox_stopButton, .timerBox_resetButton {
   cursor: pointer;
+  width: 200px;
   padding: 10px;
   margin: 10px;
   color: #555555;
@@ -360,9 +431,22 @@ button {
   box-shadow: 1px 2px 2px #d0d0d0;
 }
 
+.timerBox_startButton:hover{
+  background-color: rgb(255, 196, 0);
+  color:#fff;
+}
+.timerBox_stopButton:hover{
+  background-color: tomato;
+  color: #fff;
+}
+.timerBox_resetButton:hover{
+  background-color: #3aa694;
+  color: #fff;
+}
+
+
 footer {
   grid-area: footer;
-  position: relative;
   display: flex;
   bottom: 0px;
   height: 2vh;
@@ -379,7 +463,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 8px;
+  right: 2vw;
   bottom: 5vh;
   z-index: 100;
   background-color: #ececec;
