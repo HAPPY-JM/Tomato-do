@@ -18,6 +18,7 @@
     <!-- Dexie.js CDN -->
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
     <script src="index.js" type="module" defer></script>
+    
     <title>오늘도 Tomato-do !</title>
   </head>
 
@@ -40,9 +41,25 @@
             week_saying + month + "월 " + day + "일 " + week + "요일"
         </script>
         </div>
+    <div id="badgeContent" style="display:none;padding:25px;font-size: 50px;background-color: ivory;height:300px;width:30% ;position:fixed;left:35%;top:30px">
+      <button style="font-size: 15px;" id="closeBtn">닫기</button>
+      <div id="badgeList">
+        
+        
+        
+        
+        
+      </div>
+    </div>
+    <i class="fa-solid fa-box" , style="font-size: 50px;" id="badgeBox"></i>
+    
     <nav class="nav-item">
         <i class="fa-solid fa-gear" , style="font-size: 50px;"></i>
+        
     </nav>
+    
+    
+    
   </header>
 
   <body>
@@ -122,6 +139,7 @@
         <button class="timerBox_startButton">Start!</button>
         <button class="timerBox_stopButton" style="display: none;">Stop</button>    
         <button class="timerBox_resetButton" style="display: none;">Reset</button>
+        <button id="DbtestBtn">test data 넣기</button>
       </div>
     </div>
   

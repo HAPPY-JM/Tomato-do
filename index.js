@@ -191,3 +191,15 @@ function modeClick() {
 }
 
 modeButton.addEventListener("click", modeClick);
+
+import {showProfileModal,hideProfileModal,badgeload} from "./badge.js"
+showProfileModal();
+hideProfileModal();
+badgeload();
+
+
+// 타이머 기록 데이터베이스로 보내기 위한 import
+import {focusStart,addTestBtnEventListener} from "./badgeTimer.js"
+const button = document.getElementsByClassName("focus timer_clock")[0];
+button.addEventListener("click",focusStart);
+addTestBtnEventListener();

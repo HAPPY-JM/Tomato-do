@@ -37,7 +37,8 @@ const editName = async (key) => {
 const loadName = async ()=>{  
         
     const dbkey = await getEntryFromDb("userInfo",{type:"name"});
-    if(dbkey.type){inputName.value = dbkey.userName;}    
+    if(dbkey){if(dbkey.type)inputName.value = dbkey.userName;}   
+    // else{console.log("이름 데이터 없음")} 
 }
 
 const editName = async (key) =>{
