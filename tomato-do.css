@@ -339,6 +339,10 @@ a { text-decoration: none; }
   justify-content: center;
 }
 
+.tomatoAnimationBox_main{
+  padding: 30px;
+}
+
 .timer {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -512,9 +516,11 @@ footer {
 
 #TIMER{
   height: 100vh;
-  font-size: smaller;
 }
 
+.timer{
+  font-size: xx-small;
+}
 
   footer {
     bottom: 0;
