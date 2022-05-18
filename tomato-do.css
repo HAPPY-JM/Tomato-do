@@ -11,6 +11,7 @@ body {
   height: 100vh;
   font-family: "NEXON Lv1 Gothic OTF";
   display: grid;
+  position: relative;
   grid-gap: 0;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(auto, auto);
