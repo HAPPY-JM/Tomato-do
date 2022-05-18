@@ -513,7 +513,7 @@ footer {
 }
 
 /* 화면 축소시 & 모바일 브라우저 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   body {
     display: grid;
     grid-template-columns: minmax(auto, auto);
@@ -543,16 +543,16 @@ footer {
   .list_check {
     max-height: 300px;
   }
-  
-  .todo_list{
+
+  .todo_list {
     margin-bottom: 15px;
   }
-  
-  #todo_date{
+
+  #todo_date {
     font-size: xx-small;
   }
 
-  #TODO_LIST{
+  #TODO_LIST {
     max-height: 100%;
   }
 
@@ -560,15 +560,13 @@ footer {
     height: 100%;
   }
 
-
   .timerBox_main {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .timer_clock {
     padding: 0;
   }
-
 
   footer {
     bottom: 0;
