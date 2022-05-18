@@ -18,6 +18,7 @@ const startOption50 = document.getElementsByClassName("start_option2")[0];
 
 const masking = document.querySelector('.masking')
 const moon = document.querySelector('.moon') //나이트모드타이머
+
 const imgsiz = masking.clientHeight;
 
 //console.log(focusTime.outerText);
@@ -34,11 +35,11 @@ let selectOption = "option25"; // 현재 옵션 상태 체크를 위한 전역�
 // 초기 값 25분이니 option25로 설정 시작
 // 더하여 위 focusTImer, restTimer 값이 없을 시 완전 초기에 저장된 시간이 없어 NaN 오류 발생함
 // 따라서 selectOption과 더불어 focusTimer, restTimer 도 1500, 300으로 초기 설정
-let focusTimerStart = focusTimer; 
+let focusTimerStart = focusTimer;
 // 타이머 애니메이션 시간계산에 사용됩니다.
 
 function select(e) {
-    resetTimer();
+  resetTimer();
   // btn 클릭 시 select 함수로 eventlisten하여 해당 버튼 value에 따라 전역변수 selectOption의 값 변경
   const userPick = e.target.value;
   if (userPick === startOption25.value) {
@@ -97,16 +98,16 @@ function focusStart() {
   //타이머 시작하면서 start버튼은 사라지고 stop, reset버튼 나오도록 구현
   timerStopBtn.style.display = "block";
   timerResetBtn.style.display = "block";
-  timerStartBtn.style.display = "none";  
-  
+  timerStartBtn.style.display = "none";
+
   focusTimerStart === focusTimer ? fadeInFunc() : null; //타이머 애니메이션: fadeIn 애니메이션 실행
   focusTimerStart === focusTimer ? moonFadeInFunc() : null;  //나이트모드타이머
 
   //setInterval함수를 이용하여 설정한 시간을 기준으로 타이머 작동(일단 25분으로 고정하여 설정해둠)
   focusInterval = setInterval(() => {
     --focusTimer; //타이머 작동
-  
-    tomatoAnimation(); //타이머 애니메이션: 실행    
+
+    tomatoAnimation(); //타이머 애니메이션: 실행
 
     min = parseInt(focusTimer / 60); //분 표시
     sec = focusTimer % 60; //초 표시
@@ -144,7 +145,7 @@ function restStart() {
 }
 
 //타이머 애니메이션: 포커스타이머 시작시 초록색에서 빨간색으로 자연스럽게 바뀌는 애니메이션 함수
-function fadeInFunc() {  
+function fadeInFunc() {
   let fadeInOercity = 100;
   let tomatoFadeIn = setInterval(() => {
     masking.style.setProperty("opacity", `${--fadeInOercity}%`);
@@ -166,12 +167,14 @@ function moonFadeInFunc() {
 }
 //나이트모드타이머ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ끝
 // 타이머 애니메이션: 함수
-function tomatoAnimation() {  
+function tomatoAnimation() {
   maskPositionY = (focusTimer * imgsiz) / focusTimerStart; //이미지 가릴부분 계산
   moonOpercity = 120 - Math.floor(focusTimer*100/focusTimerStart) //처음에 너무 어두우니까 이상해서 100>120으로 바꿈  //나이트모드타이머
   masking.style.setProperty("-webkit-mask-position-y", `${maskPositionY}px`); //웹킷
+
   // masking.style.setProperty('mask-position',`0 ${ parseInt(maskPositionY) }px`)  //css  
   moon.style.setProperty("opacity", `${moonOpercity}%`);  //나이트모드타이머
+
 }
 
 timerStartBtn.addEventListener("click", focusStart);
