@@ -30,7 +30,7 @@ const addTodo = (e) => {
 const checkTodo = (e) => {
   e.preventDefault();
   const tagName = e.target.tagName;
-  const todoCheck = (tagName === "INPUT") ? e.target : e.target.firstChild;
+  const todoCheck = tagName === "INPUT" ? e.target : e.target.firstChild;
   const checkEntry = {
     todo: todoCheck.parentNode.innerText,
   };
@@ -74,17 +74,18 @@ const updateTodoComplete = (e, todoItemElem, todoUpdate) => {
     const updateEntry = {
       todo: todoItemElem.firstChild.innerText,
     };
-  
+
     const changes = {
       todo: todoUpdate.firstChild.value,
     };
-  
-    updateEntryToDb("todolist", updateEntry, changes).then(() => showTodoList(e));
+
+    updateEntryToDb("todolist", updateEntry, changes).then(() =>
+      showTodoList(e)
+    );
   } catch (e) {
     console.log(e);
     alert("할 일을 입력해주세요!");
   }
-  
 };
 
 const deleteTodo = (e) => {
@@ -173,7 +174,7 @@ inputName.addEventListener("blur", loadName); //클릭후 이름 입력하지않
 inputName.addEventListener("keypress", editName); //
 
 /*-----------------------------------------------------------*/
-import {addPictureEventListener,loadProfilePic} from "./inputPropicture.js";
+import { addPictureEventListener, loadProfilePic } from "./inputPropicture.js";
 addPictureEventListener();
 loadProfilePic();
 
@@ -184,6 +185,7 @@ const allSpan = document.querySelectorAll("span");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 const profileArea = document.getElementById("profile_name");
+const qIcon = document.querySelector(".qIcon");
 
 function modeClick() {
   allDiv.forEach((e) => e.classList.toggle("night"));
@@ -191,6 +193,7 @@ function modeClick() {
   header.classList.toggle("night");
   footer.classList.toggle("night");
   profileArea.classList.toggle("night");
+  qIcon.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
   console.log(changeBtn);

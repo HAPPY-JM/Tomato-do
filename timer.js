@@ -18,7 +18,6 @@ const startOption50 = document.getElementsByClassName("start_option2")[0];
 
 const masking = document.querySelector(".masking");
 const imgsiz = masking.clientHeight;
-console.log(imgsiz);
 
 //console.log(focusTime.outerText);
 
