@@ -4,7 +4,7 @@ body {
   padding: 0;
   border: 0;
   font-size: 100%;
-  vertical-align: baseline;
+  vertical-align: middle;
   background-color: #fff;
   width: 100%;
   height: 100%;
@@ -23,6 +23,7 @@ body {
 /* header */
 header {
   grid-area: header;
+  vertical-align: baseline;
   position: sticky;
   height: 8vh;
   top: 0px;
@@ -47,7 +48,7 @@ header {
   grid-area: logo-title;
   padding-left: 5px;
   font-family: "yg-jalnan";
-  font-size: 50px;
+  font-size: 48px;
   color: #555555;
   cursor: default;
 }
@@ -513,7 +514,7 @@ footer {
 }
 
 /* 화면 축소시 & 모바일 브라우저 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   body {
     display: grid;
     grid-template-columns: minmax(auto, auto);
@@ -721,6 +722,10 @@ header.night,
 
 .restChangeColor.night {
   color: #f18701;
+}
+
+#today_date.night{
+  background-image: linear-gradient(transparent calc(100% - 10px), #b0b0b04d 3px);
 }
 
 /* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
