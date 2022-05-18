@@ -298,6 +298,19 @@ a {
   overflow: auto;
 }
 
+.todo_list::-webkit-scrollbar {
+  width: 8px;
+}
+.todo_list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.308);
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 7px rgba(110, 110, 110, 0.822);
+}
+.todo_list::-webkit-scrollbar-track {
+  background-color: #ededee;
+  border-radius: 20px;
+}
+
 .list_check {
   list-style-type: none;
   padding-inline-start: 20px;
