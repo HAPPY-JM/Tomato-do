@@ -344,6 +344,26 @@ a {
   padding: 0;
 }
 
+.todo_button {
+  display: inline-block;
+  align-content: center;
+  width: 90%;
+  box-sizing: border-box;
+  margin-top: 15px;
+  margin: 20px;
+}
+
+#todo_clear_btn {
+  width: 15%;
+  height: 40px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
+}
+
 /* timer */
 
 #TIMER {
@@ -544,16 +564,16 @@ footer {
   .list_check {
     max-height: 300px;
   }
-  
-  .todo_list{
+
+  .todo_list {
     margin-bottom: 15px;
   }
-  
-  #todo_date{
+
+  #todo_date {
     font-size: xx-small;
   }
 
-  #TODO_LIST{
+  #TODO_LIST {
     max-height: 100%;
   }
 
@@ -561,15 +581,13 @@ footer {
     height: 100%;
   }
 
-
   .timerBox_main {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .timer_clock {
     padding: 0;
   }
-
 
   footer {
     bottom: 0;
