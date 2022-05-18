@@ -137,7 +137,7 @@ a {
   height: 170px;
   background: #fff;
   /* border: 1px solid black; */
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 2px #d0d0d0;
 }
 
 #layer_bg > #popup > h2 {
@@ -221,7 +221,9 @@ a {
 }
 
 .todo_title {
-  margin: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 #todo {
@@ -531,7 +533,7 @@ footer {
 }
 
 /* 화면 축소시 & 모바일 브라우저 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   body {
     display: grid;
     grid-template-columns: minmax(auto, auto);
@@ -561,16 +563,16 @@ footer {
   .list_check {
     max-height: 300px;
   }
-  
-  .todo_list{
+
+  .todo_list {
     margin-bottom: 15px;
   }
-  
-  #todo_date{
+
+  #todo_date {
     font-size: xx-small;
   }
 
-  #TODO_LIST{
+  #TODO_LIST {
     max-height: 100%;
   }
 
@@ -578,15 +580,13 @@ footer {
     height: 100%;
   }
 
-
   .timerBox_main {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .timer_clock {
     padding: 0;
   }
-
 
   footer {
     bottom: 0;
@@ -713,16 +713,39 @@ header.night,
   transition: background-color 0.3s;
 }
 
-
 #popup.night {
   color: black;
+}
+
+.title_text {
+  color: #3aa694;
+}
+
+.focusChangeColor {
+  color: orange;
+}
+
+.restChangeColor {
+  color: #78e3d8;
+}
+
+.title_text.night {
+  color: #f7ece1;
+}
+
+.focusChangeColor.night {
+  color: #f7b801;
+}
+
+.restChangeColor.night {
+  color: #f18701;
 }
 
 /* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 .moon {
   display: none;
   width: 300px;
-  height: 300px; 
+  height: 300px;
   overflow: hidden;
   /* 원형이미지가 아니면 아래는 주석처리 */
   /* border-radius: 50%;  
