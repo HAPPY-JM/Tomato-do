@@ -5,6 +5,7 @@ import {
   updateEntryToDb,
   checkEntryFromDb,
   deleteEntryFromDb,
+  deleteAllEntriesFromDb,
 } from "./database.js";
 
 const addTodo = (e) => {
@@ -105,6 +106,14 @@ const deleteTodo = (e) => {
   }
 };
 
+const deleteAllTodos = (e) => {
+  e.preventDefault();
+
+  if(confirm("정말 다 삭제하시나요?") == true) {
+    deleteAllEntriesFromDb("todolist").then(() => showTodoList(e));
+  }
+}
+
 // 중간 중간 이벤트리스너 처리를 위해 백틱으로 묶어 innerHTML 하는 형식이 아니라
 // 태그 일일히 생성해서 넣는 형식을 취했습니다.
 // 백틱으로 할 경우 'list_delete_btn' 태그에 이벤트 리스너 추가할 때
@@ -143,7 +152,7 @@ const showTodoList = async (e) => {
     todoItemElem.appendChild(editButtonElem);
     todoItemElem.appendChild(deleteButtonElem);
 
-    if (entry.check) todoListComplete.push(todoItemElem);
+    if (entry.check) todoListComplete.unshift(todoItemElem);
     else todoListCheck.appendChild(todoItemElem);
   };
 
@@ -161,7 +170,10 @@ const todoListCheck = document.querySelector("#list_check");
 const todoInput = document.querySelector("#todo");
 const addTodoButton = document.querySelector("#todo_submit_btn");
 
+const deleteAllTodoButton = document.querySelector("#todo_clear_btn");
+
 addTodoButton.addEventListener("click", addTodo);
+deleteAllTodoButton.addEventListener("click", deleteAllTodos);
 
 initDatabase().then(showTodoList);
 
