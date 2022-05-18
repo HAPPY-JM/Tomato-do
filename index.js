@@ -5,7 +5,7 @@ import {
   updateEntryToDb,
   checkEntryFromDb,
   deleteEntryFromDb,
-  deleteAllEntriesFromDb,
+  clearEntriesFromDb,
 } from "./database.js";
 
 const addTodo = (e) => {
@@ -106,11 +106,14 @@ const deleteTodo = (e) => {
   }
 };
 
-const deleteAllTodos = (e) => {
+// 투두 리스트 모든 목록 삭제
+const clearTodo = (e) => {
   e.preventDefault();
 
   if(confirm("정말 다 삭제하시나요?") == true) {
-    deleteAllEntriesFromDb("todolist").then(() => showTodoList(e));
+    // 목록을 모두 지우므로 초기화 버튼을 투명으로 한다.
+    clearTodoButton.style.visibility = "hidden";
+    clearEntriesFromDb("todolist").then(() => showTodoList(e));
   }
 }
 
@@ -157,6 +160,12 @@ const showTodoList = async (e) => {
   };
 
   const todoList = await getEntryFromDb("todolist");
+
+  // 목록이 존재하고 초기화 버튼이 투명일 때 다시 보이게 한다.
+  if(todoList.length > 0 && clearTodoButton.style.visibility === "hidden") {
+    clearTodoButton.style.visibility = "visible";
+  }
+
   todoList.forEach((entry) => showTodo(entry));
 
   todoListComplete.forEach((todoItemElem) => {
@@ -170,10 +179,10 @@ const todoListCheck = document.querySelector("#list_check");
 const todoInput = document.querySelector("#todo");
 const addTodoButton = document.querySelector("#todo_submit_btn");
 
-const deleteAllTodoButton = document.querySelector("#todo_clear_btn");
+const clearTodoButton = document.querySelector("#todo_clear_btn");
 
 addTodoButton.addEventListener("click", addTodo);
-deleteAllTodoButton.addEventListener("click", deleteAllTodos);
+clearTodoButton.addEventListener("click", clearTodo);
 
 initDatabase().then(showTodoList);
 
