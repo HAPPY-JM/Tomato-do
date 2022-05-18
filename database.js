@@ -23,16 +23,17 @@ const initDatabase = async () => {
 
     // 객체 저장소의 데이터가 존재하는 경우
     // 개발 완료 후에는 초기 데이터 없이 if문 지우고 사용
-    if(dataCount > 0) {
-        return Promise.resolve();
-    }
+    // if(dataCount > 0) {
+    //     return Promise.resolve();
+    // }
+    return Promise.resolve();
 
     // 초기 데이터 삽입
     // 기본적으로 Dexie의 CRUD 함수들을 Promise로 제공
-    return await db.todolist.bulkAdd([
-        { todo: "복습하기", check: false },
-        { todo: "넷플릭스 시청", check: false }
-    ]);
+    // return await db.todolist.bulkAdd([
+    //     { todo: "복습하기", check: false },
+    //     { todo: "넷플릭스 시청", check: false }
+    // ]);
 }
 
 // 이름이 'storeName'인 객체 저장소에 값이 'entry'인 객체를 저장
@@ -68,7 +69,7 @@ const deleteEntryFromDb = async (storeName, entry) => {
     return await db[storeName].delete(item.id);
 }
 
-const deleteAllEntriesFromDb = async (storeName) => {
+const clearEntriesFromDb = async (storeName) => {
     return await db[storeName].clear();
 }
 
@@ -79,7 +80,7 @@ export {
     updateEntryToDb,
     checkEntryFromDb,
     deleteEntryFromDb,
-    deleteAllEntriesFromDb
+    clearEntriesFromDb
 }
 /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 //테스트용
