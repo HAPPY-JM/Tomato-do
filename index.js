@@ -111,8 +111,9 @@ const deleteTodo = (e) => {
 const showTodoList = async (e) => {
   if (e) e.preventDefault();
 
-  todoListActive.innerHTML = "";
-  todoListComplete.innerHTML = "";
+  todoListCheck.innerHTML = "";
+
+  const todoListComplete = [];
 
   const showTodo = (entry) => {
     const todoItemElem = document.createElement("li");
@@ -120,7 +121,6 @@ const showTodoList = async (e) => {
     const checkboxElem = document.createElement("input");
     checkboxElem.setAttribute("type", "checkbox");
     if (entry.check) checkboxElem.setAttribute("checked", "true");
-    // checkboxElem.addEventListener("click", checkTodo);
 
     const checklistElem = document.createElement("label");
     checklistElem.classList.add("list_name");
@@ -142,16 +142,19 @@ const showTodoList = async (e) => {
     todoItemElem.appendChild(editButtonElem);
     todoItemElem.appendChild(deleteButtonElem);
 
-    if (entry.check) todoListComplete.appendChild(todoItemElem);
-    else todoListActive.appendChild(todoItemElem);
+    if (entry.check) todoListComplete.push(todoItemElem);
+    else todoListCheck.appendChild(todoItemElem);
   };
 
   const todoList = await getEntryFromDb("todolist");
   todoList.forEach((entry) => showTodo(entry));
+
+  todoListComplete.forEach((todoItemElem) => {
+    todoListCheck.appendChild(todoItemElem);
+  });
 };
 
-const todoListActive = document.querySelector("#list_active");
-const todoListComplete = document.querySelector("#list_complete");
+const todoListCheck = document.querySelector("#list_check");
 
 const todoInput = document.querySelector("#todo");
 const addTodoButton = document.querySelector("#todo_submit_btn");
