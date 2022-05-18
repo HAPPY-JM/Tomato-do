@@ -213,7 +213,7 @@ a {
 
 .todo_plus {
   display: inline-block;
-  align-content: center;
+  align-items: center;
   width: 90%;
   box-sizing: border-box;
   margin-top: 15px;
@@ -495,7 +495,7 @@ footer {
 .mode_change {
   position: fixed;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   right: 2%;
   bottom: 5%;
