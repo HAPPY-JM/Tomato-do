@@ -42,7 +42,10 @@ const loadProfilePic = async () => {
     const photoSection =document.querySelector("#input-photo")      
     const dbkey = await getEntryFromDb("userInfo",{type:"imageUrl2"});
     
-    if(dbkey.type){photoSection.src = dbkey.userImg;}
+    if(dbkey){
+        if(dbkey.type){photoSection.src = dbkey.userImg;}
+    }
+    // else{console.log("이미지 없음")}
     
 }
 
