@@ -1,11 +1,11 @@
 body {
   /*화면 초기화*/
   margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
   background-color: #fff;
   width: 100%;
   height: 100%;
@@ -21,7 +21,6 @@ body {
     "footer footer";
 }
 
-
 /* header */
 header {
   grid-area: header;
@@ -29,7 +28,7 @@ header {
   height: 8vh;
   top: 0px;
   background-color: #fff;
-  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
   padding-left: 32px;
   padding-right: 32px;
   display: flex;
@@ -56,6 +55,8 @@ header {
 
 #today_date {
   grid-area: date;
+  text-align: center;
+  margin-top: 24px;
   font-family: "TmoneyRoundWindExtraBold";
   font-size: 30px;
   color: #555555;
@@ -96,56 +97,65 @@ nav {
   }
 }
 
-
 /*pop up*/
 
-ul, li { list-style: none; }
+ul,
+li {
+  list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 
 #layerPopup {
-    display: none;
-    position: fixed;
+  display: none;
+  position: fixed;
 }
 
 #layerPopup + label {
-    display:inline-block;
-    color: #333;
+  display: inline-block;
+  color: #333;
 }
 
 #layer_bg {
-    display:none;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 #layer_bg > #popup {
-    position: absolute;
-    top: 100%;
-    right: 0%;
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius:15px; 
-    transform:translate(-50%, -50%);
-    width:200px;
-    height:200px;
-    background:#fff;
-    box-shadow: 2px 2px 1px rgba(0,0,0,0.1); 
+  position: absolute;
+  top: 130px;
+  right: -40px;
+  padding: 1px 15px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 170px;
+  background: #fff;
+  /* border: 1px solid black; */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #layer_bg > #popup > h2 {
-    margin-bottom:25px;
+  margin-bottom: 25px;
 }
 
 #layer_bg > #popup > h2 > label {
-    float: right;
+  float: top;
 }
 
 #layerPopup:checked + label + #layer_bg {
-    display:block;
+  display: block;
 }
 
+#popup h3 label {
+  margin-left: 80px;
+}
 
 /* main */
 
@@ -240,7 +250,8 @@ a { text-decoration: none; }
   font-family: "TmoneyRoundWindRegular";
 }
 
-.list_edit_btn, .list_delete_btn{
+.list_edit_btn,
+.list_delete_btn {
   width: 3vw;
   height: 3vh;
   background-color: #fff;
@@ -250,16 +261,16 @@ a { text-decoration: none; }
   box-shadow: 1px 2px 2px #d0d0d0;
 }
 
-.list_edit_btn:hover{
+.list_edit_btn:hover {
   background-color: #3aa694;
   color: #fff;
 }
-.list_delete_btn:hover{
+.list_delete_btn:hover {
   background-color: tomato;
   color: #fff;
 }
 
-#todo_update{
+#todo_update {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -267,11 +278,11 @@ a { text-decoration: none; }
   outline: none;
 }
 
-#todo_update:hover{
+#todo_update:hover {
   background-color: #deece6;
 }
 
-#todo_update_submit_btn{
+#todo_update_submit_btn {
   background-color: #cccccc;
   border: none;
   border-radius: 0.5rem;
@@ -286,6 +297,19 @@ a { text-decoration: none; }
   border: none;
   color: black;
   overflow: auto;
+}
+
+.todo_list::-webkit-scrollbar {
+  width: 8px;
+}
+.todo_list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.308);
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 7px rgba(110, 110, 110, 0.822);
+}
+.todo_list::-webkit-scrollbar-track {
+  background-color: #ededee;
+  border-radius: 20px;
 }
 
 .list_check {
@@ -321,7 +345,7 @@ a { text-decoration: none; }
   grid-area: timer;
   padding-left: 15px;
   padding-right: 15px;
-  display:block;
+  display: block;
   height: 100vh;
   align-items: center;
   justify-content: center;
@@ -340,7 +364,7 @@ a { text-decoration: none; }
   justify-content: center;
 }
 
-.tomatoAnimationBox_main{
+.tomatoAnimationBox_main {
   padding: 30px;
 }
 
@@ -385,13 +409,14 @@ a { text-decoration: none; }
   justify-content: center;
 }
 
-.start_time_btn{
+.start_time_btn {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.start_option1, .start_option2{
+.start_option1,
+.start_option2 {
   cursor: pointer;
   color: #555555;
   margin: 15px;
@@ -404,23 +429,25 @@ a { text-decoration: none; }
   box-shadow: 1px 2px 2px #d0d0d0;
 }
 
-.start_option1:hover{
+.start_option1:hover {
   background-color: #3aa694;
 }
-.start_option2:hover{
+.start_option2:hover {
   background-color: #3aa694;
 }
 
-.start_option1:focus{
+.start_option1:focus {
   background-color: #3aa694;
   color: #fff;
 }
-.start_option2:focus{
+.start_option2:focus {
   background-color: #3aa694;
   color: #fff;
 }
 
-.timerBox_startButton, .timerBox_stopButton, .timerBox_resetButton {
+.timerBox_startButton,
+.timerBox_stopButton,
+.timerBox_resetButton {
   cursor: pointer;
   width: 200px;
   padding: 10px;
@@ -434,19 +461,18 @@ a { text-decoration: none; }
   box-shadow: 1px 2px 2px #d0d0d0;
 }
 
-.timerBox_startButton:hover{
+.timerBox_startButton:hover {
   background-color: rgb(255, 196, 0);
-  color:#fff;
+  color: #fff;
 }
-.timerBox_stopButton:hover{
+.timerBox_stopButton:hover {
   background-color: tomato;
   color: #fff;
 }
-.timerBox_resetButton:hover{
+.timerBox_resetButton:hover {
   background-color: #3aa694;
   color: #fff;
 }
-
 
 footer {
   grid-area: footer;
@@ -482,7 +508,6 @@ footer {
   font-size: 40px;
 }
 
-
 /* 화면 축소시 & 모바일 브라우저 */
 @media screen and (max-width: 768px) {
   body {
@@ -503,11 +528,11 @@ footer {
     justify-content: center;
   }
 
-  #today_date {
+  /* #today_date {
     display: none;
-  }
+  } */
 
-  #gear{
+  #gear {
     display: none;
   }
 
@@ -515,13 +540,13 @@ footer {
     max-height: 300px;
   }
 
-#TIMER{
-  height: 100vh;
-}
+  #TIMER {
+    height: 100vh;
+  }
 
-.timer{
-  font-size: xx-small;
-}
+  .timer {
+    font-size: xx-small;
+  }
 
   footer {
     bottom: 0;
@@ -638,13 +663,19 @@ footer.night,
 header.night,
 .logo-title.night,
 #today_date.night,
-#gear_popup.night {
+.qIcon.night {
   color: rgba(255, 255, 255, 0.9);
 }
 
 * {
   transition: background-color 0.3s;
 }
+
+
+#popup.night {
+  color: black;
+}
+
 /* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 .moon {
   display: none;
@@ -656,4 +687,3 @@ header.night,
   background-color: #f8f8da; 
   box-shadow: 0 0 30px #dbd0ba;  */
 }
-

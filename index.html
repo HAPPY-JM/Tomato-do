@@ -20,43 +20,30 @@
     <script src="index.js" type="module" defer></script>
     <title>오늘도 Tomato-do !</title>
   </head>
-
+  <body>
   <header id ="HEADER">
     <div class="logo">    
       <img src="./img/logo.png" alt="로고"  style="height: 6.5vh";/>
       <span class="logo-title">Tomato-do</span></div>
-      <div id = "today_date">
-        <script>
-            date = new Date();
-            const week_saying = 
-            ["즐거운 ", "힘차게 시작하는 ", "파이팅 넘치게! ", "새로운 마음으로 ", "추진력이 필요한 ", "불타는 ", "신나는 "];
-            const week = ["일", "월", "화", " 수", "목", "금", "토"];
-            year = date.getFullYear();
-            month = date.getMonth()+1;
-            day = date.getDate();
-            document.getElementById("today_date").innerHTML =
-            week_saying[date.getDay()] + month + "월 " + day + "일 " + week[date.getDay()] + "요일"
-        </script>
-      </div>
       <div id="gear" >
           <input type="checkbox" id="layerPopup">
           <label for="layerPopup" id="gear_popup">
-            <i class="material-icons", style="font-size: 50px;">question_mark</i>
+            <i class="material-icons qIcon", style="font-size: 50px;">question_mark</i>
           </label>
           <div id="layer_bg">
               <div id="popup">
                   <h3>
                       뽀모도로 란?
-                      <label for="layerPopup">　　X</label>
+                      <label for="layerPopup">X</label>
                   </h3>
-                  25분간 집중해서 일을 한 다음 5분간 휴식하는 방식입니다.<br>
+                  25분간 집중해서 일을 한 다음 5분간 휴식하는 방식입니다.<br><br>
                   Tomato-do로 소중한 시간을 관리해보세요!
               </div>
           </div>
       </div>
   </header>
 
-  <body>
+  <!-- <body> -->
     <div id="TODO_LIST">
       <div class="profile">
         <label className="input-file-button" for="input-file">
@@ -91,6 +78,19 @@
     </div>
     
     <div id="TIMER">
+      <div id = "today_date">
+        <script>
+            date = new Date();
+            const week_saying = 
+            ["즐거운 ", "힘차게 시작하는 ", "파이팅 넘치게! ", "새로운 마음으로 ", "추진력이 필요한 ", "불타는 ", "신나는 "];
+            const week = ["일", "월", "화", " 수", "목", "금", "토"];
+            year = date.getFullYear();
+            month = date.getMonth()+1;
+            day = date.getDate();
+            document.getElementById("today_date").innerHTML =
+            week_saying[date.getDay()] + month + "월 " + day + "일 " + week[date.getDay()] + "요일"
+        </script>
+      </div>
       <!-- /* timer */ -->
       <!-------------------타이머 애니메이션 시작---------------------->
       <div class="tomatoAnimationBox_main">
