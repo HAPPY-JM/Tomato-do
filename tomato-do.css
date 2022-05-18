@@ -4,7 +4,6 @@ body {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   background-color: #fff;
   width: 100%;
@@ -163,7 +162,7 @@ a {
   grid-area: todo_list;
   background-color: #3aa694;
   display: block;
-  height: 100vh;
+  height: 100%;
   padding-left: 15px;
   padding-right: 15px;
   color: #fff;
@@ -247,6 +246,7 @@ a {
 
 .list_check {
   align-items: left;
+  width: 100%;
   font-family: "TmoneyRoundWindRegular";
 }
 
@@ -296,7 +296,8 @@ a {
   border-radius: 1rem;
   border: none;
   color: black;
-  overflow: auto;
+  overflow-x: hidden;
+  word-break: break-all;
 }
 
 .todo_list::-webkit-scrollbar {
@@ -321,7 +322,7 @@ a {
 /* span 태그 부분 일정한 길이로 설정 */
 .list_name {
   display: inline-block;
-  width: 18rem;
+  width: 70%;
 }
 /* 수정, 삭제 버튼 크기 조정 */
 .list_edit_btn {
@@ -346,7 +347,7 @@ a {
   padding-left: 15px;
   padding-right: 15px;
   display: block;
-  height: 100vh;
+  height: 100%;
   align-items: center;
   justify-content: center;
   background-color: #e9e9e9;
@@ -493,8 +494,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 2vw;
-  bottom: 5vh;
+  right: 2%;
+  bottom: 5%;
   z-index: 100;
   background-color: #ececec;
   width: 50px;
