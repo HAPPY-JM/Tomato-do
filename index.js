@@ -172,7 +172,7 @@ inputName.addEventListener("click", () => {
   inputName.value = "";
 }); //클릭시 불러온 이름 지우기
 inputName.addEventListener("blur", loadName); //클릭후 이름 입력하지않고 포커스아웃되면 이름 불러오기
-inputName.addEventListener("keypress", editName); //
+inputName.addEventListener("keypress", editName);
 
 /*-----------------------------------------------------------*/
 import { addPictureEventListener, loadProfilePic } from "./inputPropicture.js";
@@ -197,13 +197,24 @@ function modeClick() {
   qIcon.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
+  const mask = document.getElementsByClassName('mask')
+  const moon = document.getElementsByClassName('moon')[0]
+
   console.log(changeBtn);
   if (changeBtn[0].style.display !== "none") {
     changeBtn[1].style.display = "block";
     changeBtn[0].style.display = "none";
+    // 나이트모드타이머
+    mask[0].style.display="none";
+    mask[1].style.display="none";
+    moon.style.display="block"; 
   } else {
     changeBtn[1].style.display = "none";
     changeBtn[0].style.display = "block";
+    // 나이트모드타이머
+    mask[0].style.display="flex";
+    mask[1].style.display="flex";
+    moon.style.display="none";
   }
 }
 
