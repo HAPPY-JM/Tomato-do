@@ -188,6 +188,9 @@ const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 const profileArea = document.getElementById("profile_name");
 const qIcon = document.querySelector(".qIcon");
+// const focusChangeColor = document.querySelector(".focusChangeColor");
+// const restChangeColor = document.querySelector(".restChangeColor");
+// const todoTitle = document.querySelector(".title_text");
 
 function modeClick() {
   allDiv.forEach((e) => e.classList.toggle("night"));
@@ -198,24 +201,23 @@ function modeClick() {
   qIcon.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
-  const mask = document.getElementsByClassName('mask')
-  const moon = document.getElementsByClassName('moon')[0]
+  const mask = document.getElementsByClassName("mask");
+  const moon = document.getElementsByClassName("moon")[0];
 
-  console.log(changeBtn);
   if (changeBtn[0].style.display !== "none") {
     changeBtn[1].style.display = "block";
     changeBtn[0].style.display = "none";
     // 나이트모드타이머
-    mask[0].style.display="none";
-    mask[1].style.display="none";
-    moon.style.display="block"; 
+    mask[0].style.display = "none";
+    mask[1].style.display = "none";
+    moon.style.display = "block";
   } else {
     changeBtn[1].style.display = "none";
     changeBtn[0].style.display = "block";
     // 나이트모드타이머
-    mask[0].style.display="flex";
-    mask[1].style.display="flex";
-    moon.style.display="none";
+    mask[0].style.display = "flex";
+    mask[1].style.display = "flex";
+    moon.style.display = "none";
   }
 }
 

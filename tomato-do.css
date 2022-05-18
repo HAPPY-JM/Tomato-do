@@ -693,16 +693,39 @@ header.night,
   transition: background-color 0.3s;
 }
 
-
 #popup.night {
   color: black;
+}
+
+.title_text {
+  color: #3aa694;
+}
+
+.focusChangeColor {
+  color: orange;
+}
+
+.restChangeColor {
+  color: #78e3d8;
+}
+
+.title_text.night {
+  color: #f7ece1;
+}
+
+.focusChangeColor.night {
+  color: #f7b801;
+}
+
+.restChangeColor.night {
+  color: #f18701;
 }
 
 /* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 .moon {
   display: none;
   width: 300px;
-  height: 300px; 
+  height: 300px;
   overflow: hidden;
   /* 원형이미지가 아니면 아래는 주석처리 */
   /* border-radius: 50%;  
