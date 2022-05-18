@@ -298,6 +298,7 @@ a {
   color: black;
   overflow-x: hidden;
   word-break: break-all;
+  margin-bottom: 15px;
 }
 
 .todo_list::-webkit-scrollbar {
@@ -491,9 +492,6 @@ footer {
 
 .mode_change {
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   right: 2%;
   bottom: 5%;
   z-index: 100;
@@ -513,7 +511,7 @@ footer {
 @media screen and (max-width: 768px) {
   body {
     display: grid;
-    grid-template-columns: minmax(100px, auto);
+    grid-template-columns: minmax(auto, auto);
     grid-template-rows: minmax(auto, auto);
     grid-template-areas:
       "header"
@@ -540,9 +538,21 @@ footer {
   .list_check {
     max-height: 300px;
   }
+  
+  .todo_list{
+    margin-bottom: 15px;
+  }
+  
+  #todo_date{
+    font-size: xx-small;
+  }
+
+  #TODO_LIST{
+    max-height: 100%;
+  }
 
   #TIMER {
-    height: 100vh;
+    height: 100%;
   }
 
   .timer {
@@ -552,7 +562,9 @@ footer {
   footer {
     bottom: 0;
     font-size: smaller;
+    text-align: center;
     justify-content: center;
+    word-break: break-all;
   }
 }
 
