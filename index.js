@@ -66,15 +66,25 @@ const updateTodo = (e) => {
 const updateTodoComplete = (e, todoItemElem, todoUpdate) => {
   e.preventDefault();
 
-  const updateEntry = {
-    todo: todoItemElem.firstChild.innerText,
-  };
+  try {
+    if (!todoUpdate.firstChild.value) {
+      throw new Error("할 일이 비어있습니다!");
+    }
 
-  const changes = {
-    todo: todoUpdate.firstChild.value,
-  };
-
-  updateEntryToDb("todolist", updateEntry, changes).then(() => showTodoList(e));
+    const updateEntry = {
+      todo: todoItemElem.firstChild.innerText,
+    };
+  
+    const changes = {
+      todo: todoUpdate.firstChild.value,
+    };
+  
+    updateEntryToDb("todolist", updateEntry, changes).then(() => showTodoList(e));
+  } catch (e) {
+    console.log(e);
+    alert("할 일을 입력해주세요!");
+  }
+  
 };
 
 const deleteTodo = (e) => {
