@@ -343,6 +343,26 @@ a {
   padding: 0;
 }
 
+.todo_button {
+  display: inline-block;
+  align-content: center;
+  width: 90%;
+  box-sizing: border-box;
+  margin-top: 15px;
+  margin: 20px;
+}
+
+#todo_clear_btn {
+  width: 15%;
+  height: 40px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
+}
+
 /* timer */
 
 #TIMER {

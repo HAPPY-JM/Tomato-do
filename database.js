@@ -68,13 +68,18 @@ const deleteEntryFromDb = async (storeName, entry) => {
     return await db[storeName].delete(item.id);
 }
 
+const deleteAllEntriesFromDb = async (storeName) => {
+    return await db[storeName].clear();
+}
+
 export { 
     initDatabase,
     addEntryToDb,
     getEntryFromDb,
     updateEntryToDb,
     checkEntryFromDb,
-    deleteEntryFromDb
+    deleteEntryFromDb,
+    deleteAllEntriesFromDb
 }
 /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 //테스트용
