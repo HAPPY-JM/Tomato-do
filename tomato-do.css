@@ -7,8 +7,8 @@ body {
 	font: inherit;
 	vertical-align: baseline;
   background-color: #fff;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font-family: "NEXON Lv1 Gothic OTF";
   display: grid;
   position: relative;
