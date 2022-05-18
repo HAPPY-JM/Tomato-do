@@ -151,7 +151,8 @@ const showTodoList = async (e) => {
   todoList.forEach((entry) => showTodo(entry));
 
   todoListComplete.forEach((todoItemElem) => {
-    todoListCheck.appendChild(todoItemElem);
+    todoListCheck.prepend(todoItemElem);
+    todoItemElem.childNodes[0].style.textDecoration = "line-through";
   });
 };
 
