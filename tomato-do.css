@@ -492,6 +492,9 @@ footer {
 
 .mode_change {
   position: fixed;
+  display: flex;
+  align-content: center;
+  justify-content: center;
   right: 2%;
   bottom: 5%;
   z-index: 100;
@@ -555,9 +558,15 @@ footer {
     height: 100%;
   }
 
-  .timer {
-    font-size: xx-small;
+
+  .timerBox_main {
+    justify-content: space-between;
   }
+
+  .timer_clock {
+    padding: 0;
+  }
+
 
   footer {
     bottom: 0;
