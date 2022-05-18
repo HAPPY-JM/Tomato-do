@@ -17,6 +17,7 @@ const startOption25 = document.getElementsByClassName("start_option1")[0];
 const startOption50 = document.getElementsByClassName("start_option2")[0];
 
 const masking = document.querySelector('.masking')
+const moon = document.querySelector('.moon') //나이트모드타이머
 const imgsiz = masking.clientHeight;
 
 //console.log(focusTime.outerText);
@@ -88,6 +89,7 @@ function resetTimer() {
   //타이머 애니메이션: 리셋버튼클릭시 빨간토마토로 돌아갑니다.
   masking.style.setProperty("-webkit-mask-position-y", `0px`); //webkit
   // masking.style.setProperty('mask-position',`0 0px`)  //css
+  moon.style.setProperty("opacity", `100%`); //나이트모드타이머
   //타이머 애니메이션 끝
 }
 
@@ -98,6 +100,7 @@ function focusStart() {
   timerStartBtn.style.display = "none";  
   
   focusTimerStart === focusTimer ? fadeInFunc() : null; //타이머 애니메이션: fadeIn 애니메이션 실행
+  focusTimerStart === focusTimer ? moonFadeInFunc() : null;  //나이트모드타이머
 
   //setInterval함수를 이용하여 설정한 시간을 기준으로 타이머 작동(일단 25분으로 고정하여 설정해둠)
   focusInterval = setInterval(() => {
@@ -151,12 +154,24 @@ function fadeInFunc() {
     }
   }, 10);
 }
-
+ //나이트모드타이머ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ시작
+function moonFadeInFunc() {  
+  let fadeInOercity = 100;
+  let moonFadeIn = setInterval(() => {
+    moon.style.setProperty("opacity", `${--fadeInOercity}%`);    
+    if (fadeInOercity == 20) {
+      clearInterval(moonFadeIn);
+    }
+  }, 10);
+}
+//나이트모드타이머ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ끝
 // 타이머 애니메이션: 함수
 function tomatoAnimation() {  
   maskPositionY = (focusTimer * imgsiz) / focusTimerStart; //이미지 가릴부분 계산
+  moonOpercity = 120 - Math.floor(focusTimer*100/focusTimerStart) //처음에 너무 어두우니까 이상해서 100>120으로 바꿈  //나이트모드타이머
   masking.style.setProperty("-webkit-mask-position-y", `${maskPositionY}px`); //웹킷
   // masking.style.setProperty('mask-position',`0 ${ parseInt(maskPositionY) }px`)  //css  
+  moon.style.setProperty("opacity", `${moonOpercity}%`);  //나이트모드타이머
 }
 
 timerStartBtn.addEventListener("click", focusStart);

@@ -180,13 +180,21 @@ function modeClick() {
   profileArea.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
-  console.log(changeBtn);
+  const mask = document.getElementsByClassName('mask') //나이트모드타이머
+
+   console.log(changeBtn);
   if (changeBtn[0].style.display !== "none") {
     changeBtn[1].style.display = "block";
     changeBtn[0].style.display = "none";
+    mask[0].style.display="flex";//나이트모드타이머
+    mask[1].style.display="flex";// 나이트모드타이머
+    moon.style.display="none"; //나이트모드타이머
   } else {
     changeBtn[1].style.display = "none";
     changeBtn[0].style.display = "block";
+    mask[0].style.display="none";// 나이트모드타이머
+    mask[1].style.display="none";// 나이트모드타이머
+    moon.style.display="block"; // 나이트모드타이머
   }
 }
 

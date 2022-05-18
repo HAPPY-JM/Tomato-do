@@ -638,3 +638,21 @@ header.night,
 * {
   transition: background-color 0.3s;
 }
+/* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+.moon {
+  /* -webkit-mask-image: url('./img/moonGif.gif');
+  -webkit-mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100%; */
+  margin-top: 20px;
+display: none;
+width: 300px;
+height: 300px; 
+overflow: hidden;
+/* 원형이미지가 아니면 아래는 주석처리 */
+/* border-radius: 50%;
+border-radius: 50%;
+background-color: #f8f8da; 
+box-shadow: 0 0 30px #dbd0ba;  */
+}
+
