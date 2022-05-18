@@ -137,7 +137,7 @@ a {
   height: 170px;
   background: #fff;
   /* border: 1px solid black; */
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 2px #d0d0d0;
 }
 
 #layer_bg > #popup > h2 {
@@ -221,7 +221,9 @@ a {
 }
 
 .todo_title {
-  margin: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 #todo {
