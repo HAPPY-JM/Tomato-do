@@ -1,58 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="오늘도 Tomato-do와 함께 알찬 하루 보내세요!">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="오늘도 알차게! :: Tomato-do">
-    <meta property="og:description" content="뽀모도로 타이머와 투두리스트로 소중한 시간을 관리해보세요">
-    <meta property="og:image" content="./img/logo_og.png">
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" sizes="16x16">
-    <link rel="stylesheet" type="text/css" href="tomato-do.css">
-    <script src="https://kit.fontawesome.com/062162edd7.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="오늘도 Tomato-do와 함께 알찬 하루 보내세요!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="오늘도 알차게! :: Tomato-do" />
+    <meta
+      property="og:description"
+      content="뽀모도로 타이머와 투두리스트로 소중한 시간을 관리해보세요"
+    />
+    <meta property="og:image" content="./img/logo_og.png" />
+    <link
+      rel="icon"
+      href="./img/favicon.ico"
+      type="image/x-icon"
+      sizes="16x16"
+    />
+    <link rel="stylesheet" type="text/css" href="tomato-do.css" />
+    <script
+      src="https://kit.fontawesome.com/062162edd7.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!-- Dexie.js CDN -->
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
     <script src="index.js" type="module" defer></script>
     <title>오늘도 Tomato-do !</title>
   </head>
   <body>
-  <header id ="HEADER">
-    <div class="logo">    
-      <img src="./img/logo.png" alt="로고"  style="height: 6.5vh";/>
-      <span class="logo-title">Tomato-do</span></div>
-      <div id="gear" >
-          <input type="checkbox" id="layerPopup">
-          <label for="layerPopup" id="gear_popup">
-            <i class="material-icons qIcon", style="font-size: 50px;">question_mark</i>
-          </label>
-          <div id="layer_bg">
-              <div id="popup">
-                  <h3>
-                      뽀모도로 란?
-                      <label for="layerPopup">X</label>
-                  </h3>
-                  25분간 집중해서 일을 한 다음 5분간 휴식하는 방식입니다.<br><br>
-                  Tomato-do로 소중한 시간을 관리해보세요!
-              </div>
-          </div>
+    <header id="HEADER">
+      <div class="logo">
+        <img src="./img/logo.png" alt="로고" style="height: 6.5vh" ; />
+        <span class="logo-title">Tomato-do</span>
       </div>
-  </header>
+      <div id="gear">
+        <input type="checkbox" id="layerPopup" />
+        <label for="layerPopup" id="gear_popup">
+          <i class="material-icons qIcon" , style="font-size: 50px"
+            >question_mark</i
+          >
+        </label>
+        <div id="layer_bg">
+          <div id="popup">
+            <h3>
+              뽀모도로 란?
+              <label for="layerPopup">X</label>
+            </h3>
+            25분간 집중해서 일을 한 다음 5분간 휴식하는 방식입니다.<br /><br />
+            Tomato-do로 소중한 시간을 관리해보세요!
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <!-- <body> -->
+    <!-- <body> -->
     <div id="TODO_LIST">
       <div class="profile">
         <label className="input-file-button" for="input-file">
-          <img id="input-photo" src="./img/profile_pic.jpg" alt="profile_pic";>
+          <img
+            id="input-photo"
+            src="./img/profile_pic.jpg"
+            alt="profile_pic"
+            ;
+          />
         </label>
         <!-- <div class="profile_info"> -->
-        <input type="file" id="input-file" style="display:none" accept="image/gif,image/jpeg,image/png">
-        <input id="profile_name" type="input" placeholder="이름">
-        <span class="profile_greeting">님 안녕하세요!</span>        <!-- </div> -->
+        <input
+          type="file"
+          id="input-file"
+          style="display: none"
+          accept="image/gif,image/jpeg,image/png"
+        />
+        <input id="profile_name" type="input" placeholder="이름" />
+        <span class="profile_greeting">님 안녕하세요!</span>
+        <!-- </div> -->
       </div>
 
       <div class="todo_list">
@@ -63,46 +93,72 @@
 
         <div class="todo_plus">
           <form action="">
-            <input id="todo" type="input" placeholder="할 일을 작성해주세요!">
-            <input id="todo_submit_btn" type="submit" value="추가">
+            <input id="todo" type="input" placeholder="할 일을 작성해주세요!" />
+            <input id="todo_submit_btn" type="submit" value="추가" />
           </form>
         </div>
 
         <div class="todo_list list">
-            <ul class="list_check" id="list_check">
-              <!-- 동적으로 불러오기-->
-            </ul>
+          <ul class="list_check" id="list_check">
+            <!-- 동적으로 불러오기-->
+          </ul>
         </div>
 
         <div class="todo_button">
-          <form action="">
+          <form class="todo_clear_container" action="">
             <button id="todo_clear_btn">초기화</button>
           </form>
         </div>
       </div>
     </div>
-    
+
     <div id="TIMER">
-      <div id = "today_date">
+      <div id="today_date">
         <script>
-            date = new Date();
-            const week_saying = 
-            ["즐거운 ", "힘차게 시작하는 ", "파이팅 넘치게! ", "새로운 마음으로 ", "추진력이 필요한 ", "불타는 ", "신나는 "];
-            const week = ["일", "월", "화", " 수", "목", "금", "토"];
-            year = date.getFullYear();
-            month = date.getMonth()+1;
-            day = date.getDate();
-            document.getElementById("today_date").innerHTML =
-            week_saying[date.getDay()] + month + "월 " + day + "일 " + week[date.getDay()] + "요일"
+          date = new Date();
+          const week_saying = [
+            "즐거운 ",
+            "힘차게 시작하는 ",
+            "파이팅 넘치게! ",
+            "새로운 마음으로 ",
+            "추진력이 필요한 ",
+            "불타는 ",
+            "신나는 ",
+          ];
+          const week = ["일", "월", "화", " 수", "목", "금", "토"];
+          year = date.getFullYear();
+          month = date.getMonth() + 1;
+          day = date.getDate();
+          document.getElementById("today_date").innerHTML =
+            week_saying[date.getDay()] +
+            month +
+            "월 " +
+            day +
+            "일 " +
+            week[date.getDay()] +
+            "요일";
         </script>
       </div>
       <!-- /* timer */ -->
       <!-------------------타이머 애니메이션 시작---------------------->
       <div class="tomatoAnimationBox_main">
-        <div id = "tomatoAnimation">
-          <img src="./img/tomatoGreen.svg" alt="" height="300px" width="300px" class="mask">
-          <img src="./img/tomatoRed.svg" alt="" height="300px" width="300px" class="mask masking">
-          <img src="./img/moon (6).png" alt="" class="moon">           <!-- 달사진 테스트용 -->
+        <div id="tomatoAnimation">
+          <img
+            src="./img/tomatoGreen.svg"
+            alt=""
+            height="300px"
+            width="300px"
+            class="mask"
+          />
+          <img
+            src="./img/tomatoRed.svg"
+            alt=""
+            height="300px"
+            width="300px"
+            class="mask masking"
+          />
+          <img src="./img/moon (6).png" alt="" class="moon" />
+          <!-- 달사진 테스트용 -->
         </div>
       </div>
       <!-------------------타이머 애니메이션 종료---------------------->
@@ -128,24 +184,31 @@
       </div>
       <div class="start_time_btn">
         <!-- 집중-휴식시간 정하는 옵션 버튼을 위해 만든 div영역 -->
-        <input type="button" class="start_option1" value="25분-5분">
-        <input type="button" class="start_option2" value="50분-10분">
+        <input type="button" class="start_option1" value="25분-5분" />
+        <input type="button" class="start_option2" value="50분-10분" />
       </div>
-      <div class="timer_btn_collection"> <!-- start, stop, reset 버튼 생성을 위해 div추가 -->
+      <div class="timer_btn_collection">
+        <!-- start, stop, reset 버튼 생성을 위해 div추가 -->
         <button class="timerBox_startButton">Start!</button>
-        <button class="timerBox_stopButton" style="display: none;">Stop</button>    
-        <button class="timerBox_resetButton" style="display: none;">Reset</button>
+        <button class="timerBox_stopButton" style="display: none">Stop</button>
+        <button class="timerBox_resetButton" style="display: none">
+          Reset
+        </button>
       </div>
     </div>
-  
+
     <button class="mode_change day" id="mode_btn">
-      <i class="material-icons icon" style="color:rgb(70, 70, 70);">dark_mode</i>
-      <i class="material-icons icon" style="color:rgb(70, 70, 70); display:none;">light_mode</i>
+      <i class="material-icons icon" style="color: rgb(70, 70, 70)"
+        >dark_mode</i
+      >
+      <i
+        class="material-icons icon"
+        style="color: rgb(70, 70, 70); display: none"
+        >light_mode</i
+      >
     </button>
     <footer>
-      <p>
-        contributed by 김동철 이수정 서정민 지재영 배성현 박태훈 @elice
-      </p>
+      <p>contributed by 김동철 이수정 서정민 지재영 배성현 박태훈 @elice</p>
     </footer>
     <script src="timer.js"></script>
   </body>

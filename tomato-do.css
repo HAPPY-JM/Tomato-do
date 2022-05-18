@@ -320,7 +320,7 @@ a {
 .list_check {
   list-style-type: none;
   padding-inline-start: 20px;
-  max-height: 300px;
+  max-height: 400px;
 }
 
 /* span 태그 부분 일정한 길이로 설정 */
@@ -345,16 +345,20 @@ a {
 }
 
 .todo_button {
-  display: inline-block;
-  align-content: center;
-  width: 90%;
+  display: block;
+  align-items: center;
+  width: 89%;
   box-sizing: border-box;
-  margin-top: 15px;
   margin: 20px;
 }
 
+.todo_clear_container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #todo_clear_btn {
-  width: 15%;
+  width: 18%;
   height: 40px;
   background-color: #cccccc;
   border: none;
@@ -569,12 +573,20 @@ footer {
     margin-bottom: 15px;
   }
 
-  #todo_date {
-    font-size: xx-small;
+  #today_date {
+    font-size: 22px;
   }
 
   #TODO_LIST {
     max-height: 100%;
+  }
+
+  #todo {
+    width: 84%;
+  }
+
+  #todo_submit_btn {
+    width: 11%;
   }
 
   #TIMER {
@@ -586,7 +598,14 @@ footer {
   }
 
   .timer_clock {
-    padding: 0;
+    padding: 0 14px;
+    font-size: 72px;
+  }
+
+  .timerBox_startButton,
+  .timerBox_stopButton,
+  .timerBox_resetButton {
+    width: 170px;
   }
 
   footer {
@@ -742,8 +761,11 @@ header.night,
   color: #f18701;
 }
 
-#today_date.night{
-  background-image: linear-gradient(transparent calc(100% - 10px), #b0b0b04d 3px);
+#today_date.night {
+  background-image: linear-gradient(
+    transparent calc(100% - 10px),
+    #b0b0b04d 3px
+  );
 }
 
 /* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
