@@ -6,16 +6,18 @@ const initDatabase = async () => {
     // 객체 저장소 생성 (스키마 설정)
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
-        todolist: "++id, todo",
+        todolist: "++id, todo, check",
         time: "++id", // 데이터 형식 정한 뒤에 수정할 것
-        userInfo: "++id,userName,userimg",
-        profile:"userpicture",
+        userInfo: "++id,userName,userimg,type",        
         report:"datas"
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
     // options 중 데이터베이스를 자동으로 열어주는 'autoOpen' 존재
     // 'autoOpen'의 default 값이 true이므로 따로 open하지 않음
+    
+    // db.userInfo.bulkAdd([{userName:"이름",type:"name"}])
+    
 
     const dataCount = await db.todolist.count();
 
@@ -28,8 +30,8 @@ const initDatabase = async () => {
     // 초기 데이터 삽입
     // 기본적으로 Dexie의 CRUD 함수들을 Promise로 제공
     return await db.todolist.bulkAdd([
-        { todo: "복습하기" },
-        { todo: "넷플릭스 시청" }
+        { todo: "복습하기", check: false },
+        { todo: "넷플릭스 시청", check: false }
     ]);
 }
 
@@ -55,7 +57,8 @@ const updateEntryToDb = async (storeName, entry, changes) => {
 // 이름이 'storeName'인 객체 저장소에서 값이 'entry'인 객체를 체크
 const checkEntryFromDb = async (storeName, entry) => {
     const item = await getEntryFromDb(storeName, entry);
-    item.check = true;
+    if(item.check) item.check = false;
+    else item.check = true;
     return await db[storeName].update(item.id, item);
 }
 

@@ -1,25 +1,34 @@
 body {
+  /*화면 초기화*/
   margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
   background-color: #fff;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   font-family: "NEXON Lv1 Gothic OTF";
   display: grid;
+  grid-gap: 0;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(100px, auto);
+  grid-template-rows: minmax(auto, auto);
   grid-template-areas:
     "header header"
     "todo_list  timer"
     "footer footer";
 }
 
+
 /* header */
 header {
   grid-area: header;
   position: sticky;
-  height: 100px;
+  height: 8vh;
   top: 0px;
-  background-color: #ececec;
+  background-color: #fff;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
   padding-left: 32px;
   padding-right: 32px;
   display: flex;
@@ -49,6 +58,19 @@ header {
   font-family: "TmoneyRoundWindExtraBold";
   font-size: 30px;
   color: #555555;
+  text-transform: uppercase;
+  line-height: 1.2;
+  background-image: linear-gradient(transparent calc(100% - 10px), #ffd000 3px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+#today_date.color {
+  background-image: linear-gradient(transparent 60%, #ffd000 40%);
+}
+#today_date:hover {
+  background-size: 100% 100%;
 }
 
 /* nav */
@@ -62,7 +84,7 @@ nav {
   display: flex;
 }
 
-.nav-item:hover {
+#gear_popup:hover {
   animation: rotate_image 6s linear infinite;
   transform-origin: 50% 50%;
   cursor: pointer;
@@ -73,12 +95,64 @@ nav {
   }
 }
 
+
+/*pop up*/
+
+ul, li { list-style: none; }
+
+a { text-decoration: none; }
+
+#layerPopup {
+    display: none;
+    position: fixed;
+}
+
+#layerPopup + label {
+    display:inline-block;
+    color: #333;
+}
+
+#layer_bg {
+    display:none;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+
+#layer_bg > #popup {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius:15px; 
+    transform:translate(-50%, -50%);
+    width:200px;
+    height:200px;
+    background:#fff;
+    box-shadow: 2px 2px 1px rgba(0,0,0,0.1); 
+}
+
+#layer_bg > #popup > h2 {
+    margin-bottom:25px;
+}
+
+#layer_bg > #popup > h2 > label {
+    float: right;
+}
+
+#layerPopup:checked + label + #layer_bg {
+    display:block;
+}
+
+
 /* main */
 
 #TODO_LIST {
   grid-area: todo_list;
   background-color: #3aa694;
-  height: 80vh;
+  display: block;
+  height: 100vh;
   padding-left: 15px;
   padding-right: 15px;
   color: #fff;
@@ -128,6 +202,10 @@ nav {
 }
 
 .todo_plus {
+  display: inline-block;
+  align-content: center;
+  width: 90%;
+  box-sizing: border-box;
   margin-top: 15px;
   margin: 20px;
 }
@@ -137,7 +215,7 @@ nav {
 }
 
 #todo {
-  width: min(300px);
+  width: 85%;
   height: min(30px);
   font-family: "TmoneyRoundWindRegular";
   font-size: 15px;
@@ -146,8 +224,8 @@ nav {
 }
 
 #todo_submit_btn {
-  width: 60px;
-  height: 38px;
+  width: 10%;
+  height: 40px;
   background-color: #cccccc;
   border: none;
   border-radius: 0.5rem;
@@ -159,6 +237,46 @@ nav {
 .list_check {
   align-items: left;
   font-family: "TmoneyRoundWindRegular";
+}
+
+.list_edit_btn, .list_delete_btn{
+  width: 3vw;
+  height: 3vh;
+  background-color: #fff;
+  border: none;
+  border-radius: 10rem;
+  margin: 5px;
+  box-shadow: 1px 2px 2px #d0d0d0;
+}
+
+.list_edit_btn:hover{
+  background-color: #3aa694;
+  color: #fff;
+}
+.list_delete_btn:hover{
+  background-color: tomato;
+  color: #fff;
+}
+
+#todo_update{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px, #256d61;
+  outline: none;
+}
+
+#todo_update:hover{
+  background-color: #deece6;
+}
+
+#todo_update_submit_btn{
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .todo_list {
@@ -200,9 +318,13 @@ nav {
 
 #TIMER {
   grid-area: timer;
-  display: grid;
-  height: 80vh;
-  background-color: #dddbdb;
+  padding-left: 15px;
+  padding-right: 15px;
+  display:block;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9e9e9;
   place-items: center;
 }
 
@@ -215,6 +337,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.tomatoAnimationBox_main{
+  padding: 30px;
 }
 
 .timer {
@@ -231,7 +357,20 @@ nav {
 .timer_name {
   text-align: center;
   font-family: "Cafe24Ssurround";
-  font-size: 30px;
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  background-image: linear-gradient(transparent calc(100% - 8px), #fff 2px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.timer_name.color {
+  background-image: linear-gradient(transparent 60%, #ffd000 40%);
+}
+.timer_name:hover {
+  background-size: 100% 100%;
 }
 
 .timer_clock {
@@ -241,10 +380,48 @@ nav {
 .timer_btn_collection {
   display: flex;
   font-size: 30px;
+  align-items: center;
   justify-content: center;
 }
 
-button {
+.start_time_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start_option1, .start_option2{
+  cursor: pointer;
+  color: #555555;
+  margin: 15px;
+  font-size: 20px;
+  padding: 10px;
+  font-family: "TmoneyRoundWindExtraBold";
+  background-color: #fff;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 1px 2px 2px #d0d0d0;
+}
+
+.start_option1:hover{
+  background-color: #3aa694;
+}
+.start_option2:hover{
+  background-color: #3aa694;
+}
+
+.start_option1:focus{
+  background-color: #3aa694;
+  color: #fff;
+}
+.start_option2:focus{
+  background-color: #3aa694;
+  color: #fff;
+}
+
+.timerBox_startButton, .timerBox_stopButton, .timerBox_resetButton {
+  cursor: pointer;
+  width: 200px;
   padding: 10px;
   margin: 10px;
   color: #555555;
@@ -256,25 +433,32 @@ button {
   box-shadow: 1px 2px 2px #d0d0d0;
 }
 
-/* footer 
-footer span {
-  display: flex;
-  justify-content: flex-end;
+.timerBox_startButton:hover{
+  background-color: rgb(255, 196, 0);
+  color:#fff;
 }
-*/
+.timerBox_stopButton:hover{
+  background-color: tomato;
+  color: #fff;
+}
+.timerBox_resetButton:hover{
+  background-color: #3aa694;
+  color: #fff;
+}
+
 
 footer {
   grid-area: footer;
   position: relative;
   display: flex;
   bottom: 0px;
-  height: 5vh;
+  height: 2vh;
   padding: 10px;
   background-color: #c1cdc8;
   font-size: 15px;
   color: rgb(103, 107, 124);
   align-items: center;
-  justify-content: right;
+  justify-content: center;
 }
 
 .mode_change {
@@ -282,8 +466,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 8px;
-  bottom: 10vh;
+  right: 2vw;
+  bottom: 5vh;
   z-index: 100;
   background-color: #ececec;
   width: 50px;
@@ -297,9 +481,6 @@ footer {
   font-size: 40px;
 }
 
-.fa-moon:hover {
-  color: gold;
-}
 
 /* 화면 축소시 & 모바일 브라우저 */
 @media screen and (max-width: 768px) {
@@ -324,7 +505,8 @@ footer {
   #today_date {
     display: none;
   }
-  .nav-item {
+
+  #gear{
     display: none;
   }
 
@@ -332,7 +514,16 @@ footer {
     max-height: 300px;
   }
 
+#TIMER{
+  height: 100vh;
+}
+
+.timer{
+  font-size: xx-small;
+}
+
   footer {
+    bottom: 0;
     font-size: smaller;
     justify-content: center;
   }
@@ -445,7 +636,8 @@ footer.night,
 
 header.night,
 .logo-title.night,
-#today_date.night {
+#today_date.night,
+#gear_popup.night {
   color: rgba(255, 255, 255, 0.9);
 }
 

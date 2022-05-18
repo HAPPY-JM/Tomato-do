@@ -3,7 +3,7 @@ import {
   addEntryToDb,
   getEntryFromDb,
   updateEntryToDb,
-  // checkEntryFromDb,
+  checkEntryFromDb,
   deleteEntryFromDb,
 } from "./database.js";
 
@@ -29,10 +29,13 @@ const addTodo = (e) => {
 
 const checkTodo = (e) => {
   e.preventDefault();
-  // const tagName = e.target.tagName;
-  // const iTodoDelete = e.target.parentNode.parentNode.firstChild;
-  // const buttonTodoDelete = e.target.parentNode.firstChild;
-  // const todoDelete = (tagName === "I") ? iTodoDelete : buttonTodoDelete;
+  const tagName = e.target.tagName;
+  const todoCheck = (tagName === "INPUT") ? e.target : e.target.firstChild;
+  const checkEntry = {
+    todo: todoCheck.parentNode.innerText,
+  };
+
+  checkEntryFromDb("todolist", checkEntry).then(() => showTodoList(e));
 };
 
 const updateTodo = (e) => {
@@ -63,15 +66,25 @@ const updateTodo = (e) => {
 const updateTodoComplete = (e, todoItemElem, todoUpdate) => {
   e.preventDefault();
 
-  const updateEntry = {
-    todo: todoItemElem.firstChild.innerText,
-  };
+  try {
+    if (!todoUpdate.firstChild.value) {
+      throw new Error("할 일이 비어있습니다!");
+    }
 
-  const changes = {
-    todo: todoUpdate.firstChild.value,
-  };
-
-  updateEntryToDb("todolist", updateEntry, changes).then(() => showTodoList(e));
+    const updateEntry = {
+      todo: todoItemElem.firstChild.innerText,
+    };
+  
+    const changes = {
+      todo: todoUpdate.firstChild.value,
+    };
+  
+    updateEntryToDb("todolist", updateEntry, changes).then(() => showTodoList(e));
+  } catch (e) {
+    console.log(e);
+    alert("할 일을 입력해주세요!");
+  }
+  
 };
 
 const deleteTodo = (e) => {
@@ -98,22 +111,22 @@ const deleteTodo = (e) => {
 const showTodoList = async (e) => {
   if (e) e.preventDefault();
 
-  todoListActive.innerHTML = "";
-  todoListComplete.innerHTML = "";
+  todoListCheck.innerHTML = "";
 
-  const showTodo = (entry, isComplete) => {
+  const todoListComplete = [];
+
+  const showTodo = (entry) => {
     const todoItemElem = document.createElement("li");
 
     const checkboxElem = document.createElement("input");
     checkboxElem.setAttribute("type", "checkbox");
-    if (isComplete) checkboxElem.setAttribute("checked", "true");
-    checkboxElem.addEventListener("click", checkTodo);
+    if (entry.check) checkboxElem.setAttribute("checked", "true");
 
     const checklistElem = document.createElement("label");
     checklistElem.classList.add("list_name");
     checklistElem.appendChild(checkboxElem);
     checklistElem.innerHTML += entry.todo;
-    //checklistElem.addEventListener("click", completeTodo);
+    checklistElem.addEventListener("click", checkTodo);
 
     const editButtonElem = document.createElement("button");
     editButtonElem.classList.add("list_edit_btn");
@@ -129,20 +142,19 @@ const showTodoList = async (e) => {
     todoItemElem.appendChild(editButtonElem);
     todoItemElem.appendChild(deleteButtonElem);
 
-    if (isComplete) todoListComplete.appendChild(todoItemElem);
-    else todoListActive.appendChild(todoItemElem);
+    if (entry.check) todoListComplete.push(todoItemElem);
+    else todoListCheck.appendChild(todoItemElem);
   };
 
-  // const todoActive = await getEntryFromDb("todolistActive");
-  // todoActive.forEach((entry) => showTodo(entry, false));
-  // const todoComplete = await getEntryFromDb("todolistComplete");
-  // todoComplete.forEach((entry) => showTodo(entry, true));
   const todoList = await getEntryFromDb("todolist");
-  todoList.forEach((entry) => showTodo(entry, false));
+  todoList.forEach((entry) => showTodo(entry));
+
+  todoListComplete.forEach((todoItemElem) => {
+    todoListCheck.appendChild(todoItemElem);
+  });
 };
 
-const todoListActive = document.querySelector("#list_active");
-const todoListComplete = document.querySelector("#list_complete");
+const todoListCheck = document.querySelector("#list_check");
 
 const todoInput = document.querySelector("#todo");
 const addTodoButton = document.querySelector("#todo_submit_btn");
@@ -161,8 +173,9 @@ inputName.addEventListener("blur", loadName); //클릭후 이름 입력하지않
 inputName.addEventListener("keypress", editName); //
 
 /*-----------------------------------------------------------*/
-import { addPictureEventListener } from "./inputPropicture.js";
+import {addPictureEventListener,loadProfilePic} from "./inputPropicture.js";
 addPictureEventListener();
+loadProfilePic();
 
 /*------------------- Night mode------------------*/
 const modeButton = document.getElementById("mode_btn");
