@@ -7,6 +7,7 @@ const showProfileModal = async ()=> {
     badgeBox.addEventListener("click",()=>{
         badgeContent.style.display = "block"
         // console.log("뱃지 상자 열기");
+        badgeload();
     })
 }
 
