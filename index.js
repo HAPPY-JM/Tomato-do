@@ -203,4 +203,5 @@ hideProfileModal();
 import {focusStart,addTestBtnEventListener} from "./badgeTimer.js"
 const button = document.getElementsByClassName("focus timer_clock")[0];
 button.addEventListener("click",focusStart);
-addTestBtnEventListener();
+// 밑의 부분은 타이머 버튼 작동위한 코드임. index,js 부분과 index.html부분, badgeTimer.js 주석 함께 지워야함.
+// addTestBtnEventListener();

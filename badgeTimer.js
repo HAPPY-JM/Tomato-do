@@ -148,17 +148,17 @@ function focusStart() {
       
 }
 
-// Db테스트용 버튼
- function addTestBtnEventListener(){
-  const DbtestBtn = document.querySelector("#DbtestBtn");
-  const testtoday = new Date();
-  DbtestBtn.addEventListener("click",()=>{
-     addEntryToDb("report",{date : testtoday.toLocaleDateString(), startTime:testtoday.toLocaleTimeString(), endTime:testtoday.toLocaleTimeString()});
-     badgeload();
-  })
+// 밑의 부분은 타이머 버튼 작동위한 코드임. index,js 부분과 index.html부분, badgeTimer.js 주석 함께 지워야함.
+//  function addTestBtnEventListener(){
+//   const DbtestBtn = document.querySelector("#DbtestBtn");
+//   const testtoday = new Date();
+//   DbtestBtn.addEventListener("click",()=>{
+//      addEntryToDb("report",{date : testtoday.toLocaleDateString(), startTime:testtoday.toLocaleTimeString(), endTime:testtoday.toLocaleTimeString()});
+//      badgeload();
+//   })
   
   
-}
+// }
 
 export {focusStart,addTestBtnEventListener}
 
