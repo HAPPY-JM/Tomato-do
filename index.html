@@ -34,6 +34,7 @@
     <!-- Dexie.js CDN -->
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
     <script src="index.js" type="module" defer></script>
+    
     <title>오늘도 Tomato-do !</title>
   </head>
   <body>
@@ -59,8 +60,23 @@
             Tomato-do로 소중한 시간을 관리해보세요!
           </div>
         </div>
+    <div id="badgeContent" style="display:none;padding:25px;font-size: 50px;background-color: ivory;height:300px;width:30% ;position:fixed;left:35%;top:30px">
+      <button style="font-size: 15px;" id="closeBtn">닫기</button>
+      <div id="badgeList">
+        
+        
+        
+        
+        
       </div>
-    </header>
+    </div>
+    <i class="fa-solid fa-box" , style="font-size: 50px;" id="badgeBox"></i>
+    
+    
+    
+    
+    
+  </header>
 
     <!-- <body> -->
     <div id="TODO_LIST">
@@ -192,10 +208,10 @@
       <div class="timer_btn_collection">
         <!-- start, stop, reset 버튼 생성을 위해 div추가 -->
         <button class="timerBox_startButton">Start!</button>
-        <button class="timerBox_stopButton" style="display: none">Stop</button>
-        <button class="timerBox_resetButton" style="display: none">
-          Reset
-        </button>
+        <button class="timerBox_stopButton" style="display: none;">Stop</button>    
+        <button class="timerBox_resetButton" style="display: none;">Reset</button>
+        <!-- 밑의 부분은 타이머 버튼 작동위한 코드임. index,js 부분과 index.html부분, badgeTimer.js 주석 함께 지워야함. -->
+        <!-- <button id="DbtestBtn">test data 넣기</button> -->
       </div>
     </div>
 

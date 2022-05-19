@@ -4,7 +4,8 @@ import { testDb } from "./database.js"
 const loadName = async ()=>{  
         
     const dbkey = await getEntryFromDb("userInfo",{type:"name"});
-    if(dbkey.type){inputName.value = dbkey.userName;}
+    if(dbkey){if(dbkey.type)inputName.value = dbkey.userName;}   
+    // else{console.log("이름 데이터 없음")} 
 }
 const editNameEnter = async (key) =>{
     if(key.keyCode == 13){
