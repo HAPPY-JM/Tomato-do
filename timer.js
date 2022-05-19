@@ -16,8 +16,8 @@ const timerBtnCollect = document.getElementsByClassName(
 const startOption25 = document.getElementsByClassName("start_option1")[0];
 const startOption50 = document.getElementsByClassName("start_option2")[0];
 
-const masking = document.querySelector('.masking')
-const moon = document.querySelector('.moon') //나이트모드타이머
+const masking = document.querySelector(".masking");
+const moon = document.querySelector(".moon"); //나이트모드타이머
 
 const imgsiz = masking.clientHeight;
 
@@ -69,6 +69,8 @@ function timerTimeSet() {
 
 function stopTimer() {
   clearInterval(focusInterval); //타이머 중단
+  clearInterval(restInterval); //타이머 중단
+
   //중단하면 재시작할 수 있는 start버튼과 초기화 하는 reset버튼이 나오도록 구현
   timerStopBtn.style.display = "none";
   timerResetBtn.style.display = "block";
@@ -77,7 +79,9 @@ function stopTimer() {
 
 function resetTimer() {
   clearInterval(focusInterval); //타이머 중단
-  //중단 시 설정했던 시간으로 돌아가도록 함(일단 25분으로 설정, 추후 변수 이용하여 입력값을 대입하도록 수정)
+  clearInterval(restInterval); //타이머 중단
+
+  //중단 시 설정했던 시간으로 돌아가도록 함
 
   timerTimeSet(); // 처음 시간으로 돌리는 건 timeset과 같으니 그대로 불러옴.
   // 전역변수 selectOption이 변경되지 않았으므로 바꾼 옵션대로 reset 될 것임.
@@ -94,6 +98,9 @@ function resetTimer() {
   //타이머 애니메이션 끝
 }
 
+import { addEntryToDb } from "./database.js";
+import { badgeload } from "./badge.js";
+
 function focusStart() {
   //타이머 시작하면서 start버튼은 사라지고 stop, reset버튼 나오도록 구현
   timerStopBtn.style.display = "block";
@@ -101,28 +108,45 @@ function focusStart() {
   timerStartBtn.style.display = "none";
 
   focusTimerStart === focusTimer ? fadeInFunc() : null; //타이머 애니메이션: fadeIn 애니메이션 실행
-  focusTimerStart === focusTimer ? moonFadeInFunc() : null;  //나이트모드타이머
+  focusTimerStart === focusTimer ? moonFadeInFunc() : null; //나이트모드타이머
+
+  const today = new Date();
+  const timerstart = today.toLocaleTimeString();
 
   //setInterval함수를 이용하여 설정한 시간을 기준으로 타이머 작동(일단 25분으로 고정하여 설정해둠)
-  focusInterval = setInterval(() => {
-    --focusTimer; //타이머 작동
+  if (focusTimer > 0) {
+    focusInterval = setInterval(() => {
+      --focusTimer; //타이머 작동
 
-    tomatoAnimation(); //타이머 애니메이션: 실행
+      tomatoAnimation(); //타이머 애니메이션: 실행
 
-    min = parseInt(focusTimer / 60); //분 표시
-    sec = focusTimer % 60; //초 표시
+      min = parseInt(focusTimer / 60); //분 표시
+      sec = focusTimer % 60; //초 표시
 
-    //padStart를 이용하여 10분과 10초 미만으로 내려갔을 때 두자리 수로 만들어줌
-    focusTime.innerHTML = `${String(min).padStart(2, "0")}:${String(
-      sec
-    ).padStart(2, "0")} `;
+      //padStart를 이용하여 10분과 10초 미만으로 내려갔을 때 두자리 수로 만들어줌
+      focusTime.innerHTML = `${String(min).padStart(2, "0")}:${String(
+        sec
+      ).padStart(2, "0")} `;
 
-    //만약 집중 시간이 종료되면 다시 25:00으로 설정되도록 함
-    if (focusTimer <= 0) {
-      clearInterval(focusInterval);
-      restStart();
-    }
-  }, 1000);
+      //만약 집중 시간이 종료되면 다시 25:00으로 설정되도록 함
+      if (focusTimer <= 0) {
+        clearInterval(focusInterval);
+        restStart();
+
+        const todayDate = today.toLocaleDateString();
+        const timerEndDb = today.toLocaleTimeString();
+
+        addEntryToDb("report", {
+          date: todayDate,
+          startTime: timerstart,
+          endTime: timerEndDb,
+        });
+        badgeload();
+      }
+    }, 1000);
+  } else {
+    restStart();
+  }
 }
 
 function restStart() {
@@ -155,11 +179,11 @@ function fadeInFunc() {
     }
   }, 10);
 }
- //나이트모드타이머ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ시작
-function moonFadeInFunc() {  
+//나이트모드타이머ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ시작
+function moonFadeInFunc() {
   let fadeInOercity = 100;
   let moonFadeIn = setInterval(() => {
-    moon.style.setProperty("opacity", `${--fadeInOercity}%`);    
+    moon.style.setProperty("opacity", `${--fadeInOercity}%`);
     if (fadeInOercity == 20) {
       clearInterval(moonFadeIn);
     }
@@ -168,13 +192,12 @@ function moonFadeInFunc() {
 //나이트모드타이머ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ끝
 // 타이머 애니메이션: 함수
 function tomatoAnimation() {
-  maskPositionY = (focusTimer * imgsiz) / focusTimerStart; //이미지 가릴부분 계산
-  moonOpercity = 120 - Math.floor(focusTimer*100/focusTimerStart) //처음에 너무 어두우니까 이상해서 100>120으로 바꿈  //나이트모드타이머
+  const maskPositionY = (focusTimer * imgsiz) / focusTimerStart; //이미지 가릴부분 계산
+  const moonOpercity = 120 - Math.floor((focusTimer * 100) / focusTimerStart); //처음에 너무 어두우니까 이상해서 100>120으로 바꿈  //나이트모드타이머
   masking.style.setProperty("-webkit-mask-position-y", `${maskPositionY}px`); //웹킷
 
-  // masking.style.setProperty('mask-position',`0 ${ parseInt(maskPositionY) }px`)  //css  
-  moon.style.setProperty("opacity", `${moonOpercity}%`);  //나이트모드타이머
-
+  // masking.style.setProperty('mask-position',`0 ${ parseInt(maskPositionY) }px`)  //css
+  moon.style.setProperty("opacity", `${moonOpercity}%`); //나이트모드타이머
 }
 
 timerStartBtn.addEventListener("click", focusStart);

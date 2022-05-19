@@ -44,6 +44,13 @@
         <span class="logo-title">Tomato-do</span>
       </div>
       <div id="gear">
+        <div id="badgeContent" style="display:none;padding:25px;font-size: 50px;background-color: ivory;height:300px;width:30% ;position:fixed;left:35%;top:30px">
+          <button style="font-size: 15px;" id="closeBtn">닫기</button>
+          <div id="badgeList">
+    
+          </div>
+        </div>
+        <i class="fa-solid fa-box" , style="cursor: pointer; font-size: 50px;" id="badgeBox"></i>
         <input type="checkbox" id="layerPopup" />
         <label for="layerPopup" id="gear_popup">
           <i class="material-icons qIcon" , style="font-size: 50px"
@@ -60,17 +67,6 @@
             Tomato-do로 소중한 시간을 관리해보세요!
           </div>
         </div>
-    <div id="badgeContent" style="display:none;padding:25px;font-size: 50px;background-color: ivory;height:300px;width:30% ;position:fixed;left:35%;top:30px">
-      <button style="font-size: 15px;" id="closeBtn">닫기</button>
-      <div id="badgeList">
-        
-        
-        
-        
-        
-      </div>
-    </div>
-    <i class="fa-solid fa-box" , style="font-size: 50px;" id="badgeBox"></i>
     
     
     
@@ -229,11 +225,13 @@
       <p>contributed by 김동철 이수정 서정민 지재영 배성현 박태훈 @elice</p>
     </footer>
     <div id="welcomePage">
+      <!-- 기존 문구 수정 및 이미지 추가 -->
+      <img src="./img/logo.png" alt="로고" style="height: 30vh"; />
       <h1 id="welcomeText">
-        오늘도 화이팅ㅇㅇㅇㅇㅇ<br />
-        내일도 화이팅...
+        오늘도 Tomato-do,<br>
+        내일도 Tomato-do!
       </h1>
     </div>
-    <script src="timer.js"></script>
+    <script src="timer.js" type="module"></script>
   </body>
 </html>

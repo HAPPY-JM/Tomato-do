@@ -86,6 +86,11 @@ nav {
   display: flex;
 }
 
+#gear {
+  display: flex;
+  align-items: center;
+}
+
 #gear_popup:hover {
   animation: rotate_image 6s linear infinite;
   transform-origin: 50% 50%;
@@ -127,8 +132,8 @@ a {
 
 #layer_bg > #popup {
   position: absolute;
-  top: 130px;
-  right: -40px;
+  top: 120px;
+  right: -42px;
   padding: 1px 15px;
   box-sizing: border-box;
   border-radius: 15px;
@@ -407,7 +412,6 @@ a {
   font-size: 80px;
   text-align: center;
   width: 180px;
-  text-align: center;
 }
 
 .timer_name {
@@ -799,18 +803,19 @@ header.night,
 }
 
 /* welcome page 및 이름 입력받기 */
+/* 색상 변경했고 애니메이션 3초에서 1.8초로 변경했습니다 */
 #welcomePage {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #3aa694;
   color: white;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: welcomeAni 3s 1s forwards;
+  animation: welcomeAni 1.5s 1s forwards;
 }
 
 @keyframes welcomeAni {
