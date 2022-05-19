@@ -22,7 +22,7 @@ const imgsiz = masking.clientHeight;
 //console.log(focusTime.outerText);
 
 let count = 0; //반복 횟수를 지정하기 위한 변수 설정
-let focusTimer = 10; //설정 할 집중시간(25분으로 기본 설정)
+let focusTimer = 1500; //설정 할 집중시간(25분으로 기본 설정)
 let restTimer = 300;
 let min = ""; //남은 시간 - 분
 let sec = ""; //남은 시간 - 초
