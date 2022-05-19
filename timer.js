@@ -24,7 +24,7 @@ const imgsiz = masking.clientHeight;
 //console.log(focusTime.outerText);
 
 let count = 0; //반복 횟수를 지정하기 위한 변수 설정
-let focusTimer = 3; //설정 할 집중시간(25분으로 기본 설정)
+let focusTimer = 1500; //설정 할 집중시간(25분으로 기본 설정)
 let restTimer = 300;
 let min = ""; //남은 시간 - 분
 let sec = ""; //남은 시간 - 초
@@ -56,7 +56,7 @@ function timerTimeSet() {
   if (selectOption === "option25") {
     focusTime.innerHTML = `25:00`;
     restTime.innerHTML = `05:00`;
-    focusTimer = 3;
+    focusTimer = 1500;
     restTimer = 300;
   } else if (selectOption === "option50") {
     focusTime.innerHTML = `50:00`;
