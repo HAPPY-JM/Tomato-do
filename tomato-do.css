@@ -16,7 +16,7 @@ body {
   grid-template-rows: minmax(auto, auto);
   grid-template-areas:
     "header header"
-    "todo_list  timer"
+    "todo_list timer"
     "footer footer";
 }
 
@@ -25,7 +25,7 @@ header {
   grid-area: header;
   vertical-align: baseline;
   position: sticky;
-  height: 8vh;
+  min-height: 8vh;
   top: 0px;
   background-color: #fff;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
@@ -100,6 +100,32 @@ nav {
   100% {
     transform: rotate(360deg);
   }
+}
+
+#badgeContent{
+  display: none;
+  position: absolute;
+  top: 35vh;
+  padding: 15px;
+  left: 35%; 
+  background-color: #143f39f9;
+  width: 350px;
+  height: 200px;
+  border-radius: 2rem;
+  box-shadow: 1px 2px 2px #00000074;
+}
+
+
+#closeBtn{
+  border: none;
+  background-color: #12131800;
+  display: flex;
+  text-align: right;
+}
+
+#badgeBox{
+  cursor: pointer; 
+  font-size: 50px;
 }
 
 /*pop up*/
@@ -242,7 +268,7 @@ a {
 }
 
 #todo_submit_btn {
-  width: 10%;
+  width: 50px;
   height: 40px;
   background-color: #cccccc;
   border: none;
@@ -363,7 +389,7 @@ a {
 }
 
 #todo_clear_btn {
-  width: 18%;
+  width: 10%;
   height: 40px;
   background-color: #cccccc;
   border: none;
@@ -480,7 +506,7 @@ a {
   color: #fff;
 }
 
-.timerBox_startButton,
+.timerBox_startButton, /*?? ? ? ? ?*/
 .timerBox_stopButton,
 .timerBox_resetButton {
   cursor: pointer;
@@ -621,6 +647,15 @@ footer {
     text-align: center;
     justify-content: center;
     word-break: break-all;
+  }
+
+  #welcomePage {
+    display: block;
+    height: 10vh;
+    background-color: #3aa694;
+    color: white;
+    z-index: 1000;
+    animation: welcomeAni 1.5s 1s forwards;
   }
 }
 

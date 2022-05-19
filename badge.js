@@ -28,8 +28,8 @@ const badgeload = async () => {
       if (res.length >= 1) {
         badgeList.innerHTML += `
                     
-                    <i class="fa-solid fa-seedling" style="display: block;margin-top:10px;position:relative">
-                    <span style="font-size:30px"> (새싹) : 타이머 첫 사용</span>
+                    <i class="fa-solid fa-seedling" style="color: green; font-size:30px; display: block;margin-top:10px;position:relative">
+                    <span style="font-size:20px; color:#fff;"> 뽀모도로 타이머를 첫 사용!</span>
                     </i>
                     
                     `;
@@ -37,7 +37,7 @@ const badgeload = async () => {
       if (res.filter((x) => x.date == todayDate).length >= 5) {
         badgeList.innerHTML += `
                 <i class="fa-solid fa-sun" style="display: block;margin-top:10px;position:relative">
-                <span style="font-size:30px"> (태양) : 오늘 5번 이상 사용</span>
+                <span style="font-size:30px"> 오늘 타이머를 5번이나 사용하셨군요?</span>
                 </i> 
                 `;
       }
