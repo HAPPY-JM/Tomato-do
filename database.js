@@ -7,10 +7,10 @@ const initDatabase = async () => {
     // ++ : 자동으로 증가하는 기본 키
     db.version(1).stores({
         todolist: "++id, todo, check",
-        time: "++id", // 데이터 형식 정한 뒤에 수정할 것
+        // time: "++id", // 데이터 형식 정한 뒤에 수정할 것
         userInfo: "++id,userName,userimg,type",        
-        report:"++id,date,startTime,endTime"
-        
+        report:"++id,date,startTime,endTime",
+        firstDb:"++id,type"
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
