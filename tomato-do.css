@@ -1,0 +1,824 @@
+body {
+  /*화면 초기화*/
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: middle;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "NEXON Lv1 Gothic OTF";
+  display: grid;
+  position: relative;
+  grid-gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(auto, auto);
+  grid-template-areas:
+    "header header"
+    "todo_list  timer"
+    "footer footer";
+}
+
+/* header */
+header {
+  grid-area: header;
+  vertical-align: baseline;
+  position: sticky;
+  height: 8vh;
+  top: 0px;
+  background-color: #fff;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  padding-left: 32px;
+  padding-right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-title {
+  grid-area: logo-title;
+  padding-left: 5px;
+  font-family: "yg-jalnan";
+  font-size: 48px;
+  color: #555555;
+  cursor: default;
+}
+
+#today_date {
+  grid-area: date;
+  text-align: center;
+  margin-top: 24px;
+  font-family: "TmoneyRoundWindExtraBold";
+  font-size: 30px;
+  color: #555555;
+  text-transform: uppercase;
+  line-height: 1.2;
+  background-image: linear-gradient(transparent calc(100% - 10px), #ffd000 3px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+#today_date.color {
+  background-image: linear-gradient(transparent 60%, #ffd000 40%);
+}
+#today_date:hover {
+  background-size: 100% 100%;
+}
+
+/* nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-info {
+  display: flex;
+}
+
+#gear_popup:hover {
+  animation: rotate_image 6s linear infinite;
+  transform-origin: 50% 50%;
+  cursor: pointer;
+}
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*pop up*/
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#layerPopup {
+  display: none;
+  position: fixed;
+}
+
+#layerPopup + label {
+  display: inline-block;
+  color: #333;
+}
+
+#layer_bg {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#layer_bg > #popup {
+  position: absolute;
+  top: 130px;
+  right: -40px;
+  padding: 1px 15px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 170px;
+  background: #fff;
+  /* border: 1px solid black; */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#layer_bg > #popup > h2 {
+  margin-bottom: 25px;
+}
+
+#layer_bg > #popup > h2 > label {
+  float: top;
+}
+
+#layerPopup:checked + label + #layer_bg {
+  display: block;
+}
+
+#popup h3 label {
+  margin-left: 80px;
+}
+
+/* main */
+
+#TODO_LIST {
+  grid-area: todo_list;
+  background-color: #3aa694;
+  display: block;
+  min-height: 100vh;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+}
+
+.profile {
+  display: flex;
+  font-family: "TmoneyRoundWindExtraBold";
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#profile_name {
+  width: min(120px);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #256d61;
+  background-color: #3aa694;
+  font-family: "TmoneyRoundWindExtraBold";
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  outline: none;
+}
+
+#profileinput {
+  background-image: url("./img/profile_pic.jpg");
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+#input-photo {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.title_text {
+  font-family: "NEXON Lv1 Gothic OTF Bold";
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.todo_plus {
+  display: inline-block;
+  align-items: center;
+  width: 90%;
+  box-sizing: border-box;
+  margin-top: 15px;
+  margin: 20px;
+}
+
+.todo_title {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+#todo {
+  width: 85%;
+  height: min(30px);
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  border: 3px solid #256d61;
+  border-radius: 0.5rem;
+}
+
+#todo_submit_btn {
+  width: 10%;
+  height: 40px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.list_check {
+  align-items: left;
+  width: 100%;
+  font-family: "TmoneyRoundWindRegular";
+}
+
+.list_edit_btn,
+.list_delete_btn {
+  width: 3vw;
+  height: 3vh;
+  background-color: #fff;
+  border: none;
+  border-radius: 10rem;
+  margin: 5px;
+  box-shadow: 1px 2px 2px #d0d0d0;
+}
+
+.list_edit_btn:hover {
+  background-color: #3aa694;
+  color: #fff;
+}
+.list_delete_btn:hover {
+  background-color: tomato;
+  color: #fff;
+}
+
+#todo_update {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px, #256d61;
+  outline: none;
+}
+
+#todo_update:hover {
+  background-color: #deece6;
+}
+
+#todo_update_submit_btn {
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.todo_list {
+  background-color: #fff;
+  border-radius: 1rem;
+  border: none;
+  color: black;
+  overflow-x: hidden;
+  word-break: break-all;
+  margin-bottom: 15px;
+}
+
+.todo_list::-webkit-scrollbar {
+  width: 8px;
+}
+.todo_list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.308);
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 7px rgba(110, 110, 110, 0.822);
+}
+.todo_list::-webkit-scrollbar-track {
+  background-color: #ededee;
+  border-radius: 20px;
+}
+
+.list_check {
+  list-style-type: none;
+  padding-inline-start: 20px;
+  max-height: 400px;
+}
+
+/* span 태그 부분 일정한 길이로 설정 */
+.list_name {
+  display: inline-block;
+  width: 70%;
+}
+/* 수정, 삭제 버튼 크기 조정 */
+.list_edit_btn {
+  font-size: 15px;
+  padding: 0;
+}
+
+.list_delete_btn {
+  font-size: 15px;
+  padding: 0;
+}
+
+.todo_list list {
+  margin: 0;
+  padding: 0;
+}
+
+.todo_button {
+  display: block;
+  align-items: center;
+  width: 89%;
+  box-sizing: border-box;
+  margin: 20px;
+}
+
+.todo_clear_container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#todo_clear_btn {
+  width: 18%;
+  height: 40px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* timer */
+
+#TIMER {
+  grid-area: timer;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9e9e9;
+  place-items: center;
+}
+
+#timerBox {
+  font-size: 25px;
+  color: #555555;
+}
+
+.timerBox_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tomatoAnimationBox_main {
+  padding: 30px;
+}
+
+.timer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.timer_clock {
+  font-family: "LAB디지털";
+  font-size: 80px;
+  text-align: center;
+  width: 180px;
+  text-align: center;
+}
+
+.timer_name {
+  text-align: center;
+  font-family: "Cafe24Ssurround";
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  background-image: linear-gradient(transparent calc(100% - 8px), #fff 2px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.timer_name.color {
+  background-image: linear-gradient(transparent 60%, #ffd000 40%);
+}
+.timer_name:hover {
+  background-size: 100% 100%;
+}
+
+.timer_clock {
+  padding: 20px;
+}
+
+.timer_btn_collection {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.start_time_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start_option1,
+.start_option2 {
+  cursor: pointer;
+  color: #555555;
+  margin: 15px;
+  font-size: 20px;
+  padding: 10px;
+  font-family: "TmoneyRoundWindExtraBold";
+  background-color: #fff;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 1px 1px 6px #d0d0d0;
+}
+
+.start_option1:hover {
+  background-color: #3aa694;
+}
+.start_option2:hover {
+  background-color: #3aa694;
+}
+
+.start_option1:focus {
+  background-color: #3aa694;
+  color: #fff;
+}
+.start_option2:focus {
+  background-color: #3aa694;
+  color: #fff;
+}
+
+.timerBox_startButton,
+.timerBox_stopButton,
+.timerBox_resetButton {
+  cursor: pointer;
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
+  border: none;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 6px #d0d0d0;
+}
+
+.timerBox_startButton:hover {
+  background-color: rgb(255, 196, 0);
+  color: #fff;
+}
+.timerBox_stopButton:hover {
+  background-color: tomato;
+  color: #fff;
+}
+.timerBox_resetButton:hover {
+  background-color: #3aa694;
+  color: #fff;
+}
+
+footer {
+  grid-area: footer;
+  position: relative;
+  display: flex;
+  bottom: 0px;
+  height: 2vh;
+  padding: 10px;
+  background-color: #c1cdc8;
+  font-size: 15px;
+  color: rgb(103, 107, 124);
+  align-items: center;
+  justify-content: center;
+}
+
+.mode_change {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 2%;
+  bottom: 5%;
+  z-index: 100;
+  background-color: #ececec;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 2px 2px #d0d0d0;
+}
+
+.mode_change i {
+  font-size: 40px;
+}
+
+/* 화면 축소시 & 모바일 브라우저 */
+@media screen and (max-width: 950px) {
+  body {
+    display: grid;
+    grid-template-columns: minmax(auto, auto);
+    grid-template-rows: minmax(auto, auto);
+    grid-template-areas:
+      "header"
+      "todo_list"
+      "timer"
+      "footer";
+  }
+
+  header {
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* #today_date {
+    display: none;
+  } */
+
+  #gear {
+    display: none;
+  }
+
+  .list_check {
+    max-height: 300px;
+  }
+
+  .todo_list {
+    margin-bottom: 15px;
+  }
+
+  #today_date {
+    font-size: 22px;
+  }
+
+  #TODO_LIST {
+    max-height: 100%;
+  }
+
+  #todo {
+    width: 84%;
+  }
+
+  #todo_submit_btn {
+    width: 11%;
+  }
+
+  #TIMER {
+    height: 100%;
+  }
+
+  .timerBox_main {
+    justify-content: space-around;
+  }
+
+  .timer_clock {
+    padding: 0 14px;
+    font-size: 72px;
+  }
+
+  .timerBox_startButton,
+  .timerBox_stopButton,
+  .timerBox_resetButton {
+    width: 170px;
+  }
+
+  footer {
+    bottom: 0;
+    font-size: smaller;
+    text-align: center;
+    justify-content: center;
+    word-break: break-all;
+  }
+}
+
+/* 폰트 */
+@font-face {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NEXON Lv1 Gothic OTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NEXON Lv1 Gothic OTF Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TmoneyRoundWindRegular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TmoneyRoundWindExtraBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LAB디지털";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**********타이머 애니메이션 시작**********/
+.tomatoAnimationBox_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tomatoAnimation {
+  display: flex;
+}
+img.masking {
+  position: absolute;
+
+  /* webkit 속성 (크롬O) 크로스브라우징 테스트 괜찮으면 웹킷만 해도 될것 같습니다. 현재 크롬,파이어폭스,사파리 of ios 지원 */
+  -webkit-mask-image: url("./img/maskPng.png");
+  -webkit-mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  -webkit-mask-position-y: 0px;
+
+  /* 표준 css 속성 (크롬X) */
+  /* mask-image: url("./img/maskPng2.png");
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: 0 0px; */
+}
+/**********타이머 애니메이션 종료**********/
+
+/* night mode  */
+:root {
+  --night1: #121318;
+  --night2: #1a1d24;
+  --night3: #2c303b;
+  --night4: #bdc0cf;
+  --night5: #f7ece1;
+}
+.night {
+  color: var(--night4);
+}
+
+header.night,
+footer.night,
+.todo_list.night {
+  background-color: var(--night3);
+}
+
+#TODO_LIST.night,
+#profile_name.night {
+  background-color: var(--night2);
+}
+
+#profile_name.night {
+  border-bottom: 3px solid var(--night5);
+}
+
+#TIMER.night {
+  background-color: var(--night1);
+}
+
+header.night,
+.logo-title.night,
+#today_date.night,
+.qIcon.night {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  transition: background-color 0.3s;
+}
+
+#popup.night {
+  color: black;
+}
+
+.title_text {
+  color: #3aa694;
+}
+
+#todo.night {
+  border: 3px solid var(--night5);
+}
+.focusChangeColor {
+  color: orange;
+}
+
+.restChangeColor {
+  color: #78e3d8;
+}
+
+.title_text.night {
+  color: #f7ece1;
+}
+
+.focusChangeColor.night {
+  color: #f7b801;
+}
+
+.restChangeColor.night {
+  color: #f18701;
+}
+
+.start_time_btn.night > .start_option1:hover,
+.start_time_btn.night > .start_option2:hover,
+.start_time_btn.night > .start_option1:focus,
+.start_time_btn.night > .start_option2:focus {
+  background-color: #f18701;
+}
+
+#today_date.night {
+  background-image: linear-gradient(
+    transparent calc(100% - 10px),
+    #b0b0b04d 3px
+  );
+}
+
+/* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+.moon {
+  display: none;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  /* 원형이미지가 아니면 아래는 주석처리 */
+  /* border-radius: 50%;  
+  background-color: #f8f8da; 
+  box-shadow: 0 0 30px #dbd0ba;  */
+}
+
+/* welcome page 및 이름 입력받기 */
+#welcomePage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: welcomeAni 3s 1s forwards;
+}
+
+@keyframes welcomeAni {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
