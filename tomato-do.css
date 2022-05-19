@@ -90,7 +90,7 @@ header {
 #today_date.color {
   background-image: linear-gradient(transparent 60%, #ffd000 40%);
 }
-#today_date:hover {
+.today_date:hover {
   background-size: 100% 100%;
 }
 
@@ -180,6 +180,7 @@ nav {
 #badgeBox {
   cursor: pointer;
   font-size: 50px;
+  color: #333;
 }
 
 .badgeAppear {
@@ -324,6 +325,16 @@ a {
   border-radius: 100%;
 }
 
+.todo_list {
+  background-color: #fff;
+  border-radius: 1rem;
+  border: none;
+  color: black;
+  overflow-x: hidden;
+  word-break: break-all;
+  margin-bottom: 15px;
+}
+
 .title_text {
   font-family: "NEXON Lv1 Gothic OTF Bold";
   font-weight: bold;
@@ -373,8 +384,8 @@ a {
 
 .list_edit_btn,
 .list_delete_btn {
-  width: 3vw;
-  height: 3vh;
+  width: 40px;
+  height: 40px;
   background-color: #fff;
   border: none;
   border-radius: 10rem;
@@ -396,6 +407,8 @@ a {
   border-left: none;
   border-right: none;
   border-bottom: 3px, #256d61;
+  width: 70%;
+  height: 40px;
   outline: none;
 }
 
@@ -406,8 +419,10 @@ a {
 #todo_update_submit_btn {
   background-color: #cccccc;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   font-family: "TmoneyRoundWindRegular";
+  width: 50px;
+  height: 40px;
   font-size: 15px;
   cursor: pointer;
 }
@@ -470,7 +485,7 @@ a {
   font-size: 15px;
   cursor: pointer;
   padding: 0 8px;
-  vertical-align: middle;
+  text-align: center;
 }
 
 /* timer */
@@ -687,6 +702,8 @@ footer {
 
   #today_date {
     font-size: 22px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #TODO_LIST {
