@@ -162,7 +162,7 @@ const showTodoList = async (e) => {
   const todoList = await getEntryFromDb("todolist");
 
   // 목록이 존재하고 초기화 버튼이 투명일 때 다시 보이게 한다.
-  console.log(clearTodoButton.style.visibility);
+
   if (todoList.length > 0 && clearTodoButton.style.visibility === "hidden") {
     clearTodoButton.style.visibility = "visible";
   }
@@ -246,18 +246,7 @@ function modeClick() {
 
 modeButton.addEventListener("click", modeClick);
 
-import {showProfileModal,hideProfileModal} from "./badge.js"
+import { showProfileModal, hideProfileModal } from "./badge.js";
 showProfileModal();
 hideProfileModal();
 // setInterval(badgeload(),1000);
-
-
-
-// 타이머 기록 데이터베이스로 보내기 위한 import
-import {focusStart} from "./badgeTimer.js"
-
-const button = document.getElementsByClassName("focus timer_clock")[0];
-button.addEventListener("click",focusStart);
-// 밑의 부분은 타이머 버튼 작동위한 코드임. index,js 부분과 index.html부분, badgeTimer.js 주석 함께 지워야함.
-// addTestBtnEventListener();
-// import {focusStart,addTestBtnEventListener} from "./badgeTimer.js" 위의 import {focusStart} from "./badgeTimer.js"를 주석처리 하고 사용해야함.
