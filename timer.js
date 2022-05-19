@@ -24,7 +24,7 @@ const imgsiz = masking.clientHeight;
 //console.log(focusTime.outerText);
 
 let count = 0; //반복 횟수를 지정하기 위한 변수 설정
-let focusTimer = 1500; //설정 할 집중시간(25분으로 기본 설정)
+let focusTimer = 5; //설정 할 집중시간(25분으로 기본 설정)
 let restTimer = 300;
 let min = ""; //남은 시간 - 분
 let sec = ""; //남은 시간 - 초
@@ -44,9 +44,11 @@ function select(e) {
   const userPick = e.target.value;
   if (userPick === startOption25.value) {
     selectOption = "option25";
+    snd = new Audio("./snd/sndFC5.mp3"); // 25분에 맞는 알람사운드 설정
     timerTimeSet(); // 전역변수를 변경했으니 timer를 세팅
   } else {
     selectOption = "option50";
+    snd = new Audio("./snd/sndMA0.mp3"); // 50분에 맞는 알람사운드 설정
     timerTimeSet();
   }
 }
@@ -56,12 +58,12 @@ function timerTimeSet() {
   if (selectOption === "option25") {
     focusTime.innerHTML = `25:00`;
     restTime.innerHTML = `05:00`;
-    focusTimer = 1500;
+    focusTimer = 5;
     restTimer = 300;
   } else if (selectOption === "option50") {
     focusTime.innerHTML = `50:00`;
     restTime.innerHTML = `10:00`;
-    focusTimer = 3000;
+    focusTimer = 5;
     restTimer = 600;
   }
   focusTimerStart = focusTimer; //타이머 애니메이션 : 타이머 시작시 설정된 전체시간 기록
@@ -119,6 +121,7 @@ function focusStart() {
 
     //만약 집중 시간이 종료되면 다시 25:00으로 설정되도록 함
     if (focusTimer <= 0) {
+      sndPlay(); //종료알람재생
       clearInterval(focusInterval);
       restStart();
     }
@@ -183,3 +186,34 @@ timerResetBtn.addEventListener("click", resetTimer);
 
 startOption25.addEventListener("click", select);
 startOption50.addEventListener("click", select);
+
+
+//알람사운드 작성중ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+//알람 사운드는 옵션선택에서 고름
+const sndCheck = document.querySelector('#snd_check');
+const sndtext = document.querySelector('#snd_text');
+const timerSnd= document.querySelector('.timer_snd'); // 디바이스 체크후 div보여주기
+// const checkDevice = navigator.userAgent
+// const showSndDiv = ()=>{
+  // const reg = /CriOS|ios|iPnone|iPad/;
+  // alert(`>>>> ${reg.test(checkDevice)}<<<< - ${checkDevice}`)
+  // return !reg.test(checkDevice)
+// }
+// console.log(showSndDiv())
+// alert(showSndDiv());
+// showSndDiv() ? timerSnd.style.display = "inline-block" : timerSnd.style.display = "none"; 
+
+let snd = new Audio("./snd/sndFC5.mp3");
+
+const sndPlay = () => { 
+  // sndCheck.checked ? snd.play() : null;  
+  snd.play()
+    }
+sndCheck.addEventListener('change',(e)=>{
+  e.target.checked ? sndtext.innerText = "알람 ON" : sndtext.innerText = "알람OFF"
+})
+
+// console.log(checkDevice);
+// alert(navigator.userAgent)
+//아이폰 아이패드는 시간셋을 고른후 시작하면 적용되었음 처음부터 한번 고르게 하면 될것같음.
+//알람사운드 작성중ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ끝

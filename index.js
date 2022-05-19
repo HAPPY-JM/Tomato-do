@@ -12,7 +12,7 @@ const addTodo = (e) => {
   e.preventDefault();
 
   try {
-    if (!todoInput.value) {
+    if (!todoInput.value.trim()) {
       throw new Error("할 일이 비어있습니다!");
     }
     // 'todolist' 스토리지에 입력으로 들어온 투두리스트 추가

@@ -795,3 +795,24 @@ header.night,
   background-color: #f8f8da; 
   box-shadow: 0 0 30px #dbd0ba;  */
 }
+
+/* 알람 체크박스 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+#snd_check {
+  zoom: 2.0;
+}
+#snd_text{
+  user-select: none;
+}
+.timer_snd{
+  cursor: pointer;
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
+  border: none;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 6px #d0d0d0;
+}
