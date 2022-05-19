@@ -12,7 +12,7 @@ const addTodo = (e) => {
   e.preventDefault();
 
   try {
-    if (!todoInput.value) {
+    if (!todoInput.value.trim()) {
       throw new Error("할 일이 비어있습니다!");
     }
     // 'todolist' 스토리지에 입력으로 들어온 투두리스트 추가
@@ -110,12 +110,12 @@ const deleteTodo = (e) => {
 const clearTodo = (e) => {
   e.preventDefault();
 
-  if(confirm("정말 다 삭제하시나요?") == true) {
+  if (confirm("정말 다 삭제하시나요?") == true) {
     // 목록을 모두 지우므로 초기화 버튼을 투명으로 한다.
     clearTodoButton.style.visibility = "hidden";
     clearEntriesFromDb("todolist").then(() => showTodoList(e));
   }
-}
+};
 
 // 중간 중간 이벤트리스너 처리를 위해 백틱으로 묶어 innerHTML 하는 형식이 아니라
 // 태그 일일히 생성해서 넣는 형식을 취했습니다.
@@ -163,7 +163,7 @@ const showTodoList = async (e) => {
 
   // 목록이 존재하고 초기화 버튼이 투명일 때 다시 보이게 한다.
   console.log(clearTodoButton.style.visibility);
-  if(todoList.length > 0 && clearTodoButton.style.visibility === "hidden") {
+  if (todoList.length > 0 && clearTodoButton.style.visibility === "hidden") {
     clearTodoButton.style.visibility = "visible";
   }
 
@@ -221,6 +221,7 @@ function modeClick() {
   footer.classList.toggle("night");
   profileArea.classList.toggle("night");
   qIcon.classList.toggle("night");
+  todoInput.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
   const mask = document.getElementsByClassName("mask");
@@ -244,3 +245,19 @@ function modeClick() {
 }
 
 modeButton.addEventListener("click", modeClick);
+
+import {showProfileModal,hideProfileModal} from "./badge.js"
+showProfileModal();
+hideProfileModal();
+// setInterval(badgeload(),1000);
+
+
+
+// 타이머 기록 데이터베이스로 보내기 위한 import
+import {focusStart} from "./badgeTimer.js"
+
+const button = document.getElementsByClassName("focus timer_clock")[0];
+button.addEventListener("click",focusStart);
+// 밑의 부분은 타이머 버튼 작동위한 코드임. index,js 부분과 index.html부분, badgeTimer.js 주석 함께 지워야함.
+// addTestBtnEventListener();
+// import {focusStart,addTestBtnEventListener} from "./badgeTimer.js" 위의 import {focusStart} from "./badgeTimer.js"를 주석처리 하고 사용해야함.
