@@ -138,7 +138,7 @@ a {
   height: 170px;
   background: #fff;
   /* border: 1px solid black; */
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 2px #d0d0d0;
 }
 
 #layer_bg > #popup > h2 {
@@ -405,8 +405,6 @@ a {
 .timer_clock {
   font-family: "LAB디지털";
   font-size: 80px;
-  text-align: center;
-  width: 180px;
   text-align: center;
 }
 
@@ -722,8 +720,8 @@ footer.night,
   background-color: var(--night2);
 }
 
-#profile_name.night {
-  border-bottom: 3px solid var(--night5);
+#profile_name.night{
+  border-bottom: 3px solid var(--night5); 
 }
 
 #TIMER.night {
@@ -749,7 +747,7 @@ header.night,
   color: #3aa694;
 }
 
-#todo.night {
+#todo.night{ 
   border: 3px solid var(--night5);
 }
 .focusChangeColor {
@@ -772,9 +770,9 @@ header.night,
   color: #f18701;
 }
 
-.start_time_btn.night > .start_option1:hover,
-.start_time_btn.night > .start_option2:hover,
-.start_time_btn.night > .start_option1:focus,
+.start_time_btn.night > .start_option1:hover ,
+.start_time_btn.night > .start_option2:hover , 
+.start_time_btn.night > .start_option1:focus ,
 .start_time_btn.night > .start_option2:focus {
   background-color: #f18701;
 }
@@ -796,29 +794,4 @@ header.night,
   /* border-radius: 50%;  
   background-color: #f8f8da; 
   box-shadow: 0 0 30px #dbd0ba;  */
-}
-
-/* welcome page 및 이름 입력받기 */
-#welcomePage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  color: white;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: welcomeAni 3s 1s forwards;
-}
-
-@keyframes welcomeAni {
-  0% {
-    visibility: visible;
-  }
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
 }
