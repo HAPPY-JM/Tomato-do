@@ -703,6 +703,7 @@ img.masking {
   --night2: #1a1d24;
   --night3: #2c303b;
   --night4: #bdc0cf;
+  --night5: #f7ece1;
 }
 .night {
   color: var(--night4);
@@ -717,6 +718,10 @@ footer.night,
 #TODO_LIST.night,
 #profile_name.night {
   background-color: var(--night2);
+}
+
+#profile_name.night{
+  border-bottom: 3px solid var(--night5); 
 }
 
 #TIMER.night {
@@ -742,6 +747,9 @@ header.night,
   color: #3aa694;
 }
 
+#todo.night{ 
+  border: 3px solid var(--night5);
+}
 .focusChangeColor {
   color: orange;
 }
@@ -760,6 +768,13 @@ header.night,
 
 .restChangeColor.night {
   color: #f18701;
+}
+
+.start_time_btn.night > .start_option1:hover ,
+.start_time_btn.night > .start_option2:hover , 
+.start_time_btn.night > .start_option1:focus ,
+.start_time_btn.night > .start_option2:focus {
+  background-color: #f18701;
 }
 
 #today_date.night {

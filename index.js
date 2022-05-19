@@ -221,6 +221,7 @@ function modeClick() {
   footer.classList.toggle("night");
   profileArea.classList.toggle("night");
   qIcon.classList.toggle("night");
+  todoInput.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
   const mask = document.getElementsByClassName("mask");
