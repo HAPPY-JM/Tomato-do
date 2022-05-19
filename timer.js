@@ -69,7 +69,8 @@ function timerTimeSet() {
 
 function stopTimer() {
   clearInterval(focusInterval); //타이머 중단
-  clearInterval(restInterval);
+  clearInterval(restInterval); //타이머 중단
+
   //중단하면 재시작할 수 있는 start버튼과 초기화 하는 reset버튼이 나오도록 구현
   timerStopBtn.style.display = "none";
   timerResetBtn.style.display = "block";
@@ -77,9 +78,10 @@ function stopTimer() {
 }
 
 function resetTimer() {
-  clearInterval(focusInterval);
+  clearInterval(focusInterval); //타이머 중단
   clearInterval(restInterval); //타이머 중단
-  //중단 시 설정했던 시간으로 돌아가도록 함(일단 25분으로 설정, 추후 변수 이용하여 입력값을 대입하도록 수정)
+
+  //중단 시 설정했던 시간으로 돌아가도록 함
 
   timerTimeSet(); // 처음 시간으로 돌리는 건 timeset과 같으니 그대로 불러옴.
   // 전역변수 selectOption이 변경되지 않았으므로 바꾼 옵션대로 reset 될 것임.
