@@ -192,10 +192,11 @@ function modeClick() {
 
 modeButton.addEventListener("click", modeClick);
 
-import {showProfileModal,hideProfileModal,badgeload} from "./badge.js"
+import {showProfileModal,hideProfileModal} from "./badge.js"
 showProfileModal();
 hideProfileModal();
-badgeload();
+// setInterval(badgeload(),1000);
+
 
 
 // 타이머 기록 데이터베이스로 보내기 위한 import

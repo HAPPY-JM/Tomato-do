@@ -22,7 +22,7 @@ const imgsiz = masking.clientHeight;
 //console.log(focusTime.outerText);
 
 let count = 0; //반복 횟수를 지정하기 위한 변수 설정
-let focusTimer = 1500; //설정 할 집중시간(25분으로 기본 설정)
+let focusTimer = 10; //설정 할 집중시간(25분으로 기본 설정)
 let restTimer = 300;
 let min = ""; //남은 시간 - 분
 let sec = ""; //남은 시간 - 초
@@ -56,8 +56,8 @@ function timerTimeSet() {
   if (selectOption === "option25") {
     focusTime.innerHTML = `25:00`;
     restTime.innerHTML = `05:00`;
-    // focusTimer = 1500;
-    focusTimer = 10;
+    // focusTimer = 1500; test해본다고 시작시간 바꿈!!!!!!!!!!!!!!!!!!!!!!!!!! 1500으로 복구하고 올리기
+    focusTimer = 1500;
     restTimer = 300;
   } else if (selectOption === "option50") {
     focusTime.innerHTML = `50:00`;
@@ -99,6 +99,7 @@ function resetTimer() {
 
 // 타이머 기록 보내기위한 함수들 import
 import { addEntryToDb} from "./database.js"
+import {badgeload} from "./badge.js"
 
 function focusStart() {
   //타이머 시작하면서 start버튼은 사라지고 stop, reset버튼 나오도록 구현
@@ -139,6 +140,8 @@ function focusStart() {
       const timerEndDb = today.toLocaleTimeString()
       // alert(`today = ${today}`)
       addEntryToDb("report",{date : todayDate, startTime:timerstart, endTime:timerEndDb})
+      badgeload();
+      console.log("타이머 시간 됨")
       //---------------타이머 기록 데이터베이스로 보내기 끝------------------------------------------------------//
     }
   }, 1000);
@@ -151,6 +154,7 @@ function focusStart() {
   const testtoday = new Date();
   DbtestBtn.addEventListener("click",()=>{
      addEntryToDb("report",{date : testtoday.toLocaleDateString(), startTime:testtoday.toLocaleTimeString(), endTime:testtoday.toLocaleTimeString()});
+     badgeload();
   })
   
   
