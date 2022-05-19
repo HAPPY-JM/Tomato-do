@@ -27,18 +27,26 @@ const badgeload = async () => {
     if (res) {
       if (res.length >= 1) {
         badgeList.innerHTML += `
-                    
-                    <i class="fa-solid fa-seedling" style="color: green; font-size:30px; display: block;margin-top:10px;position:relative">
-                    <span style="font-size:20px; color:#fff;"> 뽀모도로 타이머를 첫 사용!</span>
-                    </i>
-                    
+                    <div class="badgeAppear">
+                      <i class="fa-solid fa-seedling newBadge" style="color:#c6e194; margin-right: 8px;"></i>
+                      <span class="badgeText" > 뽀모도로 타이머 첫 사용!</span>
+                    </div>
                     `;
+      }
+      if (res.filter((x) => x.date == todayDate).length >= 3) {
+        badgeList.innerHTML += `
+                <div class="badgeAppear">
+                <i class="material-icons newBadge" style="color:#88b14b;">grass</i>
+                <span class="badgeText" > 3회 사용! 화이팅!</span>
+                </div>
+                `;
       }
       if (res.filter((x) => x.date == todayDate).length >= 5) {
         badgeList.innerHTML += `
-                <i class="fa-solid fa-sun" style="display: block;margin-top:10px;position:relative">
-                <span style="font-size:30px"> 오늘 타이머를 5번이나 사용하셨군요?</span>
-                </i> 
+                <div class="badgeAppear">
+                <i class="material-icons newBadge" style="color: #ff7f7e;">local_florist</i>
+                <span class="badgeText" > 5회 사용! 좀 쉬세요</span>
+                </div>
                 `;
       }
     }
