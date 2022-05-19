@@ -20,7 +20,7 @@ const initDatabase = async () => {
     // db.userInfo.bulkAdd([{userName:"이름",type:"name"}])
     
 
-    const dataCount = await db.todolist.count();
+    // const dataCount = await db.todolist.count();
 
     // 객체 저장소의 데이터가 존재하는 경우
     // 개발 완료 후에는 초기 데이터 없이 if문 지우고 사용
