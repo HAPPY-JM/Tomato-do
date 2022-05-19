@@ -162,7 +162,6 @@ const showTodoList = async (e) => {
   const todoList = await getEntryFromDb("todolist");
 
   // 목록이 존재하고 초기화 버튼이 투명일 때 다시 보이게 한다.
-  console.log(clearTodoButton.style.visibility);
   if (todoList.length > 0 && clearTodoButton.style.visibility === "hidden") {
     clearTodoButton.style.visibility = "visible";
   }
