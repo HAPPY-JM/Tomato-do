@@ -799,6 +799,7 @@ header.night,
 }
 
 /* welcome page 및 이름 입력받기 */
+/* 색상 변경했고 애니메이션 3초에서 1.8초로 변경했습니다 */
 #welcomePage {
   position: absolute;
   width: 100%;
@@ -810,7 +811,7 @@ header.night,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: welcomeAni 3s 1s forwards;
+  animation: welcomeAni 1.8s 1s forwards;
 }
 
 @keyframes welcomeAni {
