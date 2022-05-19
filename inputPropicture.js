@@ -29,7 +29,9 @@ const addPictureEventListener =  () =>{
         reader.addEventListener("load",()=>{
             const photoUrl = reader.result;
             const photodata = {"userImg":photoUrl,"type":"imageUrl2"}
-             deleteEntryFromDb("userInfo",{type:"imageUrl2"})
+            const photoDb =  getEntryFromDb("userInfo",{type:"imageUrl2"})
+            if(photoDb.length>=0){deleteEntryFromDb("userInfo",{type:"imageUrl2"})}
+             
              addEntryToDb("userInfo",photodata)
             
             photoSection.src = photoUrl;
