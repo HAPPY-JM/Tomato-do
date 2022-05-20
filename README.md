@@ -32,6 +32,9 @@
 	userInfo:  "++id,userName,userimg,type",
 	report:"++id,date,startTime,endTime"
 	```
+![image](https://user-images.githubusercontent.com/102483942/169540397-71d32a84-e6df-412e-848e-7f9a27689908.png)
+![image](https://user-images.githubusercontent.com/102483942/169540482-2d8d8310-f1b5-4afe-bca2-23c82e66dc97.png)
+
 
 ## Results
 ### Web
