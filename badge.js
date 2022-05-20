@@ -25,19 +25,43 @@ const badgeload = async () => {
   badgeList.innerHTML = "";
   const badgeDb = await getEntryFromDb("report").then((res) => {
     if (res) {
+      if (res.length<=0) {
+        badgeList.innerHTML += `
+                    <div class="badgeAppear">
+                      <i class="fa-solid fa-circle-question" style="color:#dbe0d3; margin-right: 8px;"></i>
+                      <span class="badgeText" > 1회 달성 시 잠금해제</span>
+                    </div>
+                    `;
+      }
       if (res.length >= 1) {
         badgeList.innerHTML += `
                     <div class="badgeAppear">
                       <i class="fa-solid fa-seedling newBadge" style="color:#c6e194; margin-right: 8px;"></i>
-                      <span class="badgeText" > 뽀모도로 타이머 첫 사용!</span>
+                      <span class="badgeText" > 토마토두 첫 완주!❤️</span>
                     </div>
                     `;
+      }
+      if(res.filter((x) => x.date == todayDate).length < 3) {
+        badgeList.innerHTML += `
+                <div class="badgeAppear">
+                <i class="fa-solid fa-circle-question" style="color:#dbe0d3; display:in-line"></i>
+                <span class="badgeText" > 3회 달성 시 잠금해제</span>
+                </div>
+                `;
       }
       if (res.filter((x) => x.date == todayDate).length >= 3) {
         badgeList.innerHTML += `
                 <div class="badgeAppear">
                 <i class="material-icons newBadge" style="color:#88b14b;">grass</i>
-                <span class="badgeText" > 3회 사용! 화이팅!</span>
+                <span class="badgeText" > 3회 완주 성공! 화이팅🙌</span>
+                </div>
+                `;
+      }
+      if(res.filter((x) => x.date == todayDate).length<5){
+        badgeList.innerHTML += `
+                <div class="badgeAppear">
+                <i class="fa-solid fa-circle-question" style="color: #dbe0d3;"></i>
+                <span class="badgeText" > 5회 달성 시 잠금해제</span>
                 </div>
                 `;
       }
@@ -45,7 +69,7 @@ const badgeload = async () => {
         badgeList.innerHTML += `
                 <div class="badgeAppear">
                 <i class="material-icons newBadge" style="color: #ff7f7e;">local_florist</i>
-                <span class="badgeText" > 5회 사용! 좀 쉬세요</span>
+                <span class="badgeText" > 5회 완주 성공! 대단하세요👍</span>
                 </div>
                 `;
       }
