@@ -209,6 +209,7 @@ const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 const profileArea = document.getElementById("profile_name");
 const qIcon = document.querySelector(".qIcon");
+const badgeBox = document.querySelector("#badgeBox");
 // const focusChangeColor = document.querySelector(".focusChangeColor");
 // const restChangeColor = document.querySelector(".restChangeColor");
 // const todoTitle = document.querySelector(".title_text");
@@ -221,6 +222,7 @@ function modeClick() {
   profileArea.classList.toggle("night");
   qIcon.classList.toggle("night");
   todoInput.classList.toggle("night");
+  badgeBox.classList.toggle("night");
 
   const changeBtn = modeButton.getElementsByClassName("icon");
   const mask = document.getElementsByClassName("mask");

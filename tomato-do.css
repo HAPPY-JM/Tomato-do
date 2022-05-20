@@ -404,6 +404,7 @@ a {
   width: 70%;
   height: 40px;
   outline: none;
+  border-radius: 0.5rem;
 }
 
 #todo_update:hover {
@@ -413,8 +414,9 @@ a {
 #todo_update_submit_btn {
   background-color: #cccccc;
   border: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   font-family: "TmoneyRoundWindRegular";
+  margin-left: auto;
   width: 50px;
   height: 40px;
   font-size: 15px;
@@ -425,7 +427,7 @@ a {
   list-style-type: none;
   padding-inline-start: 20px;
   max-height: 400px;
-  width: 77%;
+  width: 88%;
   font-family: "TmoneyRoundWindRegular";
 }
 
@@ -803,8 +805,8 @@ footer {
 
   .timerBox_startButton,
   .timerBox_stopButton,
-  .timerBox_resetButton
-  {
+  .timerBox_resetButton,
+  .timer_soundButton {
     width: 170px;
   }
 
@@ -1007,7 +1009,8 @@ footer.night,
 header.night,
 .logo-title.night,
 #today_date.night,
-.qIcon.night {
+.qIcon.night
+#badgeBox.night {
   color: rgba(255, 255, 255, 0.9);
 }
 
