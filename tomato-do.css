@@ -770,7 +770,6 @@ footer {
 
   footer {
     bottom: 0;
-    font-size: 12px;
     text-align: center;
     justify-content: center;
     word-break: break-all;
@@ -805,16 +804,20 @@ footer {
 
 @media screen and (max-width: 400px) {
   .moon {
-    width: 280px;
-    height: 280px;
+    width: 270px;
+    height: 270px;
   }
   .tomatoSize {
-    width: 280px;
-    height: 280px;
+    width: 270px;
+    height: 270px;
   }
 
   .logo-title {
-    font-size: 40px;
+    font-size: 32px;
+  }
+
+  #todo {
+    width: 80%;
   }
   #todo_submit_btn {
     font-size: 13px;
@@ -825,7 +828,7 @@ footer {
   }
 
   .profile {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .timer_clock {
@@ -843,6 +846,10 @@ footer {
   .start_option2 {
     font-size: 16px;
     width: 105px;
+  }
+
+  footer {
+    font-size: 10px;
   }
 }
 
