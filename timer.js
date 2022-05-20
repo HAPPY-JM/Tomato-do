@@ -90,6 +90,7 @@ function resetTimer() {
   timerStopBtn.style.display = "none";
   timerResetBtn.style.display = "none";
   timerStartBtn.style.display = "block";
+  timerSndBtn.style.display = "block";
 
   //타이머 애니메이션: 리셋버튼클릭시 빨간토마토로 돌아갑니다.
   masking.style.setProperty("-webkit-mask-position-y", `0px`); //webkit
@@ -106,6 +107,7 @@ function focusStart() {
   timerStopBtn.style.display = "block";
   timerResetBtn.style.display = "block";
   timerStartBtn.style.display = "none";
+  timerSndBtn.style.display = "none";
 
   focusTimerStart === focusTimer ? fadeInFunc() : null; //타이머 애니메이션: fadeIn 애니메이션 실행
   focusTimerStart === focusTimer ? moonFadeInFunc() : null; //나이트모드타이머
@@ -130,6 +132,7 @@ function focusStart() {
 
       //만약 집중 시간이 종료되면 다시 25:00으로 설정되도록 함
       if (focusTimer <= 0) {
+        sndPlay(); //종료알람재생
         clearInterval(focusInterval);
         restStart();
 
@@ -206,3 +209,29 @@ timerResetBtn.addEventListener("click", resetTimer);
 
 startOption25.addEventListener("click", select);
 startOption50.addEventListener("click", select);
+
+//알람사운드 작성중ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+// const sndCheck = document.querySelector('#snd_check');
+// const sndCheckBtn = document.querySelector('#snd_check_btn');
+// const sndtext = document.querySelector('#snd_text');
+const timerSndBtn = document.getElementsByClassName("timer_soundButton")[0];
+
+let snd = new Audio("./snd/sndFC5.mp3");
+let isPlay=false;
+
+const sndPlay = () => { isPlay ? snd.play() : null; }
+
+const sndCheckChange = (e)=>{
+  // sndCheck.checked === false ? sndCheck.checked = true : sndCheck.checked = false;
+  selectOption==='option25' ? snd = new Audio("./snd/sndFC5.mp3") : snd = new Audio("./snd/sndFC10.mp3");
+
+  if (timerSndBtn.innerText === '알람off'){
+    timerSndBtn.innerText = "알람 on";
+    isPlay = true;
+  }else{
+    timerSndBtn.innerText = "알람off";
+    isPlay = false;
+  }  
+}
+
+timerSndBtn.addEventListener('click',sndCheckChange);
