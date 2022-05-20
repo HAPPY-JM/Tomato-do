@@ -804,12 +804,12 @@ footer {
 
 @media screen and (max-width: 400px) {
   .moon {
-    width: 270px;
-    height: 270px;
+    width: 240px;
+    height: 240px;
   }
   .tomatoSize {
-    width: 270px;
-    height: 270px;
+    width: 240px;
+    height: 240px;
   }
 
   .logo-title {
