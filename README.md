@@ -1,7 +1,7 @@
 # Tomato-do (뽀모도로 타이머 + 투두리스트)
 
 ## Description
-> 2022.04. - 2022.05.
+> 2022.04. - 2022.05. <br>
 > page: [오늘도 Tomato-do!](https://happy-jm.github.io/tomato-do/)
 
 ### Summary
