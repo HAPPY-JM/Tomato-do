@@ -9,8 +9,8 @@ const initDatabase = async () => {
         todolist: "++id, todo, check",
         // time: "++id", // 데이터 형식 정한 뒤에 수정할 것
         userInfo: "++id,userName,userimg,type",        
-        report:"++id,date,startTime,endTime",
-        firstDb:"++id,type"
+        report:"++id,date,startTime,endTime"
+        // firstDb:"++id,type" 사이트 첫 사용인지 확인하는 부분
     });
     
     // Dexie 생성시 new Dexie(databaseName, options?);
