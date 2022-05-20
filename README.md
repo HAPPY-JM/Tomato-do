@@ -49,9 +49,10 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |[서정민](https://github.com/HAPPY-JM)|[김동철](https://github.com/GreyFBTT)|[박태훈](https://github.com/ekdh0858)|[배성현](https://github.com/seonghbae)|[지재영](https://github.com/jaeyeong815)|[이수정](https://github.com/tinashome)|
 
-
+<div align=center>
 ![image](https://user-images.githubusercontent.com/102483942/169540397-71d32a84-e6df-412e-848e-7f9a27689908.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540482-2d8d8310-f1b5-4afe-bca2-23c82e66dc97.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540641-5148effa-6bbe-4c2e-8d8f-705e9ebef874.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540833-42459d37-59cd-42a4-a7af-713b1aef4801.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540896-da8d0e30-e08c-4f94-bd61-37816cba4519.png)
+</div>
