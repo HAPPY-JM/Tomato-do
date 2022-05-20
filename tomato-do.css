@@ -1025,3 +1025,39 @@ header.night,
 
 /* welcome page 및 이름 입력받기 */
 /* 색상 변경했고 애니메이션 3초에서 1.8초로 변경했습니다 */
+
+/* 알람 체크박스 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* #snd_check {
+  zoom: 2.0;
+  margin-right: 0;
+} */
+/* #snd_text{ */
+  /* user-select: none; */
+  /* cursor: pointer;
+} */
+.timer_soundButton {  
+  user-select: none;
+  text-align: left ;
+  cursor: pointer;
+  width: 200px;
+  padding: 10px 30px ;
+  margin: 10px;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
+  border: none;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 6px #d0d0d0;
+  white-space: nowrap;
+  /* align-items:; */
+}
+.timer_soundButton:hover {
+  background-color: #78e3d8;
+  color: #fff;
+}
+@media screen and (max-width: 950px) {
+  .timer_soundButton {
+    width: 170px;
+  }
+}
