@@ -376,12 +376,6 @@ a {
   cursor: pointer;
 }
 
-.list_check {
-  align-items: left;
-  width: 100%;
-  font-family: "TmoneyRoundWindRegular";
-}
-
 .list_edit_btn,
 .list_delete_btn {
   width: 40px;
@@ -441,6 +435,13 @@ a {
   list-style-type: none;
   padding-inline-start: 20px;
   max-height: 400px;
+  width: 77%;
+  font-family: "TmoneyRoundWindRegular";
+}
+
+.list_check li {
+  display: flex;
+  align-items: center;
 }
 
 /* span 태그 부분 일정한 길이로 설정 */
@@ -452,6 +453,7 @@ a {
 .list_edit_btn {
   font-size: 15px;
   padding: 0;
+  margin-left: auto;
 }
 
 .list_delete_btn {
@@ -722,6 +724,12 @@ footer {
     margin-left: 42px;
   }
 
+  .list_edit_btn,
+  .list_delete_btn {
+    width: 30px;
+    height: 30px;
+  }
+
   #TIMER {
     height: 100%;
   }
@@ -743,7 +751,7 @@ footer {
 
   footer {
     bottom: 0;
-    font-size: smaller;
+    font-size: 12px;
     text-align: center;
     justify-content: center;
     word-break: break-all;
