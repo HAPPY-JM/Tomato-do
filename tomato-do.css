@@ -715,6 +715,15 @@ footer {
   top: 15%;
 }
 
+#welcomeImgAndText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 15%;
+}
+
 /* 화면 축소시 & 모바일 브라우저 */
 @media screen and (max-width: 950px) {
   body {
@@ -794,8 +803,8 @@ footer {
 
   .timerBox_startButton,
   .timerBox_stopButton,
-  .timerBox_resetButton,
-  .timer_soundButton { 
+  .timerBox_resetButton
+  {
     width: 170px;
   }
 

@@ -255,7 +255,6 @@ const sndPlay = () => { isPlay ? snd.play() : null; }
 
 const sndCheckChange = (e)=>{
   selectOption ==='option25' ? snd = new Audio("./snd/sndFC5.mp3") : snd = new Audio("./snd/sndFC10.mp3");
-console.log(selectOption)
   if (sndOn.style.display !== "none") {
     sndOn.style.display = "none";
     sndOff.style.display = "block";
