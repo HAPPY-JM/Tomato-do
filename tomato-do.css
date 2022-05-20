@@ -20,12 +20,6 @@ body {
     "footer footer";
 }
 
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 body::-webkit-scrollbar {
   width: 6px;
 }
@@ -518,6 +512,10 @@ a {
 .timer {
   padding-top: 20px;
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .timer_clock {
@@ -575,6 +573,7 @@ a {
   border: none;
   border-radius: 2rem;
   box-shadow: 1px 1px 6px #d0d0d0;
+  width: 125px;
 }
 
 .start_option1:hover {
@@ -642,7 +641,7 @@ footer {
   align-items: center;
   justify-content: center;
   right: 2%;
-  bottom: 5%;
+  bottom: 4%;
   z-index: 100;
   background-color: #ececec;
   width: 50px;
@@ -723,7 +722,7 @@ footer {
   }
 
   #today_date {
-    font-size: 22px;
+    font-size: 26px;
     margin-left: 0;
     margin-right: 0;
   }
@@ -760,7 +759,7 @@ footer {
 
   .timer_clock {
     padding: 0 14px;
-    font-size: 72px;
+    /* font-size: 72px; */
   }
 
   .timerBox_startButton,
@@ -784,6 +783,66 @@ footer {
     color: white;
     z-index: 1000;
     animation: welcomeAni 1.5s 1s forwards;
+  }
+}
+/* animation 용 tomato 크기(inline에서 css로)*/
+.tomatoSize {
+  width: 300px;
+  height: 300px;
+}
+
+/* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+.moon {
+  display: none;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  /* 원형이미지가 아니면 아래는 주석처리 */
+  /* border-radius: 50%;  
+  background-color: #f8f8da; 
+  box-shadow: 0 0 30px #dbd0ba;  */
+}
+
+@media screen and (max-width: 400px) {
+  .moon {
+    width: 280px;
+    height: 280px;
+  }
+  .tomatoSize {
+    width: 280px;
+    height: 280px;
+  }
+
+  .logo-title {
+    font-size: 40px;
+  }
+  #todo_submit_btn {
+    font-size: 13px;
+  }
+
+  .timer_name {
+    font-size: 30px;
+  }
+
+  .profile {
+    font-size: 26px;
+  }
+
+  .timer_clock {
+    width: 130px;
+    font-size: 60px;
+  }
+
+  .timerBox_startButton,
+  .timerBox_stopButton,
+  .timerBox_resetButton {
+    width: 130px;
+  }
+
+  .start_option1,
+  .start_option2 {
+    font-size: 16px;
+    width: 105px;
   }
 }
 
@@ -955,18 +1014,6 @@ header.night,
 
 #badgeContent.night {
   background-color: #434343fc;
-}
-
-/* 나이트모드타이머 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
-.moon {
-  display: none;
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-  /* 원형이미지가 아니면 아래는 주석처리 */
-  /* border-radius: 50%;  
-  background-color: #f8f8da; 
-  box-shadow: 0 0 30px #dbd0ba;  */
 }
 
 /* welcome page 및 이름 입력받기 */
