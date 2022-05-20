@@ -210,21 +210,15 @@ timerResetBtn.addEventListener("click", resetTimer);
 startOption25.addEventListener("click", select);
 startOption50.addEventListener("click", select);
 
-//알람사운드 작성중ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-// const sndCheck = document.querySelector('#snd_check');
-// const sndCheckBtn = document.querySelector('#snd_check_btn');
-// const sndtext = document.querySelector('#snd_text');
+//알람사운드ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 const timerSndBtn = document.getElementsByClassName("timer_soundButton")[0];
-
 let snd = new Audio("./snd/sndFC5.mp3");
 let isPlay=false;
 
 const sndPlay = () => { isPlay ? snd.play() : null; }
 
 const sndCheckChange = (e)=>{
-  // sndCheck.checked === false ? sndCheck.checked = true : sndCheck.checked = false;
   selectOption==='option25' ? snd = new Audio("./snd/sndFC5.mp3") : snd = new Audio("./snd/sndFC10.mp3");
-
   if (timerSndBtn.innerText === '알람off'){
     timerSndBtn.innerText = "알람 on";
     isPlay = true;
