@@ -16,7 +16,7 @@
 <img src="https://img.shields.io/badge/Language-HTML-green?style=flat"/> <img src="https://img.shields.io/badge/Language-CSS-green?style=flat"/> <img src="https://img.shields.io/badge/Language-JavaScript-green?style=flat"/> <img src="https://img.shields.io/badge/Platform-Web-blue?style=flat"/> <img src="https://img.shields.io/badge/Platform-Android-blue?style=flat"/>
 
 * 투두리스트 : DB와 통신하여 CRUD 기능 수행
-* 타이머 : 집중-휴식 타이머 기능, 타이머 사용 시 시간 정보 DB에 저장
+* 타이머 : 집중-휴식 타이머 기능, 집중 타이머 종료시 음성알람 제공, 타이머 사용 시 시간 정보 DB에 저장
 * 프로필 : 이름, 사진
 * 뱃지 : DB에 쌓인 시간 데이터에 따른 뱃지 제공
 * 테마 : 데이-나이트 모드
