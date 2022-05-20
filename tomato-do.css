@@ -608,6 +608,29 @@ a {
   box-shadow: 1px 1px 6px #d0d0d0;
 }
 
+/* 알람 체크박스 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.timer_soundButton {
+  user-select: none;
+  text-align: left;
+  cursor: pointer;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
+  border: none;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 6px #d0d0d0;
+  white-space: nowrap;
+}
+.timer_soundButton:hover {
+  background-color: #78e3d8;
+  color: #fff;
+}
+
 .timerBox_startButton:hover {
   background-color: rgb(255, 196, 0);
   color: #fff;
@@ -741,11 +764,11 @@ footer {
   }
 
   #todo {
-    width: 84%;
+    width: 80%;
   }
 
   #todo_submit_btn {
-    width: 11%;
+    width: 13%;
   }
 
   .todo_button {
@@ -773,7 +796,8 @@ footer {
 
   .timerBox_startButton,
   .timerBox_stopButton,
-  .timerBox_resetButton {
+  .timerBox_resetButton,
+  .timer_soundButton {
     width: 170px;
   }
 
@@ -847,7 +871,8 @@ footer {
 
   .timerBox_startButton,
   .timerBox_stopButton,
-  .timerBox_resetButton {
+  .timerBox_resetButton,
+  .timer_soundButton {
     width: 130px;
   }
 
@@ -1034,30 +1059,3 @@ header.night,
 
 /* welcome page 및 이름 입력받기 */
 /* 색상 변경했고 애니메이션 3초에서 1.8초로 변경했습니다 */
-
-/* 알람 체크박스 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-.timer_soundButton {  
-  user-select: none;
-  text-align: left ;
-  cursor: pointer;
-  width: 200px;
-  padding: 10px 40px ;
-  margin: 10px;
-  color: #555555;
-  font-size: 30px;
-  font-family: "yg-jalnan";
-  border: none;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 1px 1px 6px #d0d0d0;
-  white-space: nowrap;
-}
-.timer_soundButton:hover {
-  background-color: #78e3d8;
-  color: #fff;
-}
-@media screen and (max-width: 950px) {
-  .timer_soundButton {
-    width: 170px;
-  }
-}
