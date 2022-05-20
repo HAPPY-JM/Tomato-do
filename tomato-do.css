@@ -1057,3 +1057,33 @@ header.night,
 
 /* welcome page 및 이름 입력받기 */
 /* 색상 변경했고 애니메이션 3초에서 1.8초로 변경했습니다 */
+
+/* 알람아이콘 테스트중 */
+.snd_change {
+  margin-bottom: 60px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 2%;
+  bottom: 4%;
+  z-index: 100;
+  background-color: #ececec;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 2px 2px #d0d0d0;
+}
+
+.snd_change:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-out;
+}
+
+.snd_change i {
+  font-size: 40px;
+}
+
+/* 알람아이콘 테스트중 종료 */
