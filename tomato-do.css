@@ -357,7 +357,7 @@ a {
 }
 
 #todo {
-  width: 85%;
+  width: 82%;
   height: min(30px);
   font-family: "TmoneyRoundWindRegular";
   font-size: 15px;
@@ -672,7 +672,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: welcomeAni 0.1s 0.1s forwards;
+  animation: welcomeAni 0.3s 1s forwards;
 }
 
 @keyframes welcomeAni {
@@ -685,8 +685,17 @@ footer {
   }
 }
 
+#welcomeImgAndText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 15%;
+}
+
 /* 화면 축소시 & 모바일 브라우저 */
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 950px) {
   body {
     display: grid;
     grid-template-columns: minmax(auto, auto);
@@ -777,11 +786,11 @@ footer {
 
   #welcomePage {
     display: block;
-    height: 10vh;
+    height: 100%;
+    align-items: center;
     background-color: #3aa694;
     color: white;
     z-index: 1000;
-    animation: welcomeAni 1.5s 1s forwards;
   }
 }
 /* animation 용 tomato 크기(inline에서 css로)*/
