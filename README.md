@@ -2,7 +2,8 @@
 
 ## Description
 > 2022.04. - 2022.05. <br>
-> page: [오늘도 Tomato-do!](https://happy-jm.github.io/tomato-do/)
+> page: [오늘도 Tomato-do!](https://happy-jm.github.io/tomato-do/) <br/>
+> notion: [Team 'tomato-do' notion](https://www.notion.so/tomato-do/Tomato-do-37daf0329b314e6c81ae99cb37fa2899)
 
 ### Summary
 
@@ -40,7 +41,7 @@
 
 |기능|화면|
 |:---:|:---:|
-|투두리스트|<img src="./img/todolist.png"  width="30%"/>|
+|투두리스트 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="./img/todolist.png"  width="30%"/>|
 |타이머|<img src="./img/timer.png"  width="30%"/>|
 |테마|<img src="./img/nightmode.png"  width="30%"/>|
 
@@ -50,9 +51,16 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |[서정민](https://github.com/HAPPY-JM)|[김동철](https://github.com/GreyFBTT)|[박태훈](https://github.com/ekdh0858)|[배성현](https://github.com/seonghbae)|[지재영](https://github.com/jaeyeong815)|[이수정](https://github.com/tinashome)|
 
+<br/>
+
+---
+
+<div align=center>
+
 ![image](https://user-images.githubusercontent.com/102483942/169540397-71d32a84-e6df-412e-848e-7f9a27689908.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540482-2d8d8310-f1b5-4afe-bca2-23c82e66dc97.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540641-5148effa-6bbe-4c2e-8d8f-705e9ebef874.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540896-da8d0e30-e08c-4f94-bd61-37816cba4519.png)
 ![image](https://user-images.githubusercontent.com/102483942/169540833-42459d37-59cd-42a4-a7af-713b1aef4801.png)
 
+</div>
