@@ -1,16 +1,6 @@
 body {
   /*화면 초기화*/
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: middle;
-  background-color: #fff;
-  width: 100%;
-  min-height: 100vh;
-  font-family: "NEXON Lv1 Gothic OTF";
   display: grid;
-  position: relative;
   grid-gap: 0;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(auto, auto);
@@ -18,6 +8,16 @@ body {
     "header header"
     "todo_list timer"
     "footer footer";
+  position: relative;  
+  width: 100%;
+  min-height: 100vh;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-family: "NEXON Lv1 Gothic OTF";
+  font-size: 100%;
+  vertical-align: middle;
 }
 
 body::-webkit-scrollbar {
@@ -29,8 +29,8 @@ body::-webkit-scrollbar {
 }
 .todo_list::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.308);
   border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.308);
   box-shadow: inset -2px -2px 7px rgba(110, 110, 110, 0.822);
 }
 .todo_list::-webkit-scrollbar-track,
@@ -42,15 +42,15 @@ body::-webkit-scrollbar-track {
 /* header */
 header {
   grid-area: header;
-  vertical-align: baseline;
+  display: flex;
   position: sticky;
-  min-height: 8vh;
   top: 0px;
-  background-color: #fff;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  min-height: 8vh;
   padding-left: 32px;
   padding-right: 32px;
-  display: flex;
+  background-color: #fff;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: baseline;
   align-items: center;
   justify-content: space-between;
   z-index: 1;
@@ -74,17 +74,17 @@ header {
 
 #today_date {
   grid-area: date;
-  text-align: center;
   margin-top: 24px;
+  color: #555555;
   font-family: "TmoneyRoundWindExtraBold";
   font-size: 30px;
-  color: #555555;
   text-transform: uppercase;
   line-height: 1.2;
   background-image: linear-gradient(transparent calc(100% - 10px), #ffd000 3px);
   background-repeat: no-repeat;
   background-size: 0% 100%;
   transition: background-size 0.5s;
+  text-align: center;
 }
 
 #today_date.color {
@@ -150,10 +150,10 @@ nav {
   display: none;
   position: absolute;
   top: 35vh;
-  padding: 20px;
   left: 35%;
-  background-color: #143f39f9;
   width: 350px;
+  padding: 20px;
+  background-color: #143f39f9;
   border-radius: 2rem;
   box-shadow: 2px 2px 10px #00000074;
   transition: all 0.2s ease-out;
@@ -170,9 +170,9 @@ nav {
 }
 
 #closeBtn {
+  display: flex;
   border: none;
   background-color: #12131800;
-  display: flex;
   font-size: 30px;
   color: rgba(255, 255, 255, 0.435);
 }
@@ -248,13 +248,13 @@ a {
   position: absolute;
   top: 120px;
   right: -42px;
+  width: 240px;
+  height: 170px;
   padding: 1px 15px;
   box-sizing: border-box;
   border-radius: 15px;
   border-top-right-radius: 0;
   transform: translate(-50%, -50%);
-  width: 240px;
-  height: 170px;
   background: #fff;
   /* border: 1px solid black; */
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
@@ -280,20 +280,20 @@ a {
 
 #TODO_LIST {
   grid-area: todo_list;
-  background-color: #3aa694;
   display: block;
   min-height: 100vh;
   padding-left: 15px;
   padding-right: 15px;
+  background-color: #3aa694;
   color: #fff;
 }
 
 .profile {
   display: flex;
-  font-family: "TmoneyRoundWindExtraBold";
-  font-size: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-family: "TmoneyRoundWindExtraBold";
+  font-size: 30px;
   align-items: center;
 }
 
@@ -304,24 +304,24 @@ a {
   border-right: none;
   border-bottom: 3px solid #256d61;
   background-color: #3aa694;
-  font-family: "TmoneyRoundWindExtraBold";
-  text-align: center;
-  font-size: 30px;
   color: white;
+  font-family: "TmoneyRoundWindExtraBold";
+  font-size: 30px;
+  text-align: center;
   outline: none;
 }
 
 #profileinput {
-  background-image: url("./img/profile_pic.jpg");
   width: 40px;
   height: 40px;
+  background-image: url("./img/profile_pic.jpg");
   border-radius: 100%;
 }
 
 #input-photo {
-  cursor: pointer;
   width: 50px;
   height: 50px;
+  cursor: pointer;
   border-radius: 100%;
 }
 
@@ -343,11 +343,11 @@ a {
 
 .todo_plus {
   display: inline-block;
-  align-items: center;
   width: 90%;
   box-sizing: border-box;
   margin-top: 15px;
   margin: 20px;
+  align-items: center;
 }
 
 .todo_title {
@@ -359,10 +359,10 @@ a {
 #todo {
   width: 82%;
   height: min(30px);
-  font-family: "TmoneyRoundWindRegular";
-  font-size: 15px;
   border: 3px solid #256d61;
   border-radius: 0.5rem;
+  font-family: "TmoneyRoundWindRegular";
+  font-size: 15px;
 }
 
 #todo_submit_btn {
@@ -397,12 +397,12 @@ a {
 }
 
 #todo_update {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 3px, #256d61;
   width: 70%;
   height: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none; 
+  border-bottom: 3px, #256d61; 
   outline: none;
   border-radius: 0.5rem;
 }
@@ -412,22 +412,22 @@ a {
 }
 
 #todo_update_submit_btn {
+  width: 50px;
+  height: 40px;
+  margin-left: auto;
   background-color: #cccccc;
   border: none;
   border-radius: 2rem;
   font-family: "TmoneyRoundWindRegular";
-  margin-left: auto;
-  width: 50px;
-  height: 40px;
   font-size: 15px;
   cursor: pointer;
 }
 
 .list_check {
+  width: 88%;
+  max-height: 400px;
   list-style-type: none;
   padding-inline-start: 20px;
-  max-height: 400px;
-  width: 88%;
   font-family: "TmoneyRoundWindRegular";
 }
 
@@ -460,25 +460,25 @@ a {
 
 .todo_button {
   display: inline-block;
-  align-items: center;
   width: 84%;
-  box-sizing: border-box;
   margin: 20px;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .todo_clear_container {
   text-align: right;
 }
 
-#todo_clear_btn {
+#todo_clear_btn {  
   height: 40px;
+  padding: 0 8px;
   background-color: #cccccc;
   border: none;
   border-radius: 0.5rem;
   font-family: "TmoneyRoundWindRegular";
   font-size: 15px;
   cursor: pointer;
-  padding: 0 8px;
   text-align: center;
 }
 
@@ -486,14 +486,14 @@ a {
 
 #TIMER {
   grid-area: timer;
-  padding-left: 15px;
-  padding-right: 15px;
   display: block;
   min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: #e9e9e9;
   place-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 #timerBox {
@@ -512,31 +512,31 @@ a {
 }
 
 .timer {
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .timer_clock {
+  width: 180px;
   font-family: "LAB디지털";
   font-size: 80px;
   text-align: center;
-  width: 180px;
 }
 
 .timer_name {
-  text-align: center;
-  font-family: "Cafe24Ssurround";
-  font-size: 40px;
   text-transform: uppercase;
   line-height: 1.2;
   background-image: linear-gradient(transparent calc(100% - 8px), #fff 2px);
   background-repeat: no-repeat;
   background-size: 0% 100%;
   transition: background-size 0.5s;
+  font-family: "Cafe24Ssurround";
+  font-size: 40px;
+  text-align: center;
 }
 
 .timer_name.color {
@@ -565,17 +565,17 @@ a {
 
 .start_option1,
 .start_option2 {
-  cursor: pointer;
-  color: #555555;
+  width: 125px;
   margin: 15px;
-  font-size: 20px;
   padding: 10px;
-  font-family: "TmoneyRoundWindExtraBold";
   background-color: #fff;
   border: none;
   border-radius: 2rem;
   box-shadow: 1px 1px 6px #d0d0d0;
-  width: 125px;
+  color: #555555;
+  font-size: 20px;
+  font-family: "TmoneyRoundWindExtraBold";
+  cursor: pointer;
 }
 
 .start_option1:hover {
@@ -594,39 +594,39 @@ a {
   color: #fff;
 }
 
-.timerBox_startButton, /*?? ? ? ? ?*/
-.timerBox_stopButton,
+.timerBox_startButton, 
 .timerBox_resetButton {
-  cursor: pointer;
   width: 200px;
   padding: 10px;
   margin: 10px;
-  color: #555555;
-  font-size: 30px;
-  font-family: "yg-jalnan";
   border: none;
   background-color: white;
   border-radius: 1rem;
   box-shadow: 1px 1px 6px #d0d0d0;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
+  cursor: pointer;
 }
 
 /* 알람버튼 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 .timer_soundButton {  
-  user-select: none;
-  text-align: left ;
-  cursor: pointer;
   width: 200px;
-  padding: 10px 45px ;
+  padding: 10px 45px;
   margin: 10px;
-  color: #555555;
-  font-size: 30px;
-  font-family: "yg-jalnan";
   border: none;
   background-color: white;
   border-radius: 1rem;
   box-shadow: 1px 1px 6px #d0d0d0;
+  color: #555555;
+  font-size: 30px;
+  font-family: "yg-jalnan";
   white-space: nowrap;
+  user-select: none;
+  text-align: left ;
+  cursor: pointer;
 }
+
 .timer_soundButton:hover {
   background-color: #78e3d8;
   color: #fff;
@@ -647,8 +647,8 @@ a {
 
 footer {
   grid-area: footer;
-  position: relative;
   display: flex;
+  position: relative;
   bottom: 0px;
   height: 2vh;
   padding: 10px;
@@ -660,20 +660,20 @@ footer {
 }
 
 .mode_change {
-  position: fixed;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
   right: 2%;
   bottom: 4%;
   z-index: 100;
-  background-color: #ececec;
   width: 50px;
   height: 50px;
+  background-color: #ececec;
   border-radius: 50%;
   border: none;
-  cursor: pointer;
   box-shadow: 1px 2px 2px #d0d0d0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .mode_change:hover {
@@ -686,16 +686,16 @@ footer {
 }
 
 #welcomePage {
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  z-index: 1000;
   width: 100%;
   height: 100%;
   background-color: #3aa694;
   color: white;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   animation: welcomeAni 0.3s 1s forwards;
 }
 
@@ -709,21 +709,21 @@ footer {
   }
 }
 #welcomeImgAndText {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
   top: 15%;
+  align-items: center;
+  justify-content: center;
 }
 
 #welcomeImgAndText {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
   top: 15%;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 화면 축소시 & 모바일 브라우저 */
@@ -763,9 +763,9 @@ footer {
   }
 
   #today_date {
-    font-size: 26px;
     margin-left: 0;
     margin-right: 0;
+    font-size: 26px;
   }
 
   #TODO_LIST {
@@ -820,9 +820,9 @@ footer {
   #welcomePage {
     display: block;
     height: 100%;
-    align-items: center;
     background-color: #3aa694;
     color: white;
+    align-items: center;
     z-index: 1000;
   }
 }
@@ -1070,23 +1070,23 @@ header.night,
 /* welcome page 및 이름 입력받기 */
 /* 색상 변경했고 애니메이션 3초에서 1.8초로 변경했습니다 */
 
-/* 알람아이콘 테스트중 */
+/* 음성 알람 아이콘 */
 .snd_change {
-  margin-bottom: 60px;
-  position: fixed;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
   right: 2%;
   bottom: 4%;
   z-index: 100;
-  background-color: #ececec;
   width: 50px;
   height: 50px;
+  margin-bottom: 60px;
+  background-color: #ececec;
   border-radius: 50%;
   border: none;
   cursor: pointer;
   box-shadow: 1px 2px 2px #d0d0d0;
+  align-items: center;
+  justify-content: center;
 }
 
 .snd_change:hover {
