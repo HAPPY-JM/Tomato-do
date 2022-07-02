@@ -18,6 +18,7 @@ body {
   font-family: "NEXON Lv1 Gothic OTF";
   font-size: 100%;
   vertical-align: middle;
+  overflow-x: hidden; 
 }
 
 body::-webkit-scrollbar {
