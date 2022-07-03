@@ -595,7 +595,8 @@ a {
   color: #fff;
 }
 
-.timerBox_startButton, 
+.timerBox_startButton,
+.timerBox_stopButton,
 .timerBox_resetButton {
   width: 200px;
   padding: 10px;
