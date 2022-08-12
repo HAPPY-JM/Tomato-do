@@ -2,7 +2,7 @@
 
 ## Description
 > 2022.04. - 2022.05. <br>
-> page: [오늘도 Tomato-do!](https://happy-jm.github.io/tomato-do/) <br/>
+> page: [오늘도 Tomato-do!](https://happy-jm.github.io/Tomato-do/) <br/>
 > notion: [Team 'tomato-do' notion](https://www.notion.so/tomato-do/Tomato-do-37daf0329b314e6c81ae99cb37fa2899)
 
 ### Summary
